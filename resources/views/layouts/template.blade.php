@@ -68,7 +68,8 @@
             <div class="container">
                 <div class="page-inner">
                     @include('components.breadcumb')
-                    <div class="page-category">Inner page content goes here</div>
+
+                    @yield('contents')
                 </div>
             </div>
 

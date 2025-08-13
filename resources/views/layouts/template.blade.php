@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Kaiadmin - Bootstrap 5 Admin Dashboard</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="kai/assets/img/kaiadmin/favicon.ico" type="image/x-icon" />
 
     <!-- Fonts and icons -->
@@ -27,12 +28,13 @@
     </script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="kai/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="kai/assets/css/plugins.min.css" />
-    <link rel="stylesheet" href="kai/assets/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="{{ asset('kai/assets/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('kai/assets/css/plugins.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('kai/assets/css/kaiadmin.min.css') }}" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="kai/assets/css/demo.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+
+    @stack('css')
 </head>
 
 <body>
@@ -77,42 +79,195 @@
         </div>
     </div>
     <!--   Core JS Files   -->
-    <script src="kai/assets/js/core/jquery-3.7.1.min.js"></script>
-    <script src="kai/assets/js/core/popper.min.js"></script>
-    <script src="kai/assets/js/core/bootstrap.min.js"></script>
+    <script src="{{ asset('kai/assets/js/core/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('kai/assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('kai/assets/js/core/bootstrap.min.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bs-custom-file-input/1.1.1/bs-custom-file-input.min.js"
+        integrity="sha512-LGq7YhCBCj/oBzHKu2XcPdDdYj6rA0G6KV0tCuCImTOeZOV/2iPOqEe5aSSnwviaxcm750Z8AQcAk9rouKtVSg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js"
+        integrity="sha512-eYSzo+20ajZMRsjxB6L7eyqo5kuXuS2+wEbbOkpaur+sA2shQameiJiWEzCIDwJqaB0a4a6tCuEvCOBHUg3Skg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
 
     <!-- jQuery Scrollbar -->
-    <script src="kai/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="{{ asset('kai/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
 
     <!-- Chart JS -->
-    <script src="kai/assets/js/plugin/chart.js/chart.min.js"></script>
+    {{-- <script src="{{ asset('kai/assets/js/plugin/chart.js/chart.min.js') }}"></script> --}}
 
     <!-- jQuery Sparkline -->
-    <script src="kai/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+    {{-- <script src="{{ asset('kai/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js') }}"></script> --}}
 
     <!-- Chart Circle -->
-    <script src="kai/assets/js/plugin/chart-circle/circles.min.js"></script>
+    {{-- <script src="{{ asset('kai/assets/js/plugin/chart-circle/circles.min.js') }}"></script> --}}
 
     <!-- Datatables -->
-    <script src="kai/assets/js/plugin/datatables/datatables.min.js"></script>
+    {{-- <script src="{{ asset('kai/assets/js/plugin/datatables/datatables.min.js') }}"></script> --}}
 
     <!-- Bootstrap Notify -->
-    <script src="kai/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="{{ asset('kai/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
 
     <!-- jQuery Vector Maps -->
-    <script src="kai/assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
-    <script src="kai/assets/js/plugin/jsvectormap/world.js"></script>
+    {{-- <script src="{{ asset('kai/assets/js/plugin/jsvectormap/jsvectormap.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('kai/assets/js/plugin/jsvectormap/world.js') }}"></script> --}}
 
     <!-- Google Maps Plugin -->
-    <script src="kai/assets/js/plugin/gmaps/gmaps.js"></script>
+    {{-- <script src="{{ asset('kai/assets/js/plugin/gmaps/gmaps.js') }}"></script> --}}
 
     <!-- Sweet Alert -->
-    <script src="kai/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    <script src="{{ asset('kai/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
 
     <!-- Kaiadmin JS -->
-    <script src="kai/assets/js/kaiadmin.min.js"></script>
+    {{-- <script src="{{ asset('kai/assets/js/kaiadmin.min.js') }}"></script> --}}
+    <script>
+        function ajax_setup() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Accept': 'application/json',
+                    // 'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+        }
+
+        function logout_() {
+
+            swal({
+                    title: 'Are you sure?',
+                    text: 'Logout?',
+                    icon: 'warning',
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        // $('#form_logout').submit();
+                        window.location.href = "{{ url('logout') }}"
+                    }
+                });
+        }
+
+        function show_toast(type = 'success', message = '') {
+            if (type == 'success') {
+                $.notify({
+                    message: message
+                }, {
+                    type: 'success'
+                });
+            } else if (type == 'warning') {
+                $.notify({
+                    message: message
+                }, {
+                    type: 'warning'
+                });
+            } else {
+                $.notify({
+                    message: message
+                }, {
+                    type: 'danger'
+                });
+            }
+        }
+
+        function send_ajax(formID, method) {
+            ajax_setup()
+            let data = new FormData($('#' + formID)[0])
+            data.append('_method', method)
+            $.ajax({
+                url: $('#' + formID).attr('action'),
+                method: 'POST',
+                processData: false,
+                contentType: false,
+                data: data,
+                // data: $('#' + formID).serialize(),
+                success: function(result) {
+                    show_toast('success', result.message || 'Success!')
+                    table.ajax.reload()
+                    $('#modal_form').modal('hide')
+                },
+                error: function(xhr, status, error) {
+                    handleResponseForm(xhr, 'form')
+                }
+            })
+        }
+
+        function send_delete(url) {
+            swal({
+                    title: 'Are you sure?',
+                    text: 'Delete Data?',
+                    icon: 'warning',
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        ajax_setup()
+                        $.ajax({
+                            url: url,
+                            type: 'DELETE',
+                            success: function(result) {
+                                show_toast('success', result.message || 'Success!')
+                                table.ajax.reload()
+                            },
+                            error: function(xhr, status, error) {
+                                show_toast('error', xhr.responseJSON.message || 'Server Error!')
+                            }
+                        })
+                    }
+                });
+        }
+
+        function handleResponseForm(jqXHR, formID) {
+            let message = jqXHR.responseJSON.message
+            if (jqXHR.status != 422) {
+                show_toast('error', message)
+            } else {
+                let errors = jqXHR.responseJSON.errors || {};
+                let errorKeys = Object.keys(errors);
+
+                for (let i = 0; i < errorKeys.length; i++) {
+                    let fieldName = errorKeys[i];
+                    let errorMessage = errors[fieldName][0];
+                    $('#' + formID + ' [name="' + fieldName + '"]').addClass('is-invalid');
+                    $('#' + formID + ' [name="' + fieldName + '"]').removeClass('is-valid');
+                    $('#' + formID + ' .err_' + fieldName).text(errorMessage).show();
+                }
+            }
+        }
+
+        function clear_validate(formID) {
+            let form = $('#' + formID);
+            form.find('.error.invalid-feedback').each(function() {
+                $(this).hide().text('');
+            });
+            form.find('input.is-invalid, textarea.is-invalid, select.is-invalid').each(function() {
+                $(this).removeClass('is-invalid');
+                $(this).removeClass('is-valid');
+            });
+        }
+
+        $(document).ready(function() {
+            $(document).ajaxStart(function() {
+                $('button').prop('disabled', true)
+                $.blockUI({
+                    message: '<img src="{{ asset('kai/assets/img/loading.gif') }}" width="20px" height="20px" /> Just a moment...',
+                    // baseZ: 2000,
+                });
+            }).ajaxStop(function() {
+                $('button').prop('disabled', false)
+                $.unblockUI()
+            });
+
+            bsCustomFileInput.init()
+
+        })
+    </script>
+
+    @stack('js')
 </body>
 
 </html>

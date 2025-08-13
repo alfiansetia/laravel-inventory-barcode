@@ -26,7 +26,7 @@ class PurchaseController extends Controller
 
     public function show(Request $request, Purchase $purchase)
     {
-        $data = $purchase;
+        $data = $purchase->load(['vendor', 'items.product']);
         if ($request->ajax()) {
             return response()->json(['data' => $data]);
         }

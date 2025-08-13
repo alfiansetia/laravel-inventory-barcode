@@ -10,21 +10,21 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="code">Product Code</label>
-                        <input type="text" name="code" class="form-control" id="code"
-                            placeholder="Enter Code" maxlength="100" required>
-                        <span class="error invalid-feedback err_code" style="display: hide;"></span>
+                        <label for="vendor_id">Vendor ID</label>
+                        <input type="text" name="vendor_id" class="form-control" id="vendor_id"
+                            placeholder="Enter Vendor ID" required maxlength="100">
+                        <span class="error invalid-feedback err_vendor_id" style="display: hide;"></span>
                     </div>
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">Vendor Name</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Name"
-                            maxlength="100" required>
+                            required maxlength="100">
                         <span class="error invalid-feedback err_name" style="display: hide;"></span>
                     </div>
                     <div class="form-group">
-                        <label for="desc">Description</label>
-                        <textarea name="desc" id="desc" class="form-control" maxlength="200" placeholder="Enter Desc"></textarea>
-                        <span class="error invalid-feedback err_desc" style="display: hide;"></span>
+                        <label for="address">Address</label>
+                        <textarea name="address" id="address" class="form-control" maxlength="200" placeholder="Enter Address"></textarea>
+                        <span class="error invalid-feedback err_address" style="display: hide;"></span>
                     </div>
                 </div>
                 <div class="modal-footer">

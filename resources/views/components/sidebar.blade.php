@@ -53,6 +53,13 @@
                      </a>
                  </li>
 
+                 <li class="nav-item {{ $title == 'Vendor' ? 'active' : '' }}">
+                     <a class="" href="{{ route('vendors.index') }}">
+                         <i class="ti ti-truck-delivery"></i>
+                         <p>Vendor</p>
+                     </a>
+                 </li>
+
                  <li class="nav-item {{ $title == 'User' ? 'active' : '' }}">
                      <a class="" href="{{ route('users.index') }}">
                          <i class="ti ti-user"></i>

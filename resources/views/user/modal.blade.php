@@ -12,18 +12,18 @@
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Name"
-                            required>
+                            maxlength="100" required>
                         <span class="error invalid-feedback err_name" style="display: hide;"></span>
                     </div>
                     <div class="form-group">
                         <label for="email">Email address</label>
                         <input type="email" name="email" class="form-control" id="email"
-                            placeholder="Enter email" required>
+                            placeholder="Enter email" maxlength="100" required>
                         <span class="error invalid-feedback err_email" style="display: hide;"></span>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" id="password"
+                        <input type="password" name="password" class="form-control" id="password" maxlength="100"
                             placeholder="Password">
                         <span class="error invalid-feedback err_password" style="display: hide;"></span>
                     </div>

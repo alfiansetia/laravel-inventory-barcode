@@ -10,22 +10,21 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="code">Product Code</label>
+                        <input type="code" name="code" class="form-control" id="code"
+                            placeholder="Enter Code" required>
+                        <span class="error invalid-feedback err_code" style="display: hide;"></span>
+                    </div>
+                    <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Name"
                             required>
                         <span class="error invalid-feedback err_name" style="display: hide;"></span>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" name="email" class="form-control" id="email"
-                            placeholder="Enter email" required>
-                        <span class="error invalid-feedback err_email" style="display: hide;"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" id="password"
-                            placeholder="Password">
-                        <span class="error invalid-feedback err_password" style="display: hide;"></span>
+                        <label for="code">Description</label>
+                        <textarea name="desc" id="desc" class="form-control" maxlength="200" placeholder="Enter Desc"></textarea>
+                        <span class="error invalid-feedback err_desc" style="display: hide;"></span>
                     </div>
                 </div>
                 <div class="modal-footer">

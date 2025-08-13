@@ -1,4 +1,4 @@
-@extends('layouts.template', ['title' => 'User'])
+@extends('layouts.template', ['title' => 'Product'])
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}">
@@ -11,8 +11,9 @@
                 <table id="table" class="table table-sm table-hover mb-0" style="width: 100%;cursor: pointer;">
                     <thead>
                         <tr>
+                            <th>Product Code</th>
                             <th>Name</th>
-                            <th>Email</th>
+                            <th>Description</th>
                             <th>#</th>
                         </tr>
                     </thead>
@@ -23,12 +24,12 @@
         </div>
     </div>
 
-    @include('user.modal')
+    @include('product.modal')
 @endsection
 @push('js')
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
     <script>
-        const URL_INDEX = "{{ route('users.index') }}"
+        const URL_INDEX = "{{ route('products.index') }}"
     </script>
     <script>
         var table = $("#table").DataTable({
@@ -53,9 +54,11 @@
             columnDefs: [],
             order: [],
             columns: [{
+                data: 'code',
+            }, {
                 data: 'name',
             }, {
-                data: 'email',
+                data: 'desc',
             }, {
                 data: 'id',
                 searchable: false,
@@ -118,9 +121,8 @@
             id = table.row(row).data().id
             $.get(URL_INDEX + '/' + id).done(function(result) {
                 $('#name').val(result.data.name)
-                $('#email').val(result.data.email)
-                $('#password').val('')
-                $('#password').prop('required', false)
+                $('#code').val(result.data.code)
+                $('#desc').val(result.data.desc)
 
                 $('#form').attr('action', URL_INDEX + '/' + id)
                 $('#modal_form_title').html('Edit Data')
@@ -133,7 +135,7 @@
         });
 
         $('#modal_form').on('shown.bs.modal', function() {
-            $('#name').focus();
+            $('#code').focus();
             clear_validate('form')
         })
 
@@ -148,9 +150,8 @@
             $('#modal_form_title').html('Tambah Data')
             $('#modal_form').modal('show')
             $('#name').val('')
-            $('#email').val('')
-            $('#password').val('')
-            $('#password').prop('required', true)
+            $('#code').val('')
+            $('#desc').val('')
         }
     </script>
 @endpush

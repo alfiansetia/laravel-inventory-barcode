@@ -2,13 +2,17 @@
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 @endpush
 
 @section('contents')
     <div class="card mb-4">
         <div class="card-body">
             <div class="mb-4">
-                <h5 class="card-title mb-0">Informasi Transaksi</h5>
+                <h5 class="card-title mb-0">Information Purchase</h5>
             </div>
             <div class="row mb-2">
                 <div class="col-md-6">
@@ -37,9 +41,9 @@
                 </div>
             </div>
 
-            <h5 class="card-title mb-3">Detail Barang</h5>
-            <div class="table-responsive border rounded">
-                <table class="table align-middle mb-0">
+            <h5 class="card-title mb-3">Detail Product</h5>
+            <div class="border rounded">
+                <table id="table" class="table align-middle mb-0">
                     <thead>
                         <tr>
                             <th width="30">No</th>
@@ -50,67 +54,35 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data->items as $key => $item)
-                            <tr>
-                                <td class="text-center">{{ $key + 1 }}</td>
-                                <td>{{ $item->product->code }}</td>
-                                <td>{{ $item->product->name }}</td>
-                                <td class="text-center">{{ $item->lot }}</td>
-                                <td class="text-center">{{ $item->qty_kbn }}</td>
-                            </tr>
-                        @endforeach
                     </tbody>
                 </table>
             </div>
 
-            <div class="d-flex justify-content-end mt-3">
-                <a href="https://demo.codenul.com/laravel/persediaan-barang/public/barang-masuk/8/edit"
-                    class="btn btn-primary me-2">
-                    <i class="ti ti-pencil"></i> Edit
-                </a>
-
-
-                <!-- Print PO Button - Always available -->
-                <a href="https://demo.codenul.com/laravel/persediaan-barang/public/barang-masuk/print/8?type=po"
-                    class="btn btn-success me-2" target="_blank">
-                    <i class="ti ti-file-invoice"></i> Cetak Purchase Order
-                </a>
-
-                <!-- Approve and Reject Buttons - Only for PO status -->
-                <form action="https://demo.codenul.com/laravel/persediaan-barang/public/barang-masuk/8/approve"
-                    method="POST" style="display: inline;" class="me-2">
-                    <input type="hidden" name="_token" value="mOpZyJ7R2wN6hoBE2NV43wnU3qYK5mKJN6NrTpZe"
-                        autocomplete="off"> <input type="hidden" name="_method" value="PATCH"> <button type="submit"
-                        class="btn btn-success"
-                        onclick="return confirm('Apakah Anda yakin ingin menyetujui transaksi ini?')">
-                        <i class="ti ti-check"></i> Approve
-                    </button>
-                </form>
-                <form action="https://demo.codenul.com/laravel/persediaan-barang/public/barang-masuk/8/reject"
-                    method="POST" style="display: inline;">
-                    <input type="hidden" name="_token" value="mOpZyJ7R2wN6hoBE2NV43wnU3qYK5mKJN6NrTpZe"
-                        autocomplete="off"> <input type="hidden" name="_method" value="PATCH"> <button type="submit"
-                        class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menolak transaksi ini?')">
-                        <i class="ti ti-x"></i> Reject
-                    </button>
-                </form>
-            </div>
         </div>
     </div>
 
-    @include('purchase.modal')
+    @include('purchase.modal_item')
 @endsection
 @push('js')
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script>
-        const URL_INDEX = "{{ route('purchases.index') }}"
+        const URL_INDEX = "{{ route('purchase-items.index') }}"
     </script>
     <script>
+        $(document).ready(function() {
+            $('#product_id').select2({
+                theme: 'bootstrap-5',
+                dropdownParent: $('#modal_form')
+            });
+
+        })
         var table = $("#table").DataTable({
             processing: true,
-            serverSide: true,
+            serverSide: false,
             rowId: 'id',
-            ajax: URL_INDEX,
+            ajax: URL_INDEX + '?purchase_id={{ $data->id }}',
             dom: "<'dt--top-section'<'row mb-2'<'col-sm-12 col-md-6 d-flex justify-content-md-start justify-content-center'B><'col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-center mt-md-0 mt-0'f>>>" +
                 "<'table-responsive'tr>" +
                 "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
@@ -128,15 +100,23 @@
             columnDefs: [],
             order: [],
             columns: [{
-                data: 'vendor.name',
+                data: 'id',
+                className: "text-center",
+                render: function(data, type, row, meta) {
+                    return parseInt(meta.row) + 1;
+                }
             }, {
-                data: 'po_no',
+                data: 'product.code',
             }, {
-                data: 'dn_no',
+                data: 'product.name',
             }, {
-                data: 'delv_date',
+                data: 'lot',
+                className: "text-center",
+
             }, {
-                data: 'rit',
+                data: 'qty_kbn',
+                className: "text-center",
+
             }, {
                 data: 'id',
                 searchable: false,
@@ -177,16 +157,6 @@
                     'title': 'Page Length'
                 },
                 className: 'btn btn-sm btn-info'
-            }, {
-                text: '<i class="far fa-file-excel me-1"></i>Import',
-                className: 'btn btn-sm btn-primary bs-tooltip',
-                attr: {
-                    'data-toggle': 'tooltip',
-                    'title': 'Import Data'
-                },
-                action: function(e, dt, node, config) {
-                    $('#modal_import').modal('show')
-                }
             }, ],
             initComplete: function() {
                 $('#table').DataTable().buttons().container().appendTo(
@@ -209,7 +179,49 @@
         $('#table tbody').on('click', 'tr .btn-view', function() {
             row = $(this).parents('tr')[0];
             id = table.row(row).data().id
-            window.location.href = `${URL_INDEX}/${id}`
+            $('#table_item').DataTable().clear().destroy();
+
+            table_item = $("#table_item").DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('barcodes.index') }}" + "?purchase_item_id=" + id,
+                dom: "<'dt--top-section'<'row mb-2'<'col-sm-12 col-md-6 d-flex justify-content-md-start justify-content-center'B><'col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-center mt-md-0 mt-0'f>>>" +
+                    "<'table-responsive'tr>" +
+                    "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
+                oLanguage: {
+                    oPaginate: {
+                        sPrevious: '<i class="fas fa-chevron-left"></i>',
+                        sNext: '<i class="fas fa-chevron-right"></i>'
+                    },
+                    sSearch: '',
+                    sSearchPlaceholder: "Search...",
+                    sLengthMenu: "Results :  _MENU_",
+                },
+                lengthChange: false,
+                searching: false,
+                paging: false,
+                info: false,
+                columnDefs: [],
+                order: [],
+                columns: [{
+                    data: 'barcode',
+                }, {
+                    data: 'input_date',
+                }, {
+                    data: 'id',
+                    searchable: false,
+                    render: function(data, type, row, meta) {
+                        if (type == 'display') {
+                            return `<button type="button" class="btn btn-danger btn-sm btn-delete">Delete</button>`;
+                        } else {
+                            return data
+                        }
+                    }
+                }, ],
+                buttons: [],
+            });
+
+            $('#modal_detail').modal('show')
         });
 
         $('#table tbody').on('click', 'tr .btn-edit', function() {
@@ -217,9 +229,9 @@
             row = $(this).parents('tr')[0];
             id = table.row(row).data().id
             $.get(URL_INDEX + '/' + id).done(function(result) {
-                $('#name').val(result.data.name)
-                $('#code').val(result.data.code)
-                $('#desc').val(result.data.desc)
+                $('#product_id').val(result.data.product_id).change()
+                $('#lot').val(result.data.lot)
+                $('#qty_kbn').val(result.data.qty_kbn)
 
                 $('#form').attr('action', URL_INDEX + '/' + id)
                 $('#modal_form_title').html('Edit Data')
@@ -232,7 +244,7 @@
         });
 
         $('#modal_form').on('shown.bs.modal', function() {
-            $('#code').focus();
+            $('#lot').focus();
             clear_validate('form')
         })
 
@@ -246,9 +258,10 @@
             $('#modal_form_submit').val('POST')
             $('#modal_form_title').html('Tambah Data')
             $('#modal_form').modal('show')
-            $('#name').val('')
-            $('#code').val('')
-            $('#desc').val('')
+
+            $('#product_id').val('').change()
+            $('#lot').val(1)
+            $('#qty_kbn').val(1)
         }
 
         const old_up = $('#btn_import').html()

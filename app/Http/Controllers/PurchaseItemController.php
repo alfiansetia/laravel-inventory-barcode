@@ -4,62 +4,59 @@ namespace App\Http\Controllers;
 
 use App\Models\PurchaseItem;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class PurchaseItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $filters = $request->only(['purchase_id']);
+        $query = PurchaseItem::query()->with('product')->filter($filters);
+        return DataTables::eloquent($query)->toJson();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function show(PurchaseItem $purchase_item)
     {
-        //
+        return response()->json(['data' => $purchase_item->load(['product', 'barcodes', 'purchase'])]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'purchase_id'   => 'required|exists:purchases,id',
+            'product_id'    => 'required|exists:products,id',
+            'lot'           => 'required|integer|gte:1',
+            'qty_kbn'       => 'required|integer|gte:1',
+        ]);
+        PurchaseItem::create([
+            'purchase_id'   => $request->purchase_id,
+            'product_id'    => $request->product_id,
+            'lot'           => $request->lot,
+            'qty_kbn'       => $request->qty_kbn,
+        ]);
+        return response()->json(['message' => 'Data Inserted!']);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(PurchaseItem $purchaseItem)
+    public function update(Request $request, PurchaseItem $purchase_item)
     {
-        //
+        $this->validate($request, [
+            'purchase_id'   => 'required|exists:purchases,id',
+            'product_id'    => 'required|exists:products,id',
+            'lot'           => 'required|integer|gte:1',
+            'qty_kbn'       => 'required|integer|gte:1',
+        ]);
+        $purchase_item->update([
+            'purchase_id'   => $request->purchase_id,
+            'product_id'    => $request->product_id,
+            'lot'           => $request->lot,
+            'qty_kbn'       => $request->qty_kbn,
+        ]);
+        return response()->json(['message' => 'Data Updated!']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(PurchaseItem $purchaseItem)
+    public function destroy(PurchaseItem $purchase_item)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, PurchaseItem $purchaseItem)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(PurchaseItem $purchaseItem)
-    {
-        //
+        $purchase_item->delete();
+        return response()->json(['message' => 'Data Deleted!']);
     }
 }

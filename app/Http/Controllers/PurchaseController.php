@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Imports\PurchaseImport;
+use App\Models\Barcode;
 use App\Models\Product;
 use App\Models\Purchase;
 use App\Models\PurchaseItem;
@@ -30,7 +31,8 @@ class PurchaseController extends Controller
         if ($request->ajax()) {
             return response()->json(['data' => $data]);
         }
-        return view('purchase.show', compact('data'));
+        $products = Product::all();
+        return view('purchase.show', compact('data', 'products'));
     }
 
     public function import(Request $request)
@@ -68,6 +70,13 @@ class PurchaseController extends Controller
                 ], [
                     'name' => $row[10],
                 ]);
+                // for ($i = 1; $i <= $row[12]; $i++) {
+                //     Barcode::create([
+                //         'barcode'       => $purchase->po_no . '+' . $i,
+                //         'qty'           => 1,
+                //         'input_date'    => now(),
+                //     ]);
+                // }
 
                 return [
                     'purchase_id' => $purchase->id,

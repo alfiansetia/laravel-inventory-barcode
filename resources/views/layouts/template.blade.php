@@ -9,7 +9,7 @@
     <link rel="icon" href="kai/assets/img/kaiadmin/favicon.ico" type="image/x-icon" />
 
     <!-- Fonts and icons -->
-    <script src="kai/assets/js/plugin/webfont/webfont.min.js"></script>
+    <script src="{{ asset('kai/assets/js/plugin/webfont/webfont.min.js') }}"></script>
     <script>
         WebFont.load({
             google: {
@@ -19,7 +19,7 @@
                 "families": ["Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands",
                     "simple-line-icons"
                 ],
-                urls: ['kai/assets/css/fonts.min.css']
+                urls: ['{{ asset('kai/assets/css/fonts.min.css') }}']
             },
             active: function() {
                 sessionStorage.fonts = true;
@@ -47,8 +47,8 @@
                     <!-- Logo Header -->
                     <div class="logo-header" data-background-color="dark">
                         <a href="index.html" class="logo">
-                            <img src="kai/assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand"
-                                height="20" />
+                            <img src="{{ asset('kai/assets/img/kaiadmin/logo_light.svg') }}" alt="navbar brand"
+                                class="navbar-brand" height="20" />
                         </a>
                         <div class="nav-toggle">
                             <button class="btn btn-toggle toggle-sidebar">
@@ -156,19 +156,22 @@
                 $.notify({
                     message: message
                 }, {
-                    type: 'success'
+                    type: 'success',
+                    z_index: 9999
                 });
             } else if (type == 'warning') {
                 $.notify({
                     message: message
                 }, {
-                    type: 'warning'
+                    type: 'warning',
+                    z_index: 9999
                 });
             } else {
                 $.notify({
                     message: message
                 }, {
-                    type: 'danger'
+                    type: 'danger',
+                    z_index: 9999
                 });
             }
         }
@@ -255,7 +258,7 @@
                 $('button').prop('disabled', true)
                 $.blockUI({
                     message: '<img src="{{ asset('kai/assets/img/loading.gif') }}" width="20px" height="20px" /> Just a moment...',
-                    // baseZ: 2000,
+                    baseZ: 2000,
                 });
             }).ajaxStop(function() {
                 $('button').prop('disabled', false)

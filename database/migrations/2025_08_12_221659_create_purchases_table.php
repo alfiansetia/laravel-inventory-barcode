@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('vendor_id')->nullable()->constrained('vendors')->nullOnDelete()->cascadeOnUpdate();
             $table->string('po_no')->nullable();
             $table->string('dn_no')->nullable();
-            $table->dateTime('dn_date')->nullable();
+            $table->dateTime('delv_date')->nullable();
             $table->integer('rit')->default(0);
             $table->timestamps();
         });

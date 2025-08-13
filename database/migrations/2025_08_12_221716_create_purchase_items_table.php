@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('purchase_id')->constrained('purchases')->cascadeOnUpdate();
             $table->foreignId('product_id')->constrained('products')->cascadeOnUpdate();
-            $table->integer('qty')->default(0);
+            $table->integer('lot')->default(0);
+            $table->integer('qty_kbn')->default(0);
             $table->timestamps();
         });
     }

@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+
+    <style>
+        /* Biar area scanner memanjang (wide) */
+        #reader video {
+            object-fit: cover;
+            width: 100% !important;
+            height: auto !important;
+            aspect-ratio: 3/1;
+            /* rasio lebar:tinggi */
+        }
+    </style>
 @endpush
 
 @section('contents')
@@ -102,7 +113,8 @@
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <script src="{{ asset('kai/lib/html5-qrcode/html5-qrcode.min.js') }}"></script>
+    {{-- <script src="{{ asset('kai/lib/html5-qrcode/html5-qrcode.min.js') }}"></script> --}}
+    <script src="https://unpkg.com/quagga/dist/quagga.min.js"></script>
 
     <script>
         const URL_INDEX = "{{ route('purchase-items.index') }}"
@@ -116,63 +128,123 @@
                 // initBarcodeScanner();
             });
 
-            var html5QrCode;
-            var qrCodeSuccessCallback = function(decodedText, decodedResult) {
-                $('#barcode').val(decodedText)
-                console.log(`Code matched = ${decodedText}`, decodedResult);
-                alert(`Code matched = ${decodedText}`, decodedResult);
-                $('#qrScannerModal').modal('hide');
-                html5QrCode.stop().then(() => {
-                    console.log("QR Code scanning stopped.");
-                }).catch(err => {
-                    console.error("Unable to stop scanning.", err);
-                });
-            };
-            $('#qrScannerModal').on('shown.bs.modal', function() {
-                html5QrCode = new Html5Qrcode("reader");
+            // var html5QrCode;
+            // var qrCodeSuccessCallback = function(decodedText, decodedResult) {
+            //     $('#barcode').val(decodedText)
+            //     console.log(`Code matched = ${decodedText}`, decodedResult);
+            //     alert(`Code matched = ${decodedText}`, decodedResult);
+            //     $('#qrScannerModal').modal('hide');
+            //     html5QrCode.stop().then(() => {
+            //         console.log("QR Code scanning stopped.");
+            //     }).catch(err => {
+            //         console.error("Unable to stop scanning.", err);
+            //     });
+            // };
+            // $('#qrScannerModal').on('shown.bs.modal', function() {
+            //     html5QrCode = new Html5Qrcode("reader");
 
-                // Tambahkan opsi formatsToSupport untuk scan barcode juga
-                const config = {
-                    fps: 10,
-                    qrbox: function(viewfinderWidth, viewfinderHeight) {
-                        // Biar memanjang, misalnya 80% dari lebar layar dan tinggi 1/3 lebar
-                        const width = viewfinderWidth * 0.8;
-                        const height = width / 3; // rasio 3:1 (lebar : tinggi)
-                        return {
-                            width: width,
-                            height: height
-                        };
+            //     // Tambahkan opsi formatsToSupport untuk scan barcode juga
+            //     const config = {
+            //         fps: 10,
+            //         qrbox: function(viewfinderWidth, viewfinderHeight) {
+            //             // Biar memanjang, misalnya 80% dari lebar layar dan tinggi 1/3 lebar
+            //             const width = viewfinderWidth * 0.8;
+            //             const height = width / 3; // rasio 3:1 (lebar : tinggi)
+            //             return {
+            //                 width: width,
+            //                 height: height
+            //             };
+            //         },
+            //         formatsToSupport: [
+            //             Html5QrcodeSupportedFormats.CODE_128,
+            //             Html5QrcodeSupportedFormats.EAN_13,
+            //             Html5QrcodeSupportedFormats.EAN_8,
+            //             Html5QrcodeSupportedFormats.UPC_A,
+            //             Html5QrcodeSupportedFormats.UPC_E
+            //         ]
+            //     };
+            //     html5QrCode.start({
+            //             facingMode: "environment"
+            //         },
+            //         config,
+            //         function(decodedText) {
+            //             qrCodeSuccessCallback(decodedText); // Panggil callback lama
+            //         }
+            //     ).catch(err => {
+            //         show_toast('error', 'Unable to start scanning : ' + err)
+            //         console.error("Unable to start scanning.", err);
+            //     });
+            // });
+
+            // $('#qrScannerModal').on('hidden.bs.modal', function() {
+            //     $('body').addClass('modal-open');
+            //     if (html5QrCode) {
+            //         html5QrCode.stop().then(() => {
+            //             console.log("Barcode scanning stopped.");
+            //         }).catch(err => {
+            //             console.error("Unable to stop scanning.", err);
+            //         });
+            //     }
+            // });
+
+            let quaggaStarted = false;
+
+            function startQuagga() {
+                if (quaggaStarted) return;
+
+                Quagga.init({
+                    inputStream: {
+                        name: "Live",
+                        type: "LiveStream",
+                        target: document.querySelector('#reader'), // ID elemen scanner
+                        constraints: {
+                            facingMode: "environment"
+                        }
                     },
-                    formatsToSupport: [
-                        Html5QrcodeSupportedFormats.CODE_128,
-                        Html5QrcodeSupportedFormats.EAN_13,
-                        Html5QrcodeSupportedFormats.EAN_8,
-                        Html5QrcodeSupportedFormats.UPC_A,
-                        Html5QrcodeSupportedFormats.UPC_E
-                    ]
-                };
-                html5QrCode.start({
-                        facingMode: "environment"
+                    locator: {
+                        patchSize: "medium",
+                        halfSample: true
                     },
-                    config,
-                    function(decodedText) {
-                        qrCodeSuccessCallback(decodedText); // Panggil callback lama
+                    decoder: {
+                        readers: [
+                            "code_128_reader",
+                            "ean_reader",
+                            "ean_8_reader",
+                            "upc_reader",
+                            "upc_e_reader"
+                        ]
+                    },
+                    locate: true
+                }, function(err) {
+                    if (err) {
+                        console.error(err);
+                        return;
                     }
-                ).catch(err => {
-                    show_toast('error', 'Unable to start scanning : ' + err)
-                    console.error("Unable to start scanning.", err);
+                    Quagga.start();
+                    quaggaStarted = true;
                 });
+
+                Quagga.onDetected(function(result) {
+                    let code = result.codeResult.code;
+                    $('#barcode').val(code);
+                    alert(`Code matched = ${code}`);
+                    $('#qrScannerModal').modal('hide');
+                });
+            }
+
+            function stopQuagga() {
+                if (quaggaStarted) {
+                    Quagga.stop();
+                    quaggaStarted = false;
+                }
+            }
+
+            $('#qrScannerModal').on('shown.bs.modal', function() {
+                startQuagga();
             });
 
             $('#qrScannerModal').on('hidden.bs.modal', function() {
-                $('body').addClass('modal-open');
-                if (html5QrCode) {
-                    html5QrCode.stop().then(() => {
-                        console.log("Barcode scanning stopped.");
-                    }).catch(err => {
-                        console.error("Unable to stop scanning.", err);
-                    });
-                }
+                stopQuagga();
             });
 
             $('#btn_search').click(function() {

@@ -74,12 +74,14 @@
                                 <div class="fs-5" id="d_lot">Loading....</div>
                             </div>
                         </div>
-
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-2">
                             <div class="mb-2">
                                 <div class="form-text">QTY KBN</div>
                                 <div class="fs-5" id="d_qty_kbn">Loading....</div>
                             </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-danger w-100">SAVE BARCODE</button>
                         </div>
                     </div>
                 </div>

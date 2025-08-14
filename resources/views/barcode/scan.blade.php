@@ -247,12 +247,12 @@
             //     stopQuagga();
             let stream;
 
-            $('#qrScannerModal').on('shown.bs.modal', function() {
+            function startCamera() {
                 navigator.mediaDevices.getUserMedia({
                         video: {
                             facingMode: "environment",
                             aspectRatio: 3.0
-                        } // Landscape 3:1
+                        }
                     })
                     .then(function(s) {
                         stream = s;
@@ -261,21 +261,31 @@
                     .catch(function(err) {
                         console.error("Gagal akses kamera:", err);
                     });
+            }
+
+            function stopCamera() {
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                    stream = null;
+                }
+            }
+
+            $('#qrScannerModal').on('shown.bs.modal', function() {
+                startCamera();
             });
 
             $('#qrScannerModal').on('hidden.bs.modal', function() {
-                if (stream) {
-                    stream.getTracks().forEach(track => track.stop());
-                }
+                stopCamera();
+                document.getElementById("retakeBtn").classList.add('d-none');
+                document.getElementById("captureBtn").classList.remove('d-none');
             });
 
-            // Capture & Scan
             document.getElementById("captureBtn").addEventListener("click", function() {
                 let video = document.getElementById("preview");
                 let canvas = document.createElement("canvas");
 
                 // Crop horizontal strip
-                const stripHeight = video.videoHeight / 3; // ambil 1/3 bagian tengah
+                const stripHeight = video.videoHeight / 3;
                 canvas.width = video.videoWidth;
                 canvas.height = stripHeight;
 
@@ -284,6 +294,10 @@
                     .width, stripHeight);
 
                 let imageData = canvas.toDataURL("image/png");
+
+                stopCamera();
+                document.getElementById("captureBtn").classList.add('d-none');
+                document.getElementById("retakeBtn").classList.remove('d-none');
 
                 Quagga.decodeSingle({
                     src: imageData,
@@ -307,6 +321,12 @@
                         alert("Barcode tidak terdeteksi, coba lagi.");
                     }
                 });
+            });
+
+            document.getElementById("retakeBtn").addEventListener("click", function() {
+                startCamera();
+                document.getElementById("retakeBtn").classList.add('d-none');
+                document.getElementById("captureBtn").classList.remove('d-none');
             });
 
             $('#btn_search').click(function() {

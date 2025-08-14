@@ -23,8 +23,15 @@ class BarcodeController extends Controller
         $this->validate($request, [
             'purchase_item_id'  => 'required|exists:purchase_items,id',
             'product_id'        => 'required|exists:products,id',
-            'barcode'           => 'required|max:100|unique:barcodes,barcode',
+            'barcode'           => 'required|max:100',
         ]);
+        $exist = Barcode::query()
+            ->where('barcode', $request->barcode)
+            ->where('product_id', $request->product_id)
+            ->first();
+        if ($exist) {
+            return response()->json(['message' => 'Barcode Barang Sudah Ada!'], 403);
+        }
         Barcode::create([
             'purchase_item_id'  => $request->purchase_item_id,
             'product_id'        => $request->product_id,
@@ -70,20 +77,26 @@ class BarcodeController extends Controller
                 throw new Exception('Data Barcode Tidak Ditemukan!');
             }
             $barcode = $request->barcode;
+            $state = false;
             $exist = Barcode::where('barcode', $barcode)->first();
             if ($exist) {
-                throw new Exception('Data Barcode Sudah ada!');
+                $state = true;
+                // throw new Exception('Data Barcode Sudah ada!');
             }
             try {
-                list($productCode, $poRit, $qtyKbn) = explode('+', $barcode);
-                list($poNo, $rit) = explode('-', $poRit);
+                list($productCode, $poRit, $qtyKbn) = array_map('trim', explode('+', $barcode));
+                list($poNo, $rit) = array_map('trim', explode('-', $poRit));
             } catch (\Throwable $th) {
                 throw new Exception('Barcode Tidak Valid!');
             }
 
+            if ($qtyKbn < 1) {
+                throw new Exception('Qty Kbn Barcode Tidak Valid!');
+            }
+
             $purchaseItem = PurchaseItem::query()->with(['purchase.vendor', 'product'])
                 ->whereRelation('purchase', 'po_no', $poNo)
-                ->whereRelation('purchase', 'rit', $rit)
+                // ->whereRelation('purchase', 'rit', $rit)
                 ->whereHas('product', function ($q) use ($productCode) {
                     $q->where('code', $productCode);
                 })
@@ -94,7 +107,10 @@ class BarcodeController extends Controller
                 throw new Exception('Purchase item not found!');
             }
 
-            return response()->json(['data' => $purchaseItem]);
+            return response()->json([
+                'data'  => $purchaseItem,
+                'state' => $state
+            ]);
         } catch (Exception $e) {
             return response()->json(['message' => 'Error: ' . $e->getMessage()], 400);
         }

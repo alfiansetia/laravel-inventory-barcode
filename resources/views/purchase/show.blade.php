@@ -47,10 +47,11 @@
                     <thead>
                         <tr>
                             <th width="30">No</th>
-                            <th width="150">Product Code</th>
+                            <th>Product Code</th>
                             <th>Product Name</th>
-                            <th width="100" class="text-center">Lot</th>
-                            <th width="150" class="text-end">Qty KBN</th>
+                            <th class="text-center">Lot</th>
+                            <th class="text-end">Qty KBN</th>
+                            <th class="text-center">Barcode</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -115,6 +116,10 @@
 
             }, {
                 data: 'qty_kbn',
+                className: "text-center",
+
+            }, {
+                data: 'barcodes_count',
                 className: "text-center",
 
             }, {

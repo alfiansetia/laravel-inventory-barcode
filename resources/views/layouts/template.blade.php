@@ -46,7 +46,7 @@
                 <div class="main-header-logo">
                     <!-- Logo Header -->
                     <div class="logo-header" data-background-color="dark">
-                        <a href="index.html" class="logo">
+                        <a href="{{ route('home') }}" class="logo">
                             <img src="{{ asset('kai/assets/img/kaiadmin/logo_light.svg') }}" alt="navbar brand"
                                 class="navbar-brand" height="20" />
                         </a>
@@ -122,7 +122,7 @@
     <script src="{{ asset('kai/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
 
     <!-- Kaiadmin JS -->
-    {{-- <script src="{{ asset('kai/assets/js/kaiadmin.min.js') }}"></script> --}}
+    <script src="{{ asset('kai/assets/js/kaiadmin.min.js') }}"></script>
     <script>
         function ajax_setup() {
             $.ajaxSetup({

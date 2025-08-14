@@ -58,7 +58,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <table class="table table-hover text-nowrap" id="table_item" style="width: 100%;cursor: pointer;">
+                    <table class="table-sm table-hover text-nowrap" id="table_item"
+                        style="width: 100%;cursor: pointer;">
                         <thead>
                             <tr>
                                 <th>Barcode</th>

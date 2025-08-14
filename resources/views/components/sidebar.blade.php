@@ -3,7 +3,7 @@
      <div class="sidebar-logo">
          <!-- Logo Header -->
          <div class="logo-header" data-background-color="dark">
-             <a href="index.html" class="logo">
+             <a href="{{ route('home') }}" class="logo">
                  <img src="{{ asset('kai/assets/img/kaiadmin/logo_light.svg') }}" alt="navbar brand" class="navbar-brand"
                      height="20" />
              </a>
@@ -24,21 +24,11 @@
      <div class="sidebar-wrapper scrollbar scrollbar-inner">
          <div class="sidebar-content">
              <ul class="nav nav-secondary">
-                 <li class="nav-item active">
-                     <a data-bs-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                 <li class="nav-item {{ $title == 'Dashboard' ? 'active' : '' }}">
+                     <a class="" href="{{ route('home') }}">
                          <i class="fas fa-home"></i>
                          <p>Dashboard</p>
-                         <span class="caret"></span>
                      </a>
-                     <div class="collapse" id="dashboard">
-                         <ul class="nav nav-collapse">
-                             <li>
-                                 <a href="../demo1/index.html">
-                                     <span class="sub-item">Dashboard 1</span>
-                                 </a>
-                             </li>
-                         </ul>
-                     </div>
                  </li>
                  <li class="nav-section">
                      <span class="sidebar-mini-icon">
@@ -69,7 +59,7 @@
 
                  <li class="nav-item {{ $title == 'Scan' ? 'active' : '' }}">
                      <a class="" href="{{ route('barcodes.scan') }}">
-                         <i class="ti ti-transfer-in"></i>
+                         <i class="ti ti-barcode"></i>
                          <p>Scan</p>
                      </a>
                  </li>

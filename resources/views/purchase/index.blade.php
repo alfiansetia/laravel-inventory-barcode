@@ -58,12 +58,16 @@
             order: [],
             columns: [{
                 data: 'vendor.name',
+                className: "text-start",
             }, {
                 data: 'po_no',
+                className: "text-start",
             }, {
                 data: 'dn_no',
+                className: "text-start",
             }, {
                 data: 'delv_date',
+                className: "text-start",
             }, {
                 data: 'rit',
                 className: "text-center",

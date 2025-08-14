@@ -91,8 +91,15 @@
                                 <div class="fs-5" id="d_qty_kbn">Loading....</div>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <button class="btn btn-danger w-100" id="save_barcode">SAVE BARCODE</button>
+                        <div class="col-md-6 mb-2">
+                            <div class="mb-2">
+                                <div class="form-text">STATUS</div>
+                                <div class="fs-5" id="d_status">Loading....</div>
+                            </div>
+                        </div>
+                        <div class="col-12" id="div_save_barcode">
+                            <button class="btn btn-danger w-100" id="save_barcode">
+                                <i class="fab fa-telegram-plane"></i> SAVE BARCODE</button>
                         </div>
                     </div>
                 </div>
@@ -251,7 +258,7 @@
 
 
             function search_data(barcode) {
-                console.log(barcode);
+                // console.log(barcode);
                 $.get("{{ route('barcodes.get') }}/?barcode=" + encodeURIComponent(barcode)).done(function(result) {
                     $('#d_vendor').html(
                         `<b>[${result.data.purchase.vendor.vendor_id}]</b> ${result.data.purchase.vendor.name}`
@@ -263,6 +270,16 @@
                     $('#d_product').text(`[${result.data.product.code}] ${result.data.product.name}`)
                     $('#d_lot').text(result.data.lot)
                     $('#d_qty_kbn').text(result.data.qty_kbn)
+                    let t_status = '<span class="badge bg-warning fs-6">Belum Ada</span>'
+                    if (result.state) {
+                        t_status = '<span class="badge bg-success fs-6">Tersimpan</span>'
+                        $('#div_save_barcode').hide()
+                    } else {
+                        $('#div_save_barcode').show()
+                    }
+                    $('#d_status').html(t_status)
+                    // $('#save_barcode').prop('disabled', result.state)
+
                     // $('#d_po_no').text(result.data.purchase.po_no)
                     $('#d_barcode').text(barcode)
                     $('#input_barcode').val(barcode)
@@ -311,9 +328,10 @@
 
             $('#btn_search').click(function() {
                 $('#div_detail').hide()
+                $('#div_save_barcode').show()
+                // $('#save_barcode').prop('disabled', false)
                 let barcode = $('#barcode').val()
                 search_data(barcode)
-
 
             })
 

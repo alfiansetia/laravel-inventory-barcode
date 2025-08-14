@@ -187,24 +187,103 @@
             //     }
             // });
 
-            let quaggaStarted = false;
+            // let quaggaStarted = false;
 
-            function startQuagga() {
-                if (quaggaStarted) return;
+            // function startQuagga() {
+            //     if (quaggaStarted) return;
 
-                Quagga.init({
-                    inputStream: {
-                        name: "Live",
-                        type: "LiveStream",
-                        target: document.querySelector('#reader'), // ID elemen scanner
-                        constraints: {
+            //     Quagga.init({
+            //         inputStream: {
+            //             name: "Live",
+            //             type: "LiveStream",
+            //             target: document.querySelector('#reader'), // ID elemen scanner
+            //             constraints: {
+            //                 facingMode: "environment"
+            //             }
+            //         },
+            //         locator: {
+            //             patchSize: "medium",
+            //             halfSample: true
+            //         },
+            //         decoder: {
+            //             readers: [
+            //                 "code_128_reader",
+            //                 "ean_reader",
+            //                 "ean_8_reader",
+            //                 "upc_reader",
+            //                 "upc_e_reader"
+            //             ]
+            //         },
+            //         locate: true
+            //     }, function(err) {
+            //         if (err) {
+            //             console.error(err);
+            //             return;
+            //         }
+            //         Quagga.start();
+            //         quaggaStarted = true;
+            //     });
+
+            //     Quagga.onDetected(function(result) {
+            //         let code = result.codeResult.code;
+            //         $('#barcode').val(code);
+            //         // alert(`Code matched = ${code}`);
+            //         $('#qrScannerModal').modal('hide');
+            //     });
+            // }
+
+            // function stopQuagga() {
+            //     if (quaggaStarted) {
+            //         Quagga.stop();
+            //         quaggaStarted = false;
+            //     }
+            // }
+
+            // $('#qrScannerModal').on('shown.bs.modal', function() {
+            //     startQuagga();
+            // });
+
+            // $('#qrScannerModal').on('hidden.bs.modal', function() {
+            //     stopQuagga();
+            // });
+
+            let stream;
+
+            $('#qrScannerModal').on('shown.bs.modal', function() {
+                navigator.mediaDevices.getUserMedia({
+                        video: {
                             facingMode: "environment"
                         }
-                    },
-                    locator: {
-                        patchSize: "medium",
-                        halfSample: true
-                    },
+                    })
+                    .then(function(s) {
+                        stream = s;
+                        document.getElementById("preview").srcObject = stream;
+                    })
+                    .catch(function(err) {
+                        console.error("Gagal akses kamera:", err);
+                    });
+            });
+
+            $('#qrScannerModal').on('hidden.bs.modal', function() {
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                }
+            });
+
+            // Capture & Scan
+            document.getElementById("captureBtn").addEventListener("click", function() {
+                let video = document.getElementById("preview");
+                let canvas = document.createElement("canvas");
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                let ctx = canvas.getContext("2d");
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                let imageData = canvas.toDataURL("image/png");
+
+                Quagga.decodeSingle({
+                    src: imageData,
+                    numOfWorkers: 0,
                     decoder: {
                         readers: [
                             "code_128_reader",
@@ -215,36 +294,15 @@
                         ]
                     },
                     locate: true
-                }, function(err) {
-                    if (err) {
-                        console.error(err);
-                        return;
+                }, function(result) {
+                    if (result && result.codeResult) {
+                        console.log("Barcode:", result.codeResult.code);
+                        $('#barcode').val(result.codeResult.code); // isi input barcode
+                        $('#qrScannerModal').modal('hide'); // tutup modal
+                    } else {
+                        alert("Barcode tidak terdeteksi, coba lagi.");
                     }
-                    Quagga.start();
-                    quaggaStarted = true;
                 });
-
-                Quagga.onDetected(function(result) {
-                    let code = result.codeResult.code;
-                    $('#barcode').val(code);
-                    // alert(`Code matched = ${code}`);
-                    $('#qrScannerModal').modal('hide');
-                });
-            }
-
-            function stopQuagga() {
-                if (quaggaStarted) {
-                    Quagga.stop();
-                    quaggaStarted = false;
-                }
-            }
-
-            $('#qrScannerModal').on('shown.bs.modal', function() {
-                startQuagga();
-            });
-
-            $('#qrScannerModal').on('hidden.bs.modal', function() {
-                stopQuagga();
             });
 
             $('#btn_search').click(function() {

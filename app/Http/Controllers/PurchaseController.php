@@ -19,7 +19,7 @@ class PurchaseController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $query = Purchase::query()->with('vendor');
+            $query = Purchase::query()->with('vendor')->withCount('items');
             return DataTables::eloquent($query)->toJson();
         }
         return view('purchase.index');

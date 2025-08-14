@@ -8,7 +8,7 @@
     <div class="card">
         <div class="card-body">
             <div class="rounded mb-4">
-                <table id="table" class="table table-sm table-hover mb-0" style="width: 100%;cursor: pointer;">
+                <table id="table" class="table-sm table-hover mb-0" style="width: 100%;cursor: pointer;">
                     <thead>
                         <tr>
                             <th>Name</th>

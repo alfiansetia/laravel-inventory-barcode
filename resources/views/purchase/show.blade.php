@@ -43,7 +43,7 @@
 
             <h5 class="card-title mb-3">Detail Product</h5>
             <div class="border rounded">
-                <table id="table" class="table align-middle mb-0">
+                <table id="table" class="table-sm align-middle mb-0">
                     <thead>
                         <tr>
                             <th width="30">No</th>

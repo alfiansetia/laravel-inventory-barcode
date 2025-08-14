@@ -86,7 +86,7 @@
 </div>
 
 
-{{-- <div class="modal fade" id="qrScannerModal" tabindex="-1" aria-labelledby="qrScannerModalLabel" aria-hidden="true">
+<div class="modal fade" id="qrScannerModal" tabindex="-1" aria-labelledby="qrScannerModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -97,6 +97,8 @@
             </div>
             <div class="modal-body">
                 <div id="reader" style="width:100%"></div>
+                <h3 id="hasil"></h3>
+
                 <div class="alert alert-info">
                     <i class="ti ti-info-circle me-2"></i>
                     <strong>Tips:</strong>
@@ -114,25 +116,6 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                     Close
                 </button>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
-
-<!-- Modal -->
-<!-- Modal -->
-<div class="modal fade" id="qrScannerModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Scan Barcode</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body text-center">
-                <video id="preview" autoplay playsinline
-                    style="width:100%; max-height:250px; object-fit:cover;"></video>
-                <button id="captureBtn" class="btn btn-primary mt-3">📸 Capture & Scan</button>
             </div>
         </div>
     </div>

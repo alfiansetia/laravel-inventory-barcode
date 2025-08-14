@@ -245,15 +245,14 @@
 
             // $('#qrScannerModal').on('hidden.bs.modal', function() {
             //     stopQuagga();
-            // });
-
             let stream;
 
             $('#qrScannerModal').on('shown.bs.modal', function() {
                 navigator.mediaDevices.getUserMedia({
                         video: {
-                            facingMode: "environment"
-                        }
+                            facingMode: "environment",
+                            aspectRatio: 3.0
+                        } // Landscape 3:1
                     })
                     .then(function(s) {
                         stream = s;
@@ -274,10 +273,15 @@
             document.getElementById("captureBtn").addEventListener("click", function() {
                 let video = document.getElementById("preview");
                 let canvas = document.createElement("canvas");
+
+                // Crop horizontal strip
+                const stripHeight = video.videoHeight / 3; // ambil 1/3 bagian tengah
                 canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
+                canvas.height = stripHeight;
+
                 let ctx = canvas.getContext("2d");
-                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                ctx.drawImage(video, 0, video.videoHeight / 3, canvas.width, stripHeight, 0, 0, canvas
+                    .width, stripHeight);
 
                 let imageData = canvas.toDataURL("image/png");
 
@@ -297,8 +301,8 @@
                 }, function(result) {
                     if (result && result.codeResult) {
                         console.log("Barcode:", result.codeResult.code);
-                        $('#barcode').val(result.codeResult.code); // isi input barcode
-                        $('#qrScannerModal').modal('hide'); // tutup modal
+                        $('#barcode').val(result.codeResult.code);
+                        $('#qrScannerModal').modal('hide');
                     } else {
                         alert("Barcode tidak terdeteksi, coba lagi.");
                     }

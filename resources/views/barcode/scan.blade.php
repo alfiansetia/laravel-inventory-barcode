@@ -310,7 +310,8 @@
             })
 
             $('#btn_search').click(function() {
-                search_data()
+                let barcode = $('#barcode').val()
+                search_data(barcode)
 
 
             })

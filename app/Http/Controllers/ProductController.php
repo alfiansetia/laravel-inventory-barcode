@@ -15,7 +15,7 @@ class ProductController extends Controller
             return DataTables::eloquent($query)
                 ->editColumn('stock', function ($row) {
                     return intval($row->stock) ?? 0;
-                })->toJson();
+                })->addIndexColumn()->toJson();
         }
         return view('product.index');
     }

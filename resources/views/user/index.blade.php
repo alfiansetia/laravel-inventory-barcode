@@ -11,6 +11,7 @@
                 <table id="table" class="table-sm table-hover mb-0" style="width: 100%;cursor: pointer;">
                     <thead>
                         <tr>
+                            <th width="30">No</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>#</th>
@@ -53,9 +54,16 @@
             columnDefs: [],
             order: [],
             columns: [{
+                data: 'DT_RowIndex',
+                className: "text-center",
+                searchable: false,
+                orderable: false,
+            }, {
                 data: 'name',
+                className: "text-start",
             }, {
                 data: 'email',
+                className: "text-start",
             }, {
                 data: 'id',
                 searchable: false,
@@ -63,8 +71,11 @@
                 className: "text-center",
                 render: function(data, type, row, meta) {
                     if (type == 'display') {
-                        return `<button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
-                        <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>`;
+                        return `
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
+                            <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>`;
                     } else {
                         return data
                     }

@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         if ($request->ajax()) {
             $query = User::query();
-            return DataTables::eloquent($query)->toJson();
+            return DataTables::eloquent($query)->addIndexColumn()->toJson();
         }
         return view('user.index');
     }

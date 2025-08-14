@@ -11,6 +11,7 @@
                 <table id="table" class="table-sm table-hover mb-0" style="width: 100%;cursor: pointer;">
                     <thead>
                         <tr>
+                            <th width="30">No</th>
                             <th>Vendor</th>
                             <th>PO No</th>
                             <th>DN No</th>
@@ -57,6 +58,11 @@
             columnDefs: [],
             order: [],
             columns: [{
+                data: 'DT_RowIndex',
+                className: "text-center",
+                searchable: false,
+                orderable: false,
+            }, {
                 data: 'vendor.name',
                 className: "text-start",
             }, {
@@ -83,9 +89,9 @@
                     if (type == 'display') {
                         return `
                         <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-info btn-sm btn-view"><i class="fas fa-eye"></i></button>
-                        <button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
-                        <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>
+                            <button type="button" class="btn btn-info btn-sm btn-view"><i class="fas fa-eye"></i></button>
+                            <button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
+                            <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>
                         </div>
                         `;
                     } else {

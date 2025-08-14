@@ -29,3 +29,6 @@ Route::post('/purchases-import', [PurchaseController::class, 'import'])->name('p
 Route::resource('purchases', PurchaseController::class)->except(['edit', 'create']);
 Route::resource('purchase-items', PurchaseItemController::class)->except(['edit', 'create']);
 Route::resource('barcodes', BarcodeController::class)->except(['edit', 'create']);
+
+Route::get('/barcode-scan', [BarcodeController::class, 'scan'])->name('barcodes.scan');
+Route::get('/barcode-get', [BarcodeController::class, 'get'])->name('barcodes.get');

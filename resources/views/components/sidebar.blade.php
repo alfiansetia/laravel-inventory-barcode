@@ -67,6 +67,13 @@
                      </a>
                  </li>
 
+                 <li class="nav-item {{ $title == 'Scan' ? 'active' : '' }}">
+                     <a class="" href="{{ route('barcodes.scan') }}">
+                         <i class="ti ti-transfer-in"></i>
+                         <p>Scan</p>
+                     </a>
+                 </li>
+
                  <li class="nav-item {{ $title == 'User' ? 'active' : '' }}">
                      <a class="" href="{{ route('users.index') }}">
                          <i class="ti ti-user"></i>

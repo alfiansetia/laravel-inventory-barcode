@@ -310,6 +310,7 @@
             })
 
             $('#btn_search').click(function() {
+                $('#div_detail').hide()
                 let barcode = $('#barcode').val()
                 search_data(barcode)
 

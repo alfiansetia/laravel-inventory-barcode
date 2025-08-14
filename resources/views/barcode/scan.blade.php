@@ -309,6 +309,12 @@
 
             })
 
+            $('#btn_search').click(function() {
+                search_data()
+
+
+            })
+
 
         })
     </script>

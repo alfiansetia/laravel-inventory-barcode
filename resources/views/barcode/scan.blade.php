@@ -247,12 +247,12 @@
             //     stopQuagga();
             let stream;
 
-            function startCamera() {
+            $('#qrScannerModal').on('shown.bs.modal', function() {
                 navigator.mediaDevices.getUserMedia({
                         video: {
                             facingMode: "environment",
                             aspectRatio: 3.0
-                        }
+                        } // Landscape 3:1
                     })
                     .then(function(s) {
                         stream = s;
@@ -261,31 +261,21 @@
                     .catch(function(err) {
                         console.error("Gagal akses kamera:", err);
                     });
-            }
-
-            function stopCamera() {
-                if (stream) {
-                    stream.getTracks().forEach(track => track.stop());
-                    stream = null;
-                }
-            }
-
-            $('#qrScannerModal').on('shown.bs.modal', function() {
-                startCamera();
             });
 
             $('#qrScannerModal').on('hidden.bs.modal', function() {
-                stopCamera();
-                document.getElementById("retakeBtn").classList.add('d-none');
-                document.getElementById("captureBtn").classList.remove('d-none');
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                }
             });
 
+            // Capture & Scan
             document.getElementById("captureBtn").addEventListener("click", function() {
                 let video = document.getElementById("preview");
                 let canvas = document.createElement("canvas");
 
                 // Crop horizontal strip
-                const stripHeight = video.videoHeight / 3;
+                const stripHeight = video.videoHeight / 3; // ambil 1/3 bagian tengah
                 canvas.width = video.videoWidth;
                 canvas.height = stripHeight;
 
@@ -294,10 +284,6 @@
                     .width, stripHeight);
 
                 let imageData = canvas.toDataURL("image/png");
-
-                stopCamera();
-                document.getElementById("captureBtn").classList.add('d-none');
-                document.getElementById("retakeBtn").classList.remove('d-none');
 
                 Quagga.decodeSingle({
                     src: imageData,
@@ -322,23 +308,6 @@
                     }
                 });
             });
-
-            document.getElementById("retakeBtn").addEventListener("click", function() {
-                startCamera();
-                document.getElementById("retakeBtn").classList.add('d-none');
-                document.getElementById("captureBtn").classList.remove('d-none');
-            });
-
-            $('#btn_search').click(function() {
-                $('#div_detail').hide()
-                let barcode = $('#barcode').val()
-                if (barcode == '' || barcode == null) {
-                    show_toast('error', 'Isi Barcode!')
-                    $('#barcode').focus()
-                    return
-                }
-                search_data(barcode)
-            })
 
             function search_data(barcode) {
                 console.log(barcode);

@@ -120,6 +120,8 @@
 </div> --}}
 
 
+<!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="qrScannerModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -129,11 +131,8 @@
             </div>
             <div class="modal-body text-center">
                 <video id="preview" autoplay playsinline
-                    style="width:100%; max-height:250px; object-fit:cover; transform: rotate(0deg);"></video>
-                <div class="mt-3">
-                    <button id="captureBtn" class="btn btn-primary">📸 Capture & Scan</button>
-                    <button id="retakeBtn" class="btn btn-secondary d-none">🔄 Retake</button>
-                </div>
+                    style="width:100%; max-height:250px; object-fit:cover;"></video>
+                <button id="captureBtn" class="btn btn-primary mt-3">📸 Capture & Scan</button>
             </div>
         </div>
     </div>

@@ -12,4 +12,9 @@ class Product extends Model
     {
         return $this->belongsTo(Vendor::class);
     }
+
+    public function barcodes()
+    {
+        return $this->hasMany(Barcode::class);
+    }
 }

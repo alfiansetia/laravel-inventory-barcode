@@ -205,11 +205,15 @@
                 order: [],
                 columns: [{
                     data: 'barcode',
+                    className: "text-start",
                 }, {
                     data: 'input_date',
+                    className: "text-start",
                 }, {
                     data: 'id',
                     searchable: false,
+                    orderable: false,
+                    className: "text-center",
                     render: function(data, type, row, meta) {
                         if (type == 'display') {
                             return `<button type="button" class="btn btn-danger btn-sm btn-delete">Delete</button>`;

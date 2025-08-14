@@ -13,6 +13,7 @@
                         <tr>
                             <th>Product Code</th>
                             <th>Name</th>
+                            <th>Stock</th>
                             <th>Description</th>
                             <th>#</th>
                         </tr>
@@ -58,6 +59,9 @@
             }, {
                 data: 'name',
             }, {
+                data: 'stock',
+                className: 'text-center',
+            }, {
                 data: 'desc',
             }, {
                 data: 'id',
@@ -66,7 +70,9 @@
                 className: "text-center",
                 render: function(data, type, row, meta) {
                     if (type == 'display') {
-                        return `<button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
+                        return `
+                        <button type="button" class="btn btn-info btn-sm btn-view"><i class="fas fa-eye"></i></button>
+                        <button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
                         <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>`;
                     } else {
                         return data
@@ -110,11 +116,52 @@
             },
         });
 
+        $('#table tbody').on('click', 'tr .btn-view', function() {
+            row = $(this).parents('tr')[0];
+            id = table.row(row).data().id
+            $('#table_item').DataTable().clear().destroy();
+
+            table_item = $("#table_item").DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('barcodes.index') }}" + "?purchase_item_id=" + id,
+                dom: "<'dt--top-section'<'row mb-2'<'col-sm-12 col-md-6 d-flex justify-content-md-start justify-content-center'B><'col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-center mt-md-0 mt-0'f>>>" +
+                    "<'table-responsive'tr>" +
+                    "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
+                oLanguage: {
+                    oPaginate: {
+                        sPrevious: '<i class="fas fa-chevron-left"></i>',
+                        sNext: '<i class="fas fa-chevron-right"></i>'
+                    },
+                    sSearch: '',
+                    sSearchPlaceholder: "Search...",
+                    sLengthMenu: "Results :  _MENU_",
+                },
+                lengthChange: false,
+                searching: false,
+                paging: false,
+                info: false,
+                columnDefs: [],
+                order: [],
+                columns: [{
+                    data: 'barcode',
+                    className: "text-start",
+                }, {
+                    data: 'input_date',
+                    className: "text-start",
+                }, ],
+                buttons: [],
+            });
+
+            $('#modal_detail').modal('show')
+        });
+
         $('#table tbody').on('click', 'tr .btn-delete', function() {
             row = $(this).parents('tr')[0];
             id = table.row(row).data().id
             send_delete(URL_INDEX + "/" + id)
         });
+
         $('#table tbody').on('click', 'tr .btn-edit', function() {
             clear_validate('form')
             row = $(this).parents('tr')[0];

@@ -11,8 +11,11 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $query = Product::query();
-            return DataTables::eloquent($query)->toJson();
+            $query = Product::query()->withSum('barcodes as stock', 'qty');;
+            return DataTables::eloquent($query)
+                ->editColumn('stock', function ($row) {
+                    return intval($row->stock) ?? 0;
+                })->toJson();
         }
         return view('product.index');
     }

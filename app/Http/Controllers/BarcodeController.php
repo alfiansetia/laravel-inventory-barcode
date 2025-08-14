@@ -14,7 +14,7 @@ class BarcodeController extends Controller
     public function index(Request $request)
     {
         $filters = $request->only(['purchase_item_id']);
-        $query = Barcode::query()->with('product')->filter($filters);
+        $query = Barcode::query()->with('purchase_item')->filter($filters);
         return DataTables::eloquent($query)->toJson();
     }
 
@@ -22,10 +22,12 @@ class BarcodeController extends Controller
     {
         $this->validate($request, [
             'purchase_item_id'  => 'required|exists:purchase_items,id',
+            'product_id'        => 'required|exists:products,id',
             'barcode'           => 'required|max:100|unique:barcodes,barcode',
         ]);
         Barcode::create([
             'purchase_item_id'  => $request->purchase_item_id,
+            'product_id'        => $request->product_id,
             'barcode'           => $request->barcode,
             'qty'               => 1,
             'input_date'        => now(),
@@ -38,11 +40,13 @@ class BarcodeController extends Controller
     {
         $this->validate($request, [
             'purchase_item_id'  => 'required|exists:purchase_items,id',
+            'product_id'        => 'required|exists:products,id',
             'barcode'           => 'required|max:100',
         ]);
         $barcode->update([
             'purchase_item_id'  => $request->purchase_item_id,
             'barcode'           => $request->barcode,
+            'product_id'        => $request->product_id,
         ]);
         return response()->json(['message' => 'Data Inserted!']);
     }
@@ -92,7 +96,7 @@ class BarcodeController extends Controller
 
             return response()->json(['data' => $purchaseItem]);
         } catch (Exception $e) {
-            return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 400);
         }
     }
 }

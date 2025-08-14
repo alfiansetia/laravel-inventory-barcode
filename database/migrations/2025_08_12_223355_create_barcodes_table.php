@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('barcodes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('purchase_item_id')->constrained('purchase_items')->cascadeOnUpdate();
+            $table->foreignId('product_id')->nullable()->constrained('products')->nullOnDelete()->cascadeOnUpdate();
             $table->string('barcode');
             $table->integer('qty')->default(0);
             $table->dateTime('input_date')->useCurrent();

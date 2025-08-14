@@ -49,7 +49,7 @@
 <div class="modal fade" id="modal_detail" tabindex="-1" role="dialog" aria-labelledby="modal_detailLabel"
     aria-hidden="true">
     <form action="" id="form">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog  modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title fw-bold" id="modal_detail_title">List Barcode</h5>
@@ -58,19 +58,17 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="table-responsive" id="div_item" style="display: none">
-                        <table class="table table-hover" id="table_item" style="width: 100%;cursor: pointer;">
-                            <thead>
-                                <tr>
-                                    <th>Barcode</th>
-                                    <th>Input Date</th>
-                                    <th style="width: 50px">#</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table class="table table-hover text-nowrap" id="table_item" style="width: 100%;cursor: pointer;">
+                        <thead>
+                            <tr>
+                                <th>Barcode</th>
+                                <th>Input Date</th>
+                                <th style="width: 50px">#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
 
                 </div>
                 <div class="modal-footer">

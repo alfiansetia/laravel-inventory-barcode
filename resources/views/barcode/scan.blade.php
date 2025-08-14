@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-danger w-100">SAVE BARCODE</button>
+                            <button class="btn btn-danger w-100" id="save_barcode">SAVE BARCODE</button>
                         </div>
                     </div>
                 </div>
@@ -90,6 +90,12 @@
 
         </div>
     </div>
+    <form action="" id="form_save">
+        @csrf
+        <input type="hidden" name="purchase_item_id" id="input_purchase_item_id">
+        <input type="hidden" name="barcode" id="input_barcode">
+        <input type="hidden" name="product_id" id="input_product_id">
+    </form>
     @include('barcode.modal')
 @endsection
 @push('js')
@@ -195,6 +201,9 @@
                     $('#d_qty_kbn').text(result.data.qty_kbn)
                     // $('#d_po_no').text(result.data.purchase.po_no)
                     $('#d_barcode').text(barcode)
+                    $('#input_barcode').val(barcode)
+                    $('#input_purchase_item_id').val(result.data.id)
+                    $('#input_product_id').val(result.data.product_id)
                     $('#div_detail').show()
                 }).fail(function(xhr) {
                     show_toast('error', xhr.responseJSON.message || "Server Error!")
@@ -202,7 +211,39 @@
 
             }
 
+            $('#save_barcode').click(function() {
+                let barcode = $('#input_barcode').val()
+                swal({
+                        title: 'Are you sure?',
+                        text: `Save Barcode ${barcode}?`,
+                        icon: 'warning',
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            ajax_setup()
+                            let data = new FormData($('#form_save')[0])
+                            $.ajax({
+                                url: "{{ route('barcodes.store') }}",
+                                method: 'POST',
+                                processData: false,
+                                contentType: false,
+                                data: data,
+                                success: function(result) {
+                                    show_toast('success', result.message || 'Success!')
+                                    $('#div_detail').hide()
+                                },
+                                error: function(xhr, status, error) {
+                                    show_toast('error', xhr.responseJSON.message ||
+                                        'Server Error!')
+                                }
+                            })
+                        }
+                    });
 
+
+            })
 
 
         })

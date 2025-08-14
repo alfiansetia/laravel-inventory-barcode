@@ -227,7 +227,7 @@
                 Quagga.onDetected(function(result) {
                     let code = result.codeResult.code;
                     $('#barcode').val(code);
-                    alert(`Code matched = ${code}`);
+                    // alert(`Code matched = ${code}`);
                     $('#qrScannerModal').modal('hide');
                 });
             }

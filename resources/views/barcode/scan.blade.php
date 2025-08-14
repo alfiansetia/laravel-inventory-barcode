@@ -230,7 +230,7 @@
                     $('#hasil').text(code);
                     $('#barcode').val(code);
                     // alert(`Code matched = ${code}`);
-                    $('#qrScannerModal').modal('hide');
+                    // $('#qrScannerModal').modal('hide');
                 });
             }
 

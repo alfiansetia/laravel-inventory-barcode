@@ -33,7 +33,7 @@
 
                 <div class="col-12" style="display: none" id="div_detail">
                     <div class="mb-2">
-                        <h5 class="card-title mb-0">Information Barcode</h5>
+                        <h5 class="card-title mb-0">Information Barcode <span id="d_barcode"></span></h5>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">
@@ -194,6 +194,7 @@
                     $('#d_lot').text(result.data.lot)
                     $('#d_qty_kbn').text(result.data.qty_kbn)
                     // $('#d_po_no').text(result.data.purchase.po_no)
+                    $('#d_barcode').text(barcode)
                     $('#div_detail').show()
                 }).fail(function(xhr) {
                     show_toast('error', xhr.responseJSON.message || "Server Error!")

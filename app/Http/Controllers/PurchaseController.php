@@ -66,7 +66,7 @@ class PurchaseController extends Controller
             // Siapkan purchase detail
             $details = $rows->map(function ($row) use ($purchase) {
                 $product = Product::firstOrCreate([
-                    'code' => $row[7],
+                    'code' => $row[9],
                 ], [
                     'name' => $row[10],
                 ]);

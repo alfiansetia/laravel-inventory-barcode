@@ -2,6 +2,10 @@
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 @endpush
 
 @section('contents')
@@ -17,6 +21,7 @@
                             <th>DN No</th>
                             <th>DELV Date</th>
                             <th>RIT</th>
+                            <th>Status</th>
                             <th>Items</th>
                             <th>#</th>
                         </tr>
@@ -32,10 +37,32 @@
 @endsection
 @push('js')
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js">
+    </script>
+
+
     <script>
         const URL_INDEX = "{{ route('purchases.index') }}"
     </script>
     <script>
+        $(document).ready(function() {
+            $('#vendor_id').select2({
+                theme: 'bootstrap-5',
+                dropdownParent: $('#modal_form')
+            });
+
+            $('#delv_date').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm:ss'
+            });
+
+        })
+
         var table = $("#table").DataTable({
             processing: true,
             serverSide: true,
@@ -77,6 +104,20 @@
             }, {
                 data: 'rit',
                 className: "text-center",
+            }, {
+                data: 'status',
+                className: "text-center",
+                render: function(data, type, row, meta) {
+                    if (type == 'display') {
+                        if (data != 'open') {
+                            return `<span class="badge badge-danger">${data}</span>`;
+                        } else {
+                            return `<span class="badge badge-warning">${data}</span>`;
+                        }
+                    } else {
+                        return data
+                    }
+                }
             }, {
                 data: 'items_count',
                 className: "text-center",
@@ -133,6 +174,16 @@
                 action: function(e, dt, node, config) {
                     $('#modal_import').modal('show')
                 }
+            }, {
+                text: '<i class="fas fa-retweet me-1"></i>Refresh',
+                className: 'btn btn-sm btn-primary bs-tooltip',
+                attr: {
+                    'data-toggle': 'tooltip',
+                    'title': 'Refresh'
+                },
+                action: function(e, dt, node, config) {
+                    table.ajax.reload()
+                }
             }, ],
             initComplete: function() {
                 $('#table').DataTable().buttons().container().appendTo(
@@ -163,9 +214,11 @@
             row = $(this).parents('tr')[0];
             id = table.row(row).data().id
             $.get(URL_INDEX + '/' + id).done(function(result) {
-                $('#name').val(result.data.name)
-                $('#code').val(result.data.code)
-                $('#desc').val(result.data.desc)
+                $('#vendor_id').val(result.data.vendor_id).change()
+                $('#po_no').val(result.data.po_no)
+                $('#dn_no').val(result.data.dn_no)
+                $('#delv_date').val(result.data.delv_date)
+                $('#rit').val(result.data.rit)
 
                 $('#form').attr('action', URL_INDEX + '/' + id)
                 $('#modal_form_title').html('Edit Data')
@@ -178,7 +231,7 @@
         });
 
         $('#modal_form').on('shown.bs.modal', function() {
-            $('#code').focus();
+            $('#po_no').focus();
             clear_validate('form')
         })
 
@@ -192,9 +245,12 @@
             $('#modal_form_submit').val('POST')
             $('#modal_form_title').html('Tambah Data')
             $('#modal_form').modal('show')
-            $('#name').val('')
-            $('#code').val('')
-            $('#desc').val('')
+
+            $('#vendor_id').val('').change()
+            $('#po_no').val('')
+            $('#dn_no').val('')
+            $('#delv_date').val('')
+            $('#rit').val('')
         }
 
         const old_up = $('#btn_import').html()

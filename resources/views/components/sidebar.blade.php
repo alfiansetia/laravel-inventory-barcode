@@ -50,6 +50,13 @@
                      </a>
                  </li>
 
+                 <li class="nav-section">
+                     <span class="sidebar-mini-icon">
+                         <i class="fa fa-ellipsis-h"></i>
+                     </span>
+                     <h4 class="text-section">Transaction</h4>
+                 </li>
+
                  <li class="nav-item {{ $title == 'Purchase' ? 'active' : '' }}">
                      <a class="" href="{{ route('purchases.index') }}">
                          <i class="ti ti-transfer-in"></i>

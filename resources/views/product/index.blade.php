@@ -111,6 +111,16 @@
                     'title': 'Page Length'
                 },
                 className: 'btn btn-sm btn-info'
+            }, {
+                text: '<i class="fas fa-retweet me-1"></i>Refresh',
+                className: 'btn btn-sm btn-primary bs-tooltip',
+                attr: {
+                    'data-toggle': 'tooltip',
+                    'title': 'Refresh'
+                },
+                action: function(e, dt, node, config) {
+                    table.ajax.reload()
+                }
             }, ],
             initComplete: function() {
                 $('#table').DataTable().buttons().container().appendTo(

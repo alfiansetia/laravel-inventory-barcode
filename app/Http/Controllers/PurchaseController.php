@@ -22,7 +22,8 @@ class PurchaseController extends Controller
             $query = Purchase::query()->with('vendor')->withCount(['items']);
             return DataTables::eloquent($query)->addIndexColumn()->toJson();
         }
-        return view('purchase.index');
+        $vendors = Vendor::all();
+        return view('purchase.index', compact('vendors'));
     }
 
     public function show(Request $request, Purchase $purchase)

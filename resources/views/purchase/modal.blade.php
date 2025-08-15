@@ -10,21 +10,39 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="code">Product Code</label>
-                        <input type="text" name="code" class="form-control" id="code"
-                            placeholder="Enter Code" maxlength="100" required>
-                        <span class="error invalid-feedback err_code" style="display: hide;"></span>
+                        <label for="vendor_id">Vendor</label>
+                        <select name="vendor_id" id="vendor_id" class="form-control" style="width: 100%;" required>
+                            <option value="">Select Vendor</option>
+                            @foreach ($vendors as $item)
+                                <option value="{{ $item->id }}">[{{ $item->vendor_id }}] {{ $item->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <span class="error invalid-feedback err_vendor_id" style="display: hide;"></span>
                     </div>
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Name"
-                            maxlength="100" required>
-                        <span class="error invalid-feedback err_name" style="display: hide;"></span>
+                        <label for="po_no">PO NO</label>
+                        <input type="text" name="po_no" class="form-control" id="po_no"
+                            placeholder="Enter PO NO" maxlength="100" required>
+                        <span class="error invalid-feedback err_po_no" style="display: hide;"></span>
                     </div>
                     <div class="form-group">
-                        <label for="desc">Description</label>
-                        <textarea name="desc" id="desc" class="form-control" maxlength="200" placeholder="Enter Desc"></textarea>
-                        <span class="error invalid-feedback err_desc" style="display: hide;"></span>
+                        <label for="dn_no">DN NO</label>
+                        <input type="text" name="dn_no" class="form-control" id="dn_no"
+                            placeholder="Enter DN NO" maxlength="100" required>
+                        <span class="error invalid-feedback err_dn_no" style="display: hide;"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="delv_date">Delivery Date</label>
+                        <input type="text" name="delv_date" class="form-control" id="delv_date"
+                            placeholder="Enter Delivery Date" maxlength="100" required>
+                        <span class="error invalid-feedback err_delv_date" style="display: hide;"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="rit">RIT</label>
+                        <input type="number" name="rit" class="form-control" id="rit" placeholder="Enter RIT"
+                            min="1" required>
+                        <span class="error invalid-feedback err_rit" style="display: hide;"></span>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -62,13 +80,14 @@
                 </form>
             </div>
             <div class="modal-footer">
-                {{-- <a href="{{ asset('master_import/onescania.xlsx') }}" class="btn btn-info" target="_blank">
-                    <i class="fas fa-download mr-1" data-toggle="tooltip" title="Download Sample"></i>Download Sample
-                </a> --}}
+                <a href="{{ asset('master/sample-purchase.xlsx') }}" class="btn btn-info" target="_blank">
+                    <i class="fas fa-download me-1" title="Download Sample"></i>Download Sample
+                </a>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    Close
+                    &times; Close
                 </button>
-                <button type="button" id="btn_import" class="btn btn-primary">Upload</button>
+                <button type="button" id="btn_import" class="btn btn-primary">
+                    <i class="fas fa-upload me-1" title="Upload File"></i>Upload</button>
             </div>
         </div>
     </div>

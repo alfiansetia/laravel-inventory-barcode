@@ -38,6 +38,14 @@
                         <div class="form-text">DN NO</div>
                         <div class="fs-5">{{ $data->dn_no }}</div>
                     </div>
+                    <div class="mb-3">
+                        <div class="form-text">Status</div>
+                        @if ($data->isClose())
+                            <div class="fs-5"><span class="badge badge-danger">{{ $data->status }}</span></div>
+                        @else
+                            <div class="fs-5"><span class="badge badge-warning">{{ $data->status }}</span></div>
+                        @endif
+                    </div>
                 </div>
             </div>
 
@@ -52,6 +60,7 @@
                             <th class="text-center">Lot</th>
                             <th class="text-end">Qty KBN</th>
                             <th class="text-center">Barcode</th>
+                            <th class="text-center">Outstanding </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -124,15 +133,26 @@
 
             }, {
                 data: 'id',
+                className: "text-center",
+                render: function(data, type, row, meta) {
+                    let out = parseInt(row.qty_kbn) - parseInt(row.barcodes_count);
+                    return out;
+                }
+
+            }, {
+                data: 'id',
                 searchable: false,
                 orderable: false,
                 className: "text-center",
                 render: function(data, type, row, meta) {
                     if (type == 'display') {
                         return `
-                        <button type="button" class="btn btn-info btn-sm btn-view"><i class="fas fa-eye"></i></button>
-                        <button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
-                        <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>`;
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-info btn-sm btn-view"><i class="fas fa-eye"></i></button>
+                            <button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
+                            <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                        `;
                     } else {
                         return data
                     }
@@ -162,6 +182,16 @@
                     'title': 'Page Length'
                 },
                 className: 'btn btn-sm btn-info'
+            }, {
+                text: '<i class="fas fa-retweet me-1"></i>Refresh',
+                className: 'btn btn-sm btn-primary bs-tooltip',
+                attr: {
+                    'data-toggle': 'tooltip',
+                    'title': 'Refresh'
+                },
+                action: function(e, dt, node, config) {
+                    table.ajax.reload()
+                }
             }, ],
             initComplete: function() {
                 $('#table').DataTable().buttons().container().appendTo(

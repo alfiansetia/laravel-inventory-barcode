@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('dn_no')->nullable();
             $table->dateTime('delv_date')->nullable();
             $table->integer('rit')->default(0);
+            $table->string('status', 50)->default('open');
             $table->timestamps();
         });
     }

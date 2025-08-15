@@ -17,4 +17,9 @@ class Purchase extends Model
     {
         return $this->belongsTo(Vendor::class);
     }
+
+    public function isClose()
+    {
+        return $this->status == 'close';
+    }
 }

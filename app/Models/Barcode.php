@@ -13,6 +13,9 @@ class Barcode extends Model
         if (isset($filters['purchase_item_id'])) {
             $query->where('purchase_item_id', $filters['purchase_item_id']);
         }
+        if (isset($filters['product_id'])) {
+            $query->where('product_id', $filters['product_id']);
+        }
     }
 
     public function purchase_item()

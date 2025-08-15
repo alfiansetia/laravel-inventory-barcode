@@ -6,17 +6,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-
-    <style>
-        /* Biar area scanner memanjang (wide) */
-        #reader video {
-            object-fit: cover;
-            width: 100% !important;
-            height: auto !important;
-            aspect-ratio: 3/1;
-            /* rasio lebar:tinggi */
-        }
-    </style>
 @endpush
 
 @section('contents')
@@ -27,29 +16,30 @@
                     <label for="barcode" class="form-label">Barcode Barang</label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="barcode" placeholder="Scan atau ketik ID barang"
-                            value="BAH-MTL-034+76862-1+2" autofocus>
+                            value="" autofocus>
+                        <button type="button" class="btn btn-primary" id="btn_search">
+                            <i class="ti ti-search"></i>
+                            <span>Cari</span>
+                        </button>
                     </div>
+                    <div id="emailHelp" class="form-text">Format Barcode : SEBANGO+PO_NO+QTY_KBN.</div>
                 </div>
-                <div class="col-12 mb-2">
-                    <button type="button" class="btn btn-secondary" id="btnScanBarcode">
-                        <i class="ti ti-camera"></i>
-                        <span>Scan</span>
-                    </button>
-                    <button type="button" class="btn btn-primary" id="btn_search">
-                        <i class="ti ti-search"></i>
-                        <span>Cari Barcode</span>
-                    </button>
-                </div>
+            </div>
+        </div>
+    </div>
 
-
-                <div class="col-12" style="display: none" id="div_detail">
+    <div class="card mb-4" style="display: none" id="div_detail">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
                     <div class="mb-2">
-                        <h5 class="card-title mb-0">Information Barcode <span id="d_barcode"></span></h5>
+                        <h5 class="card-title mb-0">Information Barcode <span class="text-danger" id="d_barcode"></span>
+                        </h5>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">
                             <div class="mb-2">
-                                <div class="form-text">Vendor</div>
+                                <div class="form-text">VENDOR</div>
                                 <div class="fs-5" id="d_vendor">Loading....</div>
                             </div>
                             <div class="mb-2">
@@ -59,7 +49,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-2">
-                                <div class="form-text">Delivery Date</div>
+                                <div class="form-text">DELIVERY DATE</div>
                                 <div class="fs-5" id="d_delv_date">Loading....</div>
                             </div>
                             <div class="mb-2">
@@ -75,7 +65,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-2">
-                                <div class="form-text">Product</div>
+                                <div class="form-text">PRODUCT</div>
                                 <div class="fs-5" id="d_product">Loading....</div>
                             </div>
                         </div>
@@ -93,35 +83,44 @@
                         </div>
                         <div class="col-md-6 mb-2">
                             <div class="mb-2">
-                                <div class="form-text">STATUS</div>
+                                <div class="form-text">STATUS BARCODE</div>
                                 <div class="fs-5" id="d_status">Loading....</div>
                             </div>
                         </div>
-                        <div class="col-12" id="div_save_barcode">
-                            <button class="btn btn-danger w-100" id="save_barcode">
-                                <i class="fab fa-telegram-plane"></i> SAVE BARCODE</button>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn btn-warning w-100" id="btn_close">
+                                        <i class="fas fa-arrow-left"></i> CLOSE
+                                    </button>
+                                </div>
+                                <div class="col" id="div_save_barcode">
+                                    <button class="btn btn-danger w-100" id="save_barcode">
+                                        <i class="fab fa-telegram-plane"></i> SAVE
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
+
+    <div class="alert alert-danger" role="alert" style="display: none" id="div_alert">
+        <h4 id="alert_content"></h4>
+    </div>
+
     <form action="" id="form_save">
         @csrf
         <input type="hidden" name="purchase_item_id" id="input_purchase_item_id">
         <input type="hidden" name="barcode" id="input_barcode">
         <input type="hidden" name="product_id" id="input_product_id">
     </form>
-    @include('barcode.modal')
 @endsection
 @push('js')
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-    {{-- <script src="{{ asset('kai/lib/html5-qrcode/html5-qrcode.min.js') }}"></script> --}}
-    <script src="https://unpkg.com/quagga/dist/quagga.min.js"></script>
 
     <script>
         const URL_INDEX = "{{ route('purchase-items.index') }}"
@@ -132,133 +131,16 @@
             $('#btnScanBarcode').click(function() {
                 $('#hasil').text('Loading...');
                 $('#qrScannerModal').modal('show');
-                // $('#modalScanner').modal('show');
-                // initBarcodeScanner();
             });
 
-            // var html5QrCode;
-            // var qrCodeSuccessCallback = function(decodedText, decodedResult) {
-            //     $('#barcode').val(decodedText)
-            //     console.log(`Code matched = ${decodedText}`, decodedResult);
-            //     alert(`Code matched = ${decodedText}`, decodedResult);
-            //     $('#qrScannerModal').modal('hide');
-            //     html5QrCode.stop().then(() => {
-            //         console.log("QR Code scanning stopped.");
-            //     }).catch(err => {
-            //         console.error("Unable to stop scanning.", err);
-            //     });
-            // };
-            // $('#qrScannerModal').on('shown.bs.modal', function() {
-            //     html5QrCode = new Html5Qrcode("reader");
-
-            //     // Tambahkan opsi formatsToSupport untuk scan barcode juga
-            //     const config = {
-            //         fps: 10,
-            //         qrbox: function(viewfinderWidth, viewfinderHeight) {
-            //             // Biar memanjang, misalnya 80% dari lebar layar dan tinggi 1/3 lebar
-            //             const width = viewfinderWidth * 0.8;
-            //             const height = width / 3; // rasio 3:1 (lebar : tinggi)
-            //             return {
-            //                 width: width,
-            //                 height: height
-            //             };
-            //         },
-            //         formatsToSupport: [
-            //             Html5QrcodeSupportedFormats.CODE_128,
-            //             Html5QrcodeSupportedFormats.EAN_13,
-            //             Html5QrcodeSupportedFormats.EAN_8,
-            //             Html5QrcodeSupportedFormats.UPC_A,
-            //             Html5QrcodeSupportedFormats.UPC_E
-            //         ]
-            //     };
-            //     html5QrCode.start({
-            //             facingMode: "environment"
-            //         },
-            //         config,
-            //         function(decodedText) {
-            //             qrCodeSuccessCallback(decodedText); // Panggil callback lama
-            //         }
-            //     ).catch(err => {
-            //         show_toast('error', 'Unable to start scanning : ' + err)
-            //         console.error("Unable to start scanning.", err);
-            //     });
-            // });
-
-            // $('#qrScannerModal').on('hidden.bs.modal', function() {
-            //     $('body').addClass('modal-open');
-            //     if (html5QrCode) {
-            //         html5QrCode.stop().then(() => {
-            //             console.log("Barcode scanning stopped.");
-            //         }).catch(err => {
-            //             console.error("Unable to stop scanning.", err);
-            //         });
-            //     }
-            // });
-
-            let quaggaStarted = false;
-
-            function startQuagga() {
-                if (quaggaStarted) return;
-
-                Quagga.init({
-                    inputStream: {
-                        name: "Live",
-                        type: "LiveStream",
-                        target: document.querySelector('#reader'), // ID elemen scanner
-                        constraints: {
-                            facingMode: "environment"
-                        }
-                    },
-                    locator: {
-                        patchSize: "medium",
-                        halfSample: true
-                    },
-                    decoder: {
-                        readers: [
-                            "code_128_reader",
-                            "ean_reader",
-                            "ean_8_reader",
-                            "upc_reader",
-                            "upc_e_reader"
-                        ]
-                    },
-                    locate: true
-                }, function(err) {
-                    if (err) {
-                        console.error(err);
-                        return;
-                    }
-                    Quagga.start();
-                    quaggaStarted = true;
-                });
-
-                Quagga.onDetected(function(result) {
-                    let code = result.codeResult.code;
-                    $('#hasil').text(code);
-                    $('#barcode').val(code);
-                    // alert(`Code matched = ${code}`);
-                    // $('#qrScannerModal').modal('hide');
-                });
-            }
-
-            function stopQuagga() {
-                if (quaggaStarted) {
-                    Quagga.stop();
-                    quaggaStarted = false;
+            function search_data() {
+                $('#div_alert').hide()
+                $('#div_detail').hide()
+                $('#div_save_barcode').show()
+                let barcode = $('#barcode').val()
+                if (barcode == null || barcode == '') {
+                    return
                 }
-            }
-
-            $('#qrScannerModal').on('shown.bs.modal', function() {
-                startQuagga();
-            });
-
-            $('#qrScannerModal').on('hidden.bs.modal', function() {
-                stopQuagga();
-            });
-
-
-            function search_data(barcode) {
-                // console.log(barcode);
                 $.get("{{ route('barcodes.get') }}/?barcode=" + encodeURIComponent(barcode)).done(function(result) {
                     $('#d_vendor').html(
                         `<b>[${result.data.purchase.vendor.vendor_id}]</b> ${result.data.purchase.vendor.name}`
@@ -278,16 +160,18 @@
                         $('#div_save_barcode').show()
                     }
                     $('#d_status').html(t_status)
-                    // $('#save_barcode').prop('disabled', result.state)
 
-                    // $('#d_po_no').text(result.data.purchase.po_no)
                     $('#d_barcode').text(barcode)
                     $('#input_barcode').val(barcode)
                     $('#input_purchase_item_id').val(result.data.id)
                     $('#input_product_id').val(result.data.product_id)
                     $('#div_detail').show()
+                    $('#barcode').val('')
                 }).fail(function(xhr) {
-                    show_toast('error', xhr.responseJSON.message || "Server Error!")
+                    $('#barcode').val('')
+                    // show_toast('error', xhr.responseJSON.message || "Server Error!")
+                    $('#div_alert').show()
+                    $('#alert_content').html(xhr.responseJSON.message || "Server Error!")
                 })
 
             }
@@ -327,13 +211,73 @@
             })
 
             $('#btn_search').click(function() {
-                $('#div_detail').hide()
-                $('#div_save_barcode').show()
-                // $('#save_barcode').prop('disabled', false)
-                let barcode = $('#barcode').val()
-                search_data(barcode)
-
+                search_data()
             })
+
+            $('#barcode').change(function() {
+                search_data()
+            })
+
+            $('#btn_close').click(function() {
+                $('#div_detail').hide()
+            })
+
+
+            let barcodeBuffer = '';
+            let barcodeTimeout = null;
+
+            $(document).on('keypress', function(e) {
+                // Only process if we're not in an input field and modal is not open
+                if (!$(e.target).is('input, textarea, select') && !$('.modal').hasClass('show')) {
+                    const char = String.fromCharCode(e.which);
+
+                    // Add character to buffer
+                    barcodeBuffer += char;
+
+                    // Clear existing timeout
+                    if (barcodeTimeout) {
+                        clearTimeout(barcodeTimeout);
+                    }
+
+                    // Set timeout to process buffer (hardware scanners are typically very fast)
+                    barcodeTimeout = setTimeout(function() {
+                        if (barcodeBuffer.length >= 4) { // Minimum barcode length
+                            console.log('Hardware barcode detected:', barcodeBuffer);
+
+                            // Set the barcode and search
+                            $('#barcode').val(barcodeBuffer);
+                            search_data()
+
+                        }
+
+                        // Clear buffer
+                        barcodeBuffer = '';
+                    }, 100); // 100ms timeout for hardware scanners
+                }
+            });
+
+            // Clear buffer on Enter key (common for hardware scanners)
+            $(document).on('keydown', function(e) {
+                if (e.which === 13 && barcodeBuffer.length > 0) { // Enter key
+                    e.preventDefault();
+
+                    if (barcodeTimeout) {
+                        clearTimeout(barcodeTimeout);
+                    }
+
+                    if (barcodeBuffer.length >= 4) {
+                        console.log('Hardware barcode detected (Enter):', barcodeBuffer);
+
+                        // Set the barcode and search
+                        $('#barcode').val(barcodeBuffer);
+                        search_data()
+                    }
+
+                    // Clear buffer
+                    barcodeBuffer = '';
+                }
+            });
+
 
 
         })

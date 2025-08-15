@@ -44,6 +44,24 @@
                             min="1" required>
                         <span class="error invalid-feedback err_rit" style="display: hide;"></span>
                     </div>
+                    <div class="form-group">
+                        <label for="rit">Status</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="status" id="status_open"
+                                value="open" checked>
+                            <label class="form-check-label" for="status_open">
+                                <span class="badge badge-warning">Open</span>
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="status" id="status_close"
+                                value="close">
+                            <label class="form-check-label" for="status_close">
+                                <span class="badge badge-danger">Close</span>
+                            </label>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet" href="{{ asset('kai/lib/bootstrap-daterangepicker/daterangepicker.css') }}">
 @endpush
 
 @section('contents')
@@ -36,15 +37,12 @@
     @include('purchase.modal')
 @endsection
 @push('js')
+    <script src="{{ asset('kai/lib/moment/min/moment.min.js') }}"></script>
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js">
-    </script>
+
+    <script src="{{ asset('kai/lib/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 
 
     <script>
@@ -57,8 +55,14 @@
                 dropdownParent: $('#modal_form')
             });
 
-            $('#delv_date').datetimepicker({
-                format: 'YYYY-MM-DD HH:mm:ss'
+            $('#delv_date').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: true,
+                timePicker24Hour: true,
+                locale: {
+                    format: 'YYYY-MM-DD HH:mm:ss'
+                }
             });
 
         })
@@ -104,6 +108,7 @@
             }, {
                 data: 'rit',
                 className: "text-center",
+                searchable: false,
             }, {
                 data: 'status',
                 className: "text-center",
@@ -121,6 +126,7 @@
             }, {
                 data: 'items_count',
                 className: "text-center",
+                searchable: false,
             }, {
                 data: 'id',
                 searchable: false,
@@ -217,8 +223,15 @@
                 $('#vendor_id').val(result.data.vendor_id).change()
                 $('#po_no').val(result.data.po_no)
                 $('#dn_no').val(result.data.dn_no)
-                $('#delv_date').val(result.data.delv_date)
+                // $('#delv_date').val(result.data.delv_date)
+                $("#delv_date").data('daterangepicker').setStartDate(result.data.delv_date);
+                $("#delv_date").data('daterangepicker').setEndDate(result.data.delv_date);
                 $('#rit').val(result.data.rit)
+                if (result.data.status == 'open') {
+                    $('#status_open').prop('checked', true)
+                } else {
+                    $('#status_close').prop('checked', true)
+                }
 
                 $('#form').attr('action', URL_INDEX + '/' + id)
                 $('#modal_form_title').html('Edit Data')
@@ -251,6 +264,7 @@
             $('#dn_no').val('')
             $('#delv_date').val('')
             $('#rit').val('')
+            $('#status_open').prop('checked', true)
         }
 
         const old_up = $('#btn_import').html()

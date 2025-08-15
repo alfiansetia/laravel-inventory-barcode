@@ -130,7 +130,7 @@
             }, {
                 data: 'barcodes_count',
                 className: "text-center",
-
+                searchable: false,
             }, {
                 data: 'id',
                 className: "text-center",

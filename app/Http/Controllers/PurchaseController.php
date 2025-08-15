@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Purchase;
 use App\Models\PurchaseItem;
 use App\Models\Vendor;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -36,6 +37,48 @@ class PurchaseController extends Controller
         return view('purchase.show', compact('data', 'products'));
     }
 
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'vendor_id' => 'required|exists:vendors,id',
+            'po_no'     => 'required|unique:purchases,po_no',
+            'dn_no'     => 'required',
+            'delv_date' => 'required|date_format:Y-m-d H:i:s',
+            'rit'       => 'required|integer|gte:1',
+            'status'    => 'required|in:open,close',
+        ]);
+        Purchase::create([
+            'vendor_id' => $request->vendor_id,
+            'po_no'     => $request->po_no,
+            'dn_no'     => $request->dn_no,
+            'delv_date' => $request->delv_date,
+            'rit'       => $request->rit,
+            'status'    => $request->status,
+        ]);
+        return response()->json(['message' => 'Data Inserted!']);
+    }
+
+    public function update(Request $request, Purchase $purchase)
+    {
+        $this->validate($request, [
+            'vendor_id' => 'required|exists:vendors,id',
+            'po_no'     => 'required|unique:purchases,po_no,' . $purchase->id,
+            'dn_no'     => 'required',
+            'delv_date' => 'required|date_format:Y-m-d H:i:s',
+            'rit'       => 'required|integer|gte:1',
+            'status'    => 'required|in:open,close',
+        ]);
+        $purchase->update([
+            'vendor_id' => $request->vendor_id,
+            'po_no'     => $request->po_no,
+            'dn_no'     => $request->dn_no,
+            'delv_date' => $request->delv_date,
+            'rit'       => $request->rit,
+            'status'    => $request->status,
+        ]);
+        return response()->json(['message' => 'Data Updated!']);
+    }
+
     public function import(Request $request)
     {
         $request->validate([
@@ -43,24 +86,29 @@ class PurchaseController extends Controller
         ]);
         DB::beginTransaction();
         try {
-
             $data = Excel::toCollection([], $request->file('file'))[0]->skip(1);
-            // $collection = collect($data);
             $grouped = $data->groupBy(function ($item) {
-                return $item[2]; // Kolom PO NO
+                return $item[2];
             });
             foreach ($grouped as $rows) {
-                // Pastikan vendor ada
+                $po_no =  $rows->first()[2];
                 $vendor = Vendor::firstOrCreate([
                     'vendor_id' => $rows->first()[0],
                 ], [
                     'name' => $rows->first()[1],
                 ]);
 
+                $exist = Purchase::query()
+                    ->where('po_no', $po_no)
+                    ->first();
+                if ($exist) {
+                    throw new Exception("Purchase $po_no Sudah ada!");
+                }
+
                 // Insert purchase
                 $purchase = Purchase::create([
                     'vendor_id' => $vendor->id,
-                    'po_no'     => $rows->first()[2],
+                    'po_no'     => $po_no,
                     'dn_no'     => $rows->first()[3],
                     'rit'       => $rows->first()[4],
                     'delv_date' => $rows->first()[5] . ' ' . $rows->first()[6],
@@ -73,14 +121,6 @@ class PurchaseController extends Controller
                     ], [
                         'name' => $row[10],
                     ]);
-                    // for ($i = 1; $i <= $row[12]; $i++) {
-                    //     Barcode::create([
-                    //         'barcode'       => $purchase->po_no . '+' . $i,
-                    //         'qty'           => 1,
-                    //         'input_date'    => now(),
-                    //     ]);
-                    // }
-
                     return [
                         'purchase_id' => $purchase->id,
                         'product_id'  => $product->id,
@@ -88,33 +128,10 @@ class PurchaseController extends Controller
                         'qty_kbn'     => $row[12],
                     ];
                 })->toArray();
-
-                // Insert batch
                 PurchaseItem::insert($details);
             }
             DB::commit();
             return response()->json($grouped);
-            // DB::beginTransaction();
-            // try {
-            //     Excel::toArray([], $request->file('file'))[0];
-            //     DB::commit();
-            //     return $this->response('Data berhasil diimport!');
-            // } catch (ValidationException $e) {
-            //     DB::rollBack();
-            //     $failures = $e->failures();
-            //     $messages = [];
-            //     foreach ($failures as $failure) {
-            //         $messages[] = 'Baris ' . $failure->row() . ': ' . implode(', ', $failure->errors());
-            //     }
-
-            //     return response()->json([
-            //         'message' => 'Gagal import!, ' . implode(', ', $messages),
-            //         'errors' => $messages,
-            //     ], 422);
-            // } catch (\Throwable $th) {
-            //     DB::rollBack();
-            //     return $this->response('Gagal import: ' . $th->getMessage(), [], 500);
-            // }
         } catch (\Throwable $th) {
             DB::rollBack();
             return response()->json(['message' => 'Gagal import: ' . $th->getMessage()], 500);

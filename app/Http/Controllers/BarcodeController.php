@@ -13,7 +13,7 @@ class BarcodeController extends Controller
 {
     public function index(Request $request)
     {
-        $filters = $request->only(['purchase_item_id']);
+        $filters = $request->only(['purchase_item_id', 'product_id']);
         $query = Barcode::query()->with('purchase_item')->filter($filters);
         return DataTables::eloquent($query)->toJson();
     }
@@ -25,17 +25,18 @@ class BarcodeController extends Controller
             'product_id'        => 'required|exists:products,id',
             'barcode'           => 'required|max:100',
         ]);
+        $barcode = $request->barcode;
         $exist = Barcode::query()
-            ->where('barcode', $request->barcode)
+            ->where('barcode', $barcode)
             ->where('product_id', $request->product_id)
             ->first();
         if ($exist) {
-            return response()->json(['message' => 'Barcode Barang Sudah Ada!'], 403);
+            return response()->json(['message' => "Barcode Barang Sudah Ada!"], 403);
         }
         Barcode::create([
             'purchase_item_id'  => $request->purchase_item_id,
             'product_id'        => $request->product_id,
-            'barcode'           => $request->barcode,
+            'barcode'           => $barcode,
             'qty'               => 1,
             'input_date'        => now(),
         ]);
@@ -74,20 +75,24 @@ class BarcodeController extends Controller
     {
         try {
             if (!$request->filled('barcode')) {
-                throw new Exception('Data Barcode Tidak Ditemukan!');
+                throw new Exception('Tidak Ditemukan!');
             }
             $barcode = $request->barcode;
             $state = false;
             $exist = Barcode::where('barcode', $barcode)->first();
             if ($exist) {
                 $state = true;
-                // throw new Exception('Data Barcode Sudah ada!');
+            }
+            $pattern = '/^[A-Z0-9\-]+\+\d+(?:-\d+)?\+\d+$/i';
+
+            if (!preg_match($pattern, $barcode)) {
+                throw new Exception('Barcode Tidak Valid!');
             }
             try {
                 list($productCode, $poRit, $qtyKbn) = array_map('trim', explode('+', $barcode));
                 list($poNo, $rit) = array_map('trim', explode('-', $poRit));
             } catch (\Throwable $th) {
-                throw new Exception('Barcode Tidak Valid!');
+                throw new Exception('Tidak Valid!');
             }
 
             if ($qtyKbn < 1) {
@@ -95,6 +100,7 @@ class BarcodeController extends Controller
             }
 
             $purchaseItem = PurchaseItem::query()->with(['purchase.vendor', 'product'])
+                ->whereRelation('purchase', 'status', 'open')
                 ->whereRelation('purchase', 'po_no', $poNo)
                 // ->whereRelation('purchase', 'rit', $rit)
                 ->whereHas('product', function ($q) use ($productCode) {
@@ -112,7 +118,7 @@ class BarcodeController extends Controller
                 'state' => $state
             ]);
         } catch (Exception $e) {
-            return response()->json(['message' => 'Error: ' . $e->getMessage()], 400);
+            return response()->json(['message' => 'Error Barcode ' . $barcode . ' : ' . $e->getMessage()], 400);
         }
     }
 }

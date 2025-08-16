@@ -18,6 +18,28 @@ class Barcode extends Model
         }
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+        static::created(function ($barcode) {
+            $this->noted('Barcode Created');
+        });
+    }
+
+    public function noted($message)
+    {
+        BarcodeActivity::create([
+            'barcode_id'    => $this->id,
+            'time'          => now(),
+            'desc'          => $message,
+        ]);
+    }
+
+    public function activities()
+    {
+        return $this->hasMany(BarcodeActivity::class)->latest('time');
+    }
+
     public function purchase_item()
     {
         return $this->belongsTo(PurchaseItem::class);

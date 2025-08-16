@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\PurchaseImport;
-use App\Models\Barcode;
 use App\Models\Product;
 use App\Models\Purchase;
 use App\Models\PurchaseItem;
@@ -86,16 +84,33 @@ class PurchaseController extends Controller
         ]);
         DB::beginTransaction();
         try {
-            $data = Excel::toCollection([], $request->file('file'))[0]->skip(1);
+            $file = $request->file('file');
+            $data = Excel::toCollection([], $file)[0]->skip(1);
+            foreach ($data as $index => $row) {
+                if ($row->count() < 16) {
+                    throw new Exception('Jumlah kolom tidak sesuai di baris ke-' . ($index + 1));
+                }
+            }
+
             $grouped = $data->groupBy(function ($item) {
                 return $item[2];
             });
             foreach ($grouped as $rows) {
-                $po_no =  $rows->first()[2];
+                $first = $rows->first();
+                $ven_id = $first[0] ?? null;
+                $ven_name = $first[1] ?? null;
+                $po_no = $first[2] ?? null;
+                $dn_no = $first[3] ?? null;
+                $rit = $first[4] ?? null;
+                $delv_date = ($first[5] ?? '') . ' ' . ($first[6] ?? '');
+
+                if (empty($ven_id) || empty($ven_name) || empty($po_no) || empty($dn_no) || empty($rit)) {
+                    throw new Exception('Data Dalam File Tidak Valid');
+                }
                 $vendor = Vendor::firstOrCreate([
-                    'vendor_id' => $rows->first()[0],
+                    'vendor_id' => $ven_id,
                 ], [
-                    'name' => $rows->first()[1],
+                    'name' => $ven_name,
                 ]);
 
                 $exist = Purchase::query()
@@ -109,9 +124,9 @@ class PurchaseController extends Controller
                 $purchase = Purchase::create([
                     'vendor_id' => $vendor->id,
                     'po_no'     => $po_no,
-                    'dn_no'     => $rows->first()[3],
-                    'rit'       => $rows->first()[4],
-                    'delv_date' => $rows->first()[5] . ' ' . $rows->first()[6],
+                    'dn_no'     => $dn_no,
+                    'rit'       => $rit,
+                    'delv_date' => $delv_date,
                 ]);
 
                 // Siapkan purchase detail

@@ -248,6 +248,10 @@
             clear_validate('form')
         })
 
+        $('#modal_import').on('shown.bs.modal', function() {
+            $('#form_import')[0].reset();
+        })
+
         $('#form').submit(function(e) {
             e.preventDefault()
             send_ajax('form', $('#modal_form_submit').val())

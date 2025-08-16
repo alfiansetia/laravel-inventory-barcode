@@ -67,6 +67,7 @@
             }, {
                 data: 'stock',
                 className: 'text-center',
+                searchable: false,
             }, {
                 data: 'desc',
             }, {
@@ -142,7 +143,7 @@
             table_item = $("#table_item").DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('barcodes.index') }}" + "?product_id=" + id,
+                ajax: "{{ route('barcodes.index') }}" + "?available=1&product_id=" + id,
                 dom: "<'dt--top-section'<'row mb-2'<'col-sm-12 col-md-6 d-flex justify-content-md-start justify-content-center'B><'col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-center mt-md-0 mt-0'f>>>" +
                     "<'table-responsive'tr>" +
                     "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",

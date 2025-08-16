@@ -154,6 +154,7 @@
         function show_toast(type = 'success', message = '') {
             if (type == 'success') {
                 $.notify({
+                    icon: 'fa fa-bell',
                     message: message
                 }, {
                     type: 'success',
@@ -161,6 +162,7 @@
                 });
             } else if (type == 'warning') {
                 $.notify({
+                    icon: 'fa fa-bell',
                     message: message
                 }, {
                     type: 'warning',
@@ -168,6 +170,7 @@
                 });
             } else {
                 $.notify({
+                    icon: 'fa fa-bell',
                     message: message
                 }, {
                     type: 'danger',

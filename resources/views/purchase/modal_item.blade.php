@@ -64,7 +64,6 @@
                             <tr>
                                 <th>Barcode</th>
                                 <th>Input Date</th>
-                                <th style="width: 50px">#</th>
                             </tr>
                         </thead>
                         <tbody>

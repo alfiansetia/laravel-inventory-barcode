@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('purchase_item_id')->constrained('purchase_items')->cascadeOnUpdate();
             $table->foreignId('product_id')->nullable()->constrained('products')->nullOnDelete()->cascadeOnUpdate();
             $table->string('barcode');
-            $table->integer('qty')->default(0);
+            $table->boolean('available')->default(true);
             $table->dateTime('input_date')->useCurrent();
             $table->timestamps();
         });

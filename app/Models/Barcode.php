@@ -8,6 +8,15 @@ class Barcode extends Model
 {
     protected $guarded = ['id'];
 
+    protected function casts(): array
+    {
+        return [
+            'id'            => 'integer',
+            'barcode_id'    => 'integer',
+            'available'     => 'boolean',
+        ];
+    }
+
     public function scopeFilter($query, array $filters)
     {
         if (isset($filters['purchase_item_id'])) {
@@ -16,13 +25,16 @@ class Barcode extends Model
         if (isset($filters['product_id'])) {
             $query->where('product_id', $filters['product_id']);
         }
+        if (isset($filters['available'])) {
+            $query->where('available', $filters['available']);
+        }
     }
 
     protected static function boot()
     {
         parent::boot();
         static::created(function ($barcode) {
-            $this->noted('Barcode Created');
+            $barcode->noted('Barcode Created');
         });
     }
 
@@ -33,6 +45,18 @@ class Barcode extends Model
             'time'          => now(),
             'desc'          => $message,
         ]);
+    }
+
+    public function markAsAvailable()
+    {
+        $this->update(['avaliable' => 1]);
+        $this->noted('Set to Available');
+    }
+
+    public function markAsUnavailable()
+    {
+        $this->update(['avaliable' => 0]);
+        $this->noted('Set to Unavailable');
     }
 
     public function activities()

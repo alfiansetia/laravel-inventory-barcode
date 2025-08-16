@@ -13,7 +13,7 @@ class BarcodeController extends Controller
 {
     public function index(Request $request)
     {
-        $filters = $request->only(['purchase_item_id', 'product_id']);
+        $filters = $request->only(['purchase_item_id', 'product_id', 'available']);
         $query = Barcode::query()->with('purchase_item')->filter($filters);
         return DataTables::eloquent($query)->toJson();
     }
@@ -26,6 +26,10 @@ class BarcodeController extends Controller
             'barcode'           => 'required|max:100',
         ]);
         $barcode = $request->barcode;
+        $pitem = PurchaseItem::withCount('barcodes')->find($request->purchase_item_id);
+        if ($pitem->barcodes_count >= $pitem->qty_kbn) {
+            return response()->json(['message' => "Qty KBN Full!"], 403);
+        }
         $exist = Barcode::query()
             ->where('barcode', $barcode)
             ->where('product_id', $request->product_id)
@@ -90,7 +94,7 @@ class BarcodeController extends Controller
             }
             try {
                 list($productCode, $poRit, $qtyKbn) = array_map('trim', explode('+', $barcode));
-                list($poNo, $rit) = array_map('trim', explode('-', $poRit));
+                list($poNo, $rit) = array_pad(array_map('trim', explode('-', $poRit)), 2, null);
             } catch (\Throwable $th) {
                 throw new Exception('Tidak Valid!');
             }
@@ -103,9 +107,10 @@ class BarcodeController extends Controller
                 ->whereRelation('purchase', 'status', 'open')
                 ->whereRelation('purchase', 'po_no', $poNo)
                 // ->whereRelation('purchase', 'rit', $rit)
-                ->whereHas('product', function ($q) use ($productCode) {
-                    $q->where('code', $productCode);
-                })
+                ->whereRelation('product', 'code', $productCode)
+                // ->whereHas('product', function ($q) use ($productCode) {
+                //     $q->where('code', $productCode);
+                // })
                 ->where('qty_kbn', '>=', $qtyKbn)
                 ->first();
 

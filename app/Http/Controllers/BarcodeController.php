@@ -94,7 +94,8 @@ class BarcodeController extends Controller
             }
             try {
                 list($productCode, $poRit, $qtyKbn) = array_map('trim', explode('+', $barcode));
-                list($poNo, $rit) = array_pad(array_map('trim', explode('-', $poRit)), 2, null);
+                list($poNo, $rit) = array_map('trim', explode('-', $poRit));
+                // list($poNo, $rit) = array_pad(array_map('trim', explode('-', $poRit)), 2, null);
             } catch (\Throwable $th) {
                 throw new Exception('Tidak Valid!');
             }

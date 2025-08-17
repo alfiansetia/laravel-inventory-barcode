@@ -25,12 +25,12 @@
         </div>
     </div>
 
-    @include('product.modal')
+    @include('barcode.modal')
 @endsection
 @push('js')
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
     <script>
-        const URL_INDEX = "{{ route('products.index') }}"
+        const URL_INDEX = "{{ route('barcodes.index') }}"
     </script>
     <script>
         var table = $("#table").DataTable({
@@ -65,10 +65,20 @@
             }, {
                 data: 'available',
                 className: 'text-center',
+                render: function(data, type, row, meta) {
+                    if (type == 'display') {
+                        if (data) {
+                            return `<span class="badge badge-success">Available</span>`
+                        } else {
+                            return `<span class="badge badge-danger">Available</span>`
+                        }
+                    } else {
+                        return data
+                    }
+                }
             }, {
                 data: 'input_date',
                 className: 'text-start',
-                searchable: false,
             }, {
                 data: 'id',
                 searchable: false,
@@ -78,8 +88,7 @@
                     if (type == 'display') {
                         return `
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-info btn-sm btn-view"><i class="fas fa-eye"></i></button>
-                            <button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
+                            <button type="button" class="btn btn-info btn-sm btn-view"><i class="fas fa-history"></i></button>
                             <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>
                          </div>`;
                     } else {
@@ -88,16 +97,6 @@
                 }
             }],
             buttons: [{
-                text: '<i class="fa fa-plus me-1"></i>Add',
-                className: 'btn btn-sm btn-primary bs-tooltip',
-                attr: {
-                    'data-toggle': 'tooltip',
-                    'title': 'Add Data'
-                },
-                action: function(e, dt, node, config) {
-                    modal_add()
-                }
-            }, {
                 extend: "colvis",
                 attr: {
                     'data-toggle': 'tooltip',
@@ -142,7 +141,7 @@
             table_item = $("#table_item").DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('barcodes.index') }}" + "?available=1&product_id=" + id,
+                ajax: "{{ route('barcode-activities.index') }}" + "?barcode_id=" + id,
                 dom: "<'dt--top-section'<'row mb-2'<'col-sm-12 col-md-6 d-flex justify-content-md-start justify-content-center'B><'col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-center mt-md-0 mt-0'f>>>" +
                     "<'table-responsive'tr>" +
                     "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
@@ -162,12 +161,12 @@
                 columnDefs: [],
                 order: [],
                 columns: [{
-                    data: 'barcode',
+                    data: 'time',
                     className: "text-start",
                 }, {
-                    data: 'input_date',
+                    data: 'desc',
                     className: "text-start",
-                }, ],
+                }],
                 buttons: [],
             });
 

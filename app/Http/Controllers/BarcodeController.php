@@ -13,9 +13,12 @@ class BarcodeController extends Controller
 {
     public function index(Request $request)
     {
-        $filters = $request->only(['purchase_item_id', 'product_id', 'available']);
-        $query = Barcode::query()->with('purchase_item')->filter($filters);
-        return DataTables::eloquent($query)->toJson();
+        if ($request->ajax()) {
+            $filters = $request->only(['purchase_item_id', 'product_id', 'available']);
+            $query = Barcode::query()->with('purchase_item')->filter($filters);
+            return DataTables::eloquent($query)->addIndexColumn()->toJson();
+        }
+        return view('barcode.index');
     }
 
     public function store(Request $request)

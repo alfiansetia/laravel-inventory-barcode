@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BarcodeActivityController;
 use App\Http\Controllers\BarcodeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -32,3 +33,5 @@ Route::resource('barcodes', BarcodeController::class)->except(['edit', 'create']
 
 Route::get('/barcode-scan', [BarcodeController::class, 'scan'])->name('barcodes.scan');
 Route::get('/barcode-get', [BarcodeController::class, 'get'])->name('barcodes.get');
+
+Route::resource('barcode-activities', BarcodeActivityController::class)->only(['index']);

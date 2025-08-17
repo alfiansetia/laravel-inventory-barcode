@@ -130,7 +130,7 @@
             function search_data() {
                 $('#div_alert').hide()
                 $('#div_detail').hide()
-                $('#div_save_barcode').show()
+                $('#save_barcode').show()
                 let barcode = $('#barcode').val()
                 if (barcode == null || barcode == '') {
                     return
@@ -149,9 +149,9 @@
                     let t_status = '<span class="badge bg-warning fs-6">Belum Ada</span>'
                     if (result.state) {
                         t_status = '<span class="badge bg-success fs-6">Tersimpan</span>'
-                        $('#div_save_barcode').hide()
+                        $('#save_barcode').hide()
                     } else {
-                        $('#div_save_barcode').show()
+                        $('#save_barcode').show()
                     }
                     $('#d_status').html(t_status)
 

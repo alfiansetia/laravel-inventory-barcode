@@ -87,19 +87,13 @@
                                 <div class="fs-5" id="d_status">Loading....</div>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="row">
-                                <div class="col">
-                                    <button class="btn btn-warning w-100" id="btn_close">
-                                        <i class="fas fa-arrow-left"></i> CLOSE
-                                    </button>
-                                </div>
-                                <div class="col" id="div_save_barcode">
-                                    <button class="btn btn-danger w-100" id="save_barcode">
-                                        <i class="fab fa-telegram-plane"></i> SAVE
-                                    </button>
-                                </div>
-                            </div>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-warning" id="btn_close">
+                                <i class="fas fa-times"></i> CLOSE
+                            </button>
+                            <button class="btn btn-danger" id="save_barcode">
+                                <i class="far fa-save"></i> SAVE
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -2,11 +2,8 @@
 <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
     <div class="container-fluid">
         <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
-
         </nav>
-
         <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
-
             <li class="nav-item topbar-user dropdown hidden-caret">
                 <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
                     <div class="avatar-sm">
@@ -14,7 +11,7 @@
                             class="avatar-img rounded-circle" />
                     </div>
                     <span class="profile-username">
-                        <span class="op-7">Hi,</span> <span class="fw-bold">Hizrian</span>
+                        <span class="op-7">Hi,</span> <span class="fw-bold">{{ auth()->user()->name }}</span>
                     </span>
                 </a>
                 <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -26,9 +23,11 @@
                                         class="avatar-img rounded" />
                                 </div>
                                 <div class="u-text">
-                                    <h4>Hizrian</h4>
-                                    <p class="text-muted">hello@example.com</p>
-                                    <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                    <h4>{{ auth()->user()->name }}</h4>
+                                    <p class="text-muted">{{ auth()->user()->email }}</p>
+                                    <a href="{{ route('profile.index') }}" class="btn btn-xs btn-danger btn-sm">
+                                        Change Password
+                                    </a>
                                 </div>
                             </div>
                         </li>

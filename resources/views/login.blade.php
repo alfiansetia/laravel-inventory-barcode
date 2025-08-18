@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Sistem Informasi Gudang">
     <link rel="icon" href="{{ asset('kai/assets/img/kaiadmin/favicon.ico') }}" type="image/x-icon" />
-    <title>Login - Sistem Informasi Gudang</title>
+    <title>Login - {{ config('app.name') }}</title>
     <link rel="stylesheet" href="{{ asset('kai/assets/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
     <link
@@ -159,7 +159,7 @@
                         <a href="{{ route('login') }}" class="text-nowrap text-center d-block py-3 w-100 mb-2">
                             <img src="{{ asset('kai/assets/img/kaiadmin/favicon.png') }}" alt="Logo" width="90px">
                         </a>
-                        <h5 class="login-title text-center lh-base px-4 mb-5">Sistem Informasi Gudang </h5>
+                        <h5 class="login-title text-center lh-base px-4 mb-5">{{ config('app.name') }}</h5>
                         <form action="{{ route('login') }}" method="POST">
                             @csrf
                             <div class="form-floating mb-3">
@@ -203,8 +203,6 @@
             </div>
         </div>
     </div>
-
-
 
     <script src="{{ asset('kai/assets/js/core/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('kai/assets/js/core/popper.min.js') }}"></script>

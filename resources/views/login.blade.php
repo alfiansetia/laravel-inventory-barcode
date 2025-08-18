@@ -157,11 +157,9 @@
                 <div class="card auth-card mx-3 mb-0">
                     <div class="card-body">
                         <a href="{{ route('login') }}" class="text-nowrap text-center d-block py-3 w-100 mb-2">
-                            <img src="https://demo.codenul.com/laravel/persediaan-barang/public/images/logo.png"
-                                alt="Logo" width="90px">
+                            <img src="{{ asset('kai/assets/img/kaiadmin/favicon.png') }}" alt="Logo" width="90px">
                         </a>
-                        <h5 class="login-title text-center lh-base px-4 mb-5">Sistem Informasi Persediaan Barang Gudang
-                            Material</h5>
+                        <h5 class="login-title text-center lh-base px-4 mb-5">Sistem Informasi Gudang </h5>
                         <form action="{{ route('login') }}" method="POST">
                             @csrf
                             <div class="form-floating mb-3">

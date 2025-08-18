@@ -29,9 +29,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Close
+                        <i class="fas fa-times me-1"></i> Close
                     </button>
-                    <button id="modal_form_submit" type="submit" class="btn btn-primary">Save changes</button>
+                    <button id="modal_form_submit" type="submit" class="btn btn-primary"><i
+                            class="fas fa-save me-1"></i>Save changes</button>
                 </div>
             </div>
         </div>
@@ -67,7 +68,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Close
+                        <i class="fas fa-times me-1"></i> Close
                     </button>
                 </div>
             </div>

@@ -70,7 +70,7 @@
                         if (data) {
                             return `<span class="badge badge-success">Available</span>`
                         } else {
-                            return `<span class="badge badge-danger">Available</span>`
+                            return `<span class="badge badge-danger">Unavailable</span>`
                         }
                     } else {
                         return data

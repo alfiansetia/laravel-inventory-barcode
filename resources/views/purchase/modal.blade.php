@@ -65,9 +65,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Close
+                        <i class="fas fa-times me-1"></i> Close
                     </button>
-                    <button id="modal_form_submit" type="submit" class="btn btn-primary">Save changes</button>
+                    <button id="modal_form_submit" type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-1"></i> Save changes</button>
                 </div>
             </div>
         </div>
@@ -102,7 +103,7 @@
                     <i class="fas fa-download me-1" title="Download Sample"></i>Download Sample
                 </a>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    &times; Close
+                    <i class="fas fa-times me-1"></i> Close
                 </button>
                 <button type="button" id="btn_import" class="btn btn-primary">
                     <i class="fas fa-upload me-1" title="Upload File"></i>Upload</button>

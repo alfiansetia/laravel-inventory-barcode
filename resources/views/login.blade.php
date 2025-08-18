@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Sistem Informasi Persediaan Barang Gudang Material">
+    <meta name="description" content="Sistem Informasi Gudang">
     <link rel="icon" href="{{ asset('kai/assets/img/kaiadmin/favicon.ico') }}" type="image/x-icon" />
-    <title>Login - Sistem Informasi Persediaan Barang Gudang Material</title>
+    <title>Login - Sistem Informasi Gudang</title>
     <link rel="stylesheet" href="{{ asset('kai/assets/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
     <link

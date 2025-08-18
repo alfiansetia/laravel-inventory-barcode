@@ -6,7 +6,7 @@
     <title>Kaiadmin - Bootstrap 5 Admin Dashboard</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="kai/assets/img/kaiadmin/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('kai/assets/img/kaiadmin/favicon.ico') }}" type="image/x-icon" />
 
     <!-- Fonts and icons -->
     <script src="{{ asset('kai/assets/js/plugin/webfont/webfont.min.js') }}"></script>

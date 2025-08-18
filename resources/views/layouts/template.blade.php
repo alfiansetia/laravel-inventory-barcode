@@ -83,15 +83,8 @@
     <script src="{{ asset('kai/assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('kai/assets/js/core/bootstrap.min.js') }}"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bs-custom-file-input/1.1.1/bs-custom-file-input.min.js"
-        integrity="sha512-LGq7YhCBCj/oBzHKu2XcPdDdYj6rA0G6KV0tCuCImTOeZOV/2iPOqEe5aSSnwviaxcm750Z8AQcAk9rouKtVSg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js"
-        integrity="sha512-eYSzo+20ajZMRsjxB6L7eyqo5kuXuS2+wEbbOkpaur+sA2shQameiJiWEzCIDwJqaB0a4a6tCuEvCOBHUg3Skg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
+    <script src="{{ asset('kai/lib/bs-custom-file-input-1.3.4/dist/bs-custom-file-input.min.js') }}"></script>
+    <script src="{{ asset('kai/lib/blockui-2.70/jquery.blockUI.js') }}"></script>
 
     <!-- jQuery Scrollbar -->
     <script src="{{ asset('kai/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>

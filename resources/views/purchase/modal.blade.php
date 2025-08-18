@@ -90,11 +90,13 @@
                     @csrf
                     <div class="form-group">
                         <label class="control-label" for="import_file">Pilih File :</label>
-                        <div class="custom-file">
+                        <input class="form-control" name="file" type="file" id="import_file"
+                            accept=".xlsx,.xls,.csv">
+                        {{-- <div class="custom-file">
                             <input name="file" type="file" class="custom-file-input" id="import_file"
                                 accept=".xlsx,.xls,.csv">
                             <label class="custom-file-label" for="import_file">Choose file</label>
-                        </div>
+                        </div> --}}
                     </div>
                 </form>
             </div>

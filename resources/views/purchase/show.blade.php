@@ -97,7 +97,13 @@
             processing: true,
             serverSide: false,
             rowId: 'id',
-            ajax: URL_INDEX + '?purchase_id={{ $data->id }}',
+            ajax: {
+                url: URL_INDEX + '?purchase_id={{ $data->id }}',
+                error: function(xhr, error, code) {
+                    $("#table_processing").hide()
+                    $(".dt-empty").text('Error, Please Refresh!')
+                }
+            },
             dom: "<'dt--top-section'<'row mb-2'<'col-sm-12 col-md-6 d-flex justify-content-md-start justify-content-center'B><'col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-center mt-md-0 mt-0'f>>>" +
                 "<'table-responsive'tr>" +
                 "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",

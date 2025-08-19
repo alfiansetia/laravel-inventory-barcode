@@ -229,6 +229,7 @@
 
                         if (!exist) {
                             table.row.add({
+                                'item_id': result.data.id,
                                 'product_id': result.data.product_id,
                                 'product_code': result.data.product.code,
                                 'product_name': result.data.product.name,
@@ -276,13 +277,16 @@
                     .then((willDelete) => {
                         if (willDelete) {
                             ajax_setup()
-                            let data = new FormData($('#form_save')[0])
+                            let rows = table.rows().data().toArray()
+                            let payload = {
+                                purchase_item_id: rows.map(r => r.item_id),
+                                product_id: rows.map(r => r.product_id),
+                                name: rows.map(r => r.name),
+                            }
                             $.ajax({
-                                url: "{{ route('barcodes.store') }}",
+                                url: "{{ route('purchases.scan', $data->id) }}",
                                 method: 'POST',
-                                processData: false,
-                                contentType: false,
-                                data: data,
+                                data: payload,
                                 success: function(result) {
                                     show_toast('success', result.message || 'Success!')
                                     $('#div_detail').hide()

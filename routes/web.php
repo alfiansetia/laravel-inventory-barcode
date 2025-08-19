@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('vendors', VendorController::class)->except(['edit', 'create']);
 
     Route::get('purchases/{purchase}/scan', [PurchaseScanController::class, 'index'])->name('purchases.scan');
+    Route::post('purchases/{purchase}/scan', [PurchaseScanController::class, 'save'])->name('purchases.save');
     Route::post('/purchases-import', [PurchaseController::class, 'import'])->name('purchases.import');
     Route::resource('purchases', PurchaseController::class)->except(['edit', 'create']);
     Route::resource('purchase-items', PurchaseItemController::class)->except(['edit', 'create']);

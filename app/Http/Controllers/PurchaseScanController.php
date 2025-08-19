@@ -7,6 +7,7 @@ use App\Models\Purchase;
 use App\Models\PurchaseItem;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PurchaseScanController extends Controller
 {
@@ -21,7 +22,48 @@ class PurchaseScanController extends Controller
 
     public function save(Request $request)
     {
-        // 
+        $this->validate($request, [
+            'purchase_item_id'      => 'required|exists:purchase_items,id',
+            'product_id'            => 'required|array',
+            'product_id.*'          => 'required|exists:products,id',
+            'name'                  => 'required|array',
+            'name.*'                => 'required|string|max:100',
+        ]);
+        DB::beginTransaction();
+        try {
+            $barcode = $request->barcode;
+            $pitem = PurchaseItem::withCount('barcodes')->find($request->purchase_item_id);
+            if ($pitem->barcodes_count >= $pitem->qty_kbn) {
+                return response()->json(['message' => "Qty KBN Full!"], 403);
+            }
+            $exist = Barcode::query()
+                ->where('barcode', $barcode)
+                ->where('product_id', $request->product_id)
+                ->first();
+            if ($exist) {
+                return response()->json(['message' => "Barcode Barang Sudah Ada!"], 403);
+            }
+            Barcode::create([
+                'purchase_item_id'  => $request->purchase_item_id,
+                'product_id'        => $request->product_id,
+                'barcode'           => $barcode,
+                'available'         => 1,
+                'input_date'        => now(),
+            ]);
+            $purchase = $pitem->purchase;
+            $allFilled = !$purchase->items()
+                ->whereRaw('(SELECT COUNT(*) FROM barcodes WHERE barcodes.purchase_item_id = purchase_items.id) < qty_kbn')
+                ->exists();
+
+            if ($allFilled && $purchase->status !== 'close') {
+                $purchase->update(['status' => 'close']);
+            }
+            DB::commit();
+            return response()->json(['message' => 'Barcode Tersimpan!']);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            //throw $th;
+        }
     }
 
     public function get(Request $request, Purchase $purchase)
@@ -31,7 +73,6 @@ class PurchaseScanController extends Controller
                 throw new Exception('Tidak Ditemukan!');
             }
             $barcode = $request->barcode;
-            $state = false;
             $exist = Barcode::where('barcode', $barcode)->first();
             if ($exist) {
                 throw new Exception('Sudah Tersimpan!');

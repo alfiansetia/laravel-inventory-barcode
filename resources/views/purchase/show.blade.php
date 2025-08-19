@@ -10,7 +10,7 @@
     <div class="card mb-4">
         <div class="card-body">
             <div class="mb-4">
-                <h5 class="card-title mb-0">Information Purchase</h5>
+                <h5 class="card-title mb-0">Information Purchase <span class="text-danger">{{ $data->po_no }}</span></h5>
             </div>
             <div class="row mb-2">
                 <div class="col-md-6">
@@ -39,9 +39,14 @@
                     <div class="mb-3">
                         <div class="form-text">Status</div>
                         @if ($data->isClose())
-                            <div class="fs-5"><span class="badge badge-danger">{{ $data->status }}</span></div>
+                            <div class="fs-5">
+                                <span class="badge badge-danger">{{ $data->status }}</span>
+                            </div>
                         @else
-                            <div class="fs-5"><span class="badge badge-warning">{{ $data->status }}</span></div>
+                            <div class="fs-5">
+                                <span class="badge badge-warning">{{ $data->status }}</span>
+                                {{-- <button class="btn btn-sm btn-primary">Mark As Close</button> --}}
+                            </div>
                         @endif
                     </div>
                 </div>
@@ -205,6 +210,8 @@
             },
         });
 
+        $.fn.dataTable.ext.errMode = 'none';
+
         $('#table tbody').on('click', 'tr .btn-delete', function() {
             row = $(this).parents('tr')[0];
             id = table.row(row).data().id
@@ -290,31 +297,5 @@
             $('#lot').val(1)
             $('#qty_kbn').val(1)
         }
-
-        const old_up = $('#btn_import').html()
-
-        $('#btn_import').on('click', function() {
-            var formData = new FormData($('#form_import')[0]);
-            $.ajax({
-                url: "{{ route('purchases.import') }}",
-                type: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-                beforeSend: function() {
-                    $('#btn_import').prop('disabled', true).html('Uploading...');
-                },
-                success: function(res) {
-                    table.ajax.reload();
-                    $('#btn_import').prop('disabled', false).html(old_up);
-                    $('#modal_import').modal('hide');
-                    show_toast('success', 'Import berhasil!')
-                },
-                error: function(xhr) {
-                    $('#btn_import').prop('disabled', false).html(old_up);
-                    show_toast('error', xhr.responseJSON.message || 'Terjadi kesalahan saat import.')
-                }
-            });
-        });
     </script>
 @endpush

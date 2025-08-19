@@ -47,6 +47,15 @@ class BarcodeController extends Controller
             'qty'               => 1,
             'input_date'        => now(),
         ]);
+        $purchase = $pitem->purchase;
+
+        $allFilled = !$purchase->items()
+            ->whereRaw('(SELECT COUNT(*) FROM barcodes WHERE barcodes.purchase_item_id = purchase_items.id) < qty_kbn')
+            ->exists();
+
+        if ($allFilled && $purchase->status !== 'close') {
+            $purchase->update(['status' => 'close']);
+        }
         return response()->json(['message' => 'Data Inserted!']);
     }
 
@@ -69,6 +78,9 @@ class BarcodeController extends Controller
     public function destroy(Barcode $barcode)
     {
         $barcode->delete();
+        $barcode->purchase_item->purchase->update([
+            'status' => 'open'
+        ]);
         return response()->json(['message' => 'Data Deleted!']);
     }
 

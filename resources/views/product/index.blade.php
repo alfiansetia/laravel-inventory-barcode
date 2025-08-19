@@ -135,6 +135,8 @@
             },
         });
 
+        $.fn.dataTable.ext.errMode = 'none';
+
         $('#table tbody').on('click', 'tr .btn-view', function() {
             row = $(this).parents('tr')[0];
             id = table.row(row).data().id

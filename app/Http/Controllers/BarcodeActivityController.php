@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Barcode;
 use App\Models\BarcodeActivity;
-use App\Models\Purchase;
-use App\Models\PurchaseItem;
-use Exception;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 

@@ -201,6 +201,8 @@
             },
         });
 
+        $.fn.dataTable.ext.errMode = 'none';
+
         $('#table tbody').on('click', 'tr .btn-delete', function() {
             row = $(this).parents('tr')[0];
             id = table.row(row).data().id
@@ -269,7 +271,6 @@
             $('#status_open').prop('checked', true)
         }
 
-        const old_up = $('#btn_import').html()
 
         $('#btn_import').on('click', function() {
             var formData = new FormData($('#form_import')[0]);
@@ -280,16 +281,13 @@
                 processData: false,
                 contentType: false,
                 beforeSend: function() {
-                    $('#btn_import').prop('disabled', true).html('Uploading...');
+                    // 
                 },
                 success: function(res) {
                     table.ajax.reload();
-                    $('#btn_import').prop('disabled', false).html(old_up);
-                    $('#modal_import').modal('hide');
                     show_toast('success', 'Import berhasil!')
                 },
                 error: function(xhr) {
-                    $('#btn_import').prop('disabled', false).html(old_up);
                     show_toast('error', xhr.responseJSON.message || 'Terjadi kesalahan saat import.')
                 }
             });

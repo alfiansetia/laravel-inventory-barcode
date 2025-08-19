@@ -18,6 +18,11 @@ class Product extends Model
         return $this->hasMany(Barcode::class);
     }
 
+    public function purchase_items()
+    {
+        return $this->hasMany(PurchaseItem::class);
+    }
+
     public function available_barcodes()
     {
         return $this->hasMany(Barcode::class)->where('barcodes.available', 1);

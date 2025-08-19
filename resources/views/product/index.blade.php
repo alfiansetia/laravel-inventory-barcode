@@ -14,6 +14,7 @@
                             <th width="30">No</th>
                             <th>Product Code</th>
                             <th>Name</th>
+                            <th>Qty Order</th>
                             <th>Stock</th>
                             <th>Description</th>
                             <th>#</th>
@@ -70,6 +71,10 @@
                 data: 'code',
             }, {
                 data: 'name',
+            }, {
+                data: 'qty_ord',
+                className: 'text-center',
+                searchable: false,
             }, {
                 data: 'stock',
                 className: 'text-center',

@@ -130,7 +130,7 @@
                 if (barcode == null || barcode == '') {
                     return
                 }
-                $.get("{{ route('barcodes.get') }}/?barcode=" + encodeURIComponent(barcode)).done(function(result) {
+                $.get("{{ route('barcodes.get') }}?barcode=" + encodeURIComponent(barcode)).done(function(result) {
                     $('#d_vendor').html(
                         `<b>[${result.data.purchase.vendor.vendor_id}]</b> ${result.data.purchase.vendor.name}`
                     )

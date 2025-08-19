@@ -27,12 +27,14 @@ class PurchaseItemController extends Controller
             'product_id'    => 'required|exists:products,id',
             'lot'           => 'required|integer|gte:1',
             'qty_kbn'       => 'required|integer|gte:1',
+            'qty_ord'       => 'required|integer|gte:1',
         ]);
         PurchaseItem::create([
             'purchase_id'   => $request->purchase_id,
             'product_id'    => $request->product_id,
             'lot'           => $request->lot,
             'qty_kbn'       => $request->qty_kbn,
+            'qty_ord'       => $request->qty_ord,
         ]);
         return response()->json(['message' => 'Data Inserted!']);
     }
@@ -44,12 +46,14 @@ class PurchaseItemController extends Controller
             'product_id'    => 'required|exists:products,id',
             'lot'           => 'required|integer|gte:1',
             'qty_kbn'       => 'required|integer|gte:1',
+            'qty_ord'       => 'required|integer|gte:1',
         ]);
         $purchase_item->update([
             'purchase_id'   => $request->purchase_id,
             'product_id'    => $request->product_id,
             'lot'           => $request->lot,
             'qty_kbn'       => $request->qty_kbn,
+            'qty_ord'       => $request->qty_ord,
         ]);
         return response()->json(['message' => 'Data Updated!']);
     }

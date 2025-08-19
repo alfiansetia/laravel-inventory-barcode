@@ -33,6 +33,12 @@
                             placeholder="Enter Qty KBN" min="1" required>
                         <span class="error invalid-feedback err_qty_kbn" style="display: hide;"></span>
                     </div>
+                    <div class="form-group">
+                        <label for="qty_ord">Qty Order</label>
+                        <input type="number" name="qty_ord" class="form-control" id="qty_ord"
+                            placeholder="Enter Qty Order" min="1" required>
+                        <span class="error invalid-feedback err_qty_ord" style="display: hide;"></span>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

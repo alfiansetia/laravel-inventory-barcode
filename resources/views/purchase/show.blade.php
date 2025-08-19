@@ -61,7 +61,8 @@
                             <th>Product Code</th>
                             <th>Product Name</th>
                             <th class="text-center">Lot</th>
-                            <th class="text-end">Qty KBN</th>
+                            <th class="text-center">Qty KBN</th>
+                            <th class="text-center">Qty Order</th>
                             <th class="text-center">Barcode</th>
                             <th class="text-center">Outstanding </th>
                         </tr>
@@ -136,6 +137,10 @@
 
             }, {
                 data: 'qty_kbn',
+                className: "text-center",
+
+            }, {
+                data: 'qty_ord',
                 className: "text-center",
 
             }, {
@@ -272,6 +277,7 @@
                 $('#product_id').val(result.data.product_id).change()
                 $('#lot').val(result.data.lot)
                 $('#qty_kbn').val(result.data.qty_kbn)
+                $('#qty_ord').val(result.data.qty_ord)
 
                 $('#form').attr('action', URL_INDEX + '/' + id)
                 $('#modal_form_title').html('Edit Data')
@@ -302,6 +308,7 @@
             $('#product_id').val('').change()
             $('#lot').val(1)
             $('#qty_kbn').val(1)
+            $('#qty_ord').val(1)
         }
     </script>
 @endpush

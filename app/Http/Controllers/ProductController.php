@@ -12,10 +12,14 @@ class ProductController extends Controller
     {
         if ($request->ajax()) {
             // $query = Product::query()->withSum('barcodes as stock', 'qty');
-            $query = Product::query()->withCount('available_barcodes as stock');
+            $query = Product::query()
+                ->withCount('available_barcodes as stock')
+                ->withSum('purchase_items as qty_ord', 'qty_ord');
             return DataTables::eloquent($query)
                 ->editColumn('stock', function ($row) {
                     return intval($row->stock) ?? 0;
+                })->editColumn('qty_ord', function ($row) {
+                    return intval($row->qty_ord) ?? 0;
                 })->addIndexColumn()->toJson();
         }
         return view('product.index');

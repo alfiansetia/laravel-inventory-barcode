@@ -139,8 +139,9 @@ class PurchaseController extends Controller
                     return [
                         'purchase_id' => $purchase->id,
                         'product_id'  => $product->id,
-                        'lot'         => $row[11],
-                        'qty_kbn'     => $row[12],
+                        'lot'         => $row[11] ?? 0,
+                        'qty_kbn'     => $row[12] ?? 0,
+                        'qty_ord'     => $row[13] ?? 0,
                     ];
                 })->toArray();
                 PurchaseItem::insert($details);

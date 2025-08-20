@@ -208,6 +208,16 @@
                 action: function(e, dt, node, config) {
                     table.ajax.reload()
                 }
+            }, {
+                text: '<i class="fas fa-barcode me-1"></i>Scan',
+                className: 'btn btn-sm btn-info bs-tooltip',
+                attr: {
+                    'data-toggle': 'tooltip',
+                    'title': 'Scan Barcode'
+                },
+                action: function(e, dt, node, config) {
+                    window.location.href = "{{ route('purchases.scan', $data->id) }}"
+                }
             }, ],
             initComplete: function() {
                 $('#table').DataTable().buttons().container().appendTo(

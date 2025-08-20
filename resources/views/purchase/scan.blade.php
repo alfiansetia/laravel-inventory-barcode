@@ -1,4 +1,4 @@
-@extends('layouts.template', ['title' => 'Scan', 'breadcumbs' => ['Purchase', $data->po_no, 'Scan']])
+@extends('layouts.template', ['title' => 'Purchase', 'breadcumbs' => ['Purchase', $data->po_no, 'Scan']])
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}">
@@ -283,11 +283,14 @@
                                 product_id: rows.map(r => r.product_id),
                                 name: rows.map(r => r.name),
                             }
+                            console.log(payload);
+
                             $.ajax({
                                 url: "{{ route('purchases.scan', $data->id) }}",
                                 method: 'POST',
                                 data: payload,
                                 success: function(result) {
+                                    table.clear().draw();
                                     show_toast('success', result.message || 'Success!')
                                     $('#div_detail').hide()
                                 },

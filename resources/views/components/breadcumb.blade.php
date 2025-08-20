@@ -2,7 +2,7 @@
     <h4 class="page-title">{{ $title }}</h4>
     <ul class="breadcrumbs">
         <li class="nav-home">
-            <a href="#">
+            <a href="{{ route('home') }}">
                 <i class="icon-home"></i>
             </a>
         </li>

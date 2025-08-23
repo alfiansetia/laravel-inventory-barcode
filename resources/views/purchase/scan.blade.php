@@ -84,14 +84,15 @@
 
     <div class="card mb-4">
         <div class="card-body">
-            <h5>Daftar Barcode</h5>
+            <h5>Daftar Barang</h5>
             <table id="table" class="table-sm table-hover mb-0" style="width: 100%;cursor: pointer;">
                 <thead>
                     <tr>
                         {{-- <th width="30">No</th> --}}
                         <th>Product Code</th>
                         <th>Product Name</th>
-                        <th>Barcode</th>
+                        <th>Qty Kbn</th>
+                        <th>Qty In</th>
                         <th>#</th>
                     </tr>
                 </thead>
@@ -141,16 +142,24 @@
                     data: 'product_name',
                     className: "text-start",
                 }, {
-                    data: 'name',
-                    className: "text-start",
+                    data: 'qty_kbn',
+                    className: "text-center",
                 }, {
-                    data: 'name',
+                    data: 'qty_kbn',
+                    className: "text-center",
+                }, {
+                    data: 'product_id',
                     searchable: false,
                     orderable: false,
                     className: "text-center",
                     render: function(data, type, row, meta) {
                         if (type == 'display') {
-                            return `<button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>`;
+                            return `
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>
+                                </div>
+                            `
                         } else {
                             return data
                         }
@@ -224,7 +233,7 @@
                         $('#d_status').html(t_status)
                         let data = table.rows().data().toArray()
                         let exist = data.some(item =>
-                            item.product_id == result.data.product_id && item.name == barcode
+                            item.product_id == result.data.product_id
                         )
 
                         if (!exist) {
@@ -233,14 +242,16 @@
                                 'product_id': result.data.product_id,
                                 'product_code': result.data.product.code,
                                 'product_name': result.data.product.name,
-                                'name': barcode
+                                'qty_kbn': result.data.qty_kbn,
+                                'qty_in': result.data.qty_in,
                             }).draw()
 
                             $('#div_alert_success').show()
-                            $('#alert_content_success').html(barcode + " ditambahkan ke tabel!")
+                            $('#alert_content_success').html(
+                                `Product ${result.data.product.code} ditambahkan ke tabel!`)
                         } else {
                             $('#div_alert').show()
-                            $('#alert_content').html("Barcode sudah ada di tabel!")
+                            $('#alert_content').html("Barang sudah ada di tabel!")
                         }
 
                         $('#d_barcode').text(barcode)

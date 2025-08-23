@@ -1,4 +1,4 @@
-@extends('layouts.template', ['title' => 'Purchase', 'breadcumbs' => ['Purchase']])
+@extends('layouts.template', ['title' => 'Inbound', 'breadcumbs' => ['Inbound']])
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}">

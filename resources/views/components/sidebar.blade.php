@@ -63,10 +63,10 @@
                      <h4 class="text-section">Transaction</h4>
                  </li>
 
-                 <li class="nav-item {{ $title == 'Purchase' ? 'active' : '' }}">
+                 <li class="nav-item {{ $title == 'Inbound' ? 'active' : '' }}">
                      <a class="" href="{{ route('purchases.index') }}">
                          <i class="ti ti-transfer-in"></i>
-                         <p>Purchase</p>
+                         <p>Inbound</p>
                      </a>
                  </li>
 
@@ -76,6 +76,14 @@
                          <p>Scan</p>
                      </a>
                  </li>
+
+                 <li class="nav-item {{ $title == 'Purchase Out' ? 'active' : '' }}">
+                     <a class="" href="{{ route('purchases.index') }}">
+                         <i class="ti ti-transfer-out"></i>
+                         <p>Outbound</p>
+                     </a>
+                 </li>
+
                  <li class="nav-section">
                      <span class="sidebar-mini-icon">
                          <i class="fa fa-ellipsis-h"></i>

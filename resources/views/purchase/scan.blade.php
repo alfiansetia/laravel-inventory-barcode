@@ -59,6 +59,10 @@
                             <i class="ti ti-search"></i>
                             <span>Cari</span>
                         </button>
+                        <button type="button" class="btn btn-secondary" id="btn_pilih">
+                            <i class="ti ti-list"></i>
+                            <span>Pilih</span>
+                        </button>
                     </div>
                     <div id="emailHelp" class="form-text">Format Barcode : SEBANGO+PO_NO+QTY_KBN.</div>
                 </div>

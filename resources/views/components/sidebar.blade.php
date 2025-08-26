@@ -49,12 +49,12 @@
                          <p>Vendor</p>
                      </a>
                  </li>
-                 <li class="nav-item {{ $title == 'Barcode' ? 'active' : '' }}">
+                 {{-- <li class="nav-item {{ $title == 'Barcode' ? 'active' : '' }}">
                      <a class="" href="{{ route('barcodes.index') }}">
                          <i class="ti ti-barcode"></i>
                          <p>Barcode</p>
                      </a>
-                 </li>
+                 </li> --}}
 
                  <li class="nav-section">
                      <span class="sidebar-mini-icon">

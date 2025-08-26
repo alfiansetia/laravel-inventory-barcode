@@ -8,6 +8,16 @@ class Product extends Model
 {
     protected $guarded = ['id'];
 
+    public function getStockAttribute()
+    {
+        return ($this->in ?? 0) - ($this->out ?? 0);
+    }
+
+    public function outOffStock()
+    {
+        return $this->stock < 1;
+    }
+
     public function vendor()
     {
         return $this->belongsTo(Vendor::class);

@@ -1,7 +1,8 @@
-@extends('layouts.template', ['title' => 'Product', 'breadcumbs' => ['Product']])
+@extends('layouts.template', ['title' => 'Outbound', 'breadcumbs' => ['Outbound']])
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('kai/lib/bootstrap-daterangepicker/daterangepicker.css') }}">
 @endpush
 
 @section('contents')
@@ -12,11 +13,10 @@
                     <thead>
                         <tr>
                             <th width="30">No</th>
-                            <th>Product Code</th>
-                            <th>Name</th>
-                            <th>Qty Order</th>
-                            <th>Stock</th>
-                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Number</th>
+                            <th>Desc</th>
+                            <th>Items</th>
                             <th>#</th>
                         </tr>
                     </thead>
@@ -27,14 +27,34 @@
         </div>
     </div>
 
-    @include('product.modal')
+    @include('outbound.modal')
 @endsection
 @push('js')
+    <script src="{{ asset('kai/lib/moment/min/moment.min.js') }}"></script>
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
+
+
+    <script src="{{ asset('kai/lib/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+
+
     <script>
-        const URL_INDEX = "{{ route('products.index') }}"
+        const URL_INDEX = "{{ route('outbounds.index') }}"
     </script>
     <script>
+        $(document).ready(function() {
+
+            $('#date').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: true,
+                timePicker24Hour: true,
+                locale: {
+                    format: 'YYYY-MM-DD HH:mm:ss'
+                }
+            });
+
+        })
+
         var table = $("#table").DataTable({
             processing: true,
             serverSide: true,
@@ -68,19 +88,18 @@
                 searchable: false,
                 orderable: false,
             }, {
-                data: 'code',
+                data: 'date',
+                className: "text-start",
             }, {
-                data: 'name',
-            }, {
-                data: 'qty_ord',
-                className: 'text-center',
-                searchable: false,
-            }, {
-                data: 'stock',
-                className: 'text-center',
-                searchable: false,
+                data: 'number',
+                className: "text-start",
             }, {
                 data: 'desc',
+                className: "text-start",
+            }, {
+                data: 'items_count',
+                className: "text-center",
+                searchable: false,
             }, {
                 data: 'id',
                 searchable: false,
@@ -90,10 +109,12 @@
                     if (type == 'display') {
                         return `
                         <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-secondary btn-sm btn-scan"><i class="fas fa-barcode"></i></button>
                             <button type="button" class="btn btn-info btn-sm btn-view"><i class="fas fa-eye"></i></button>
                             <button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
                             <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>
-                         </div>`;
+                        </div>
+                        `;
                     } else {
                         return data
                     }
@@ -148,50 +169,22 @@
 
         $.fn.dataTable.ext.errMode = 'none';
 
-        $('#table tbody').on('click', 'tr .btn-view', function() {
-            row = $(this).parents('tr')[0];
-            id = table.row(row).data().id
-            $('#table_item').DataTable().clear().destroy();
-
-            table_item = $("#table_item").DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('purchase-trx.index') }}" + "?purchase_item_id=" + id,
-                dom: "<'dt--top-section'<'row mb-2'<'col-sm-12 col-md-6 d-flex justify-content-md-start justify-content-center'B><'col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-center mt-md-0 mt-0'f>>>" +
-                    "<'table-responsive'tr>" +
-                    "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
-                oLanguage: {
-                    oPaginate: {
-                        sPrevious: '<i class="fas fa-chevron-left"></i>',
-                        sNext: '<i class="fas fa-chevron-right"></i>'
-                    },
-                    sSearch: '',
-                    sSearchPlaceholder: "Search...",
-                    sLengthMenu: "Results :  _MENU_",
-                },
-                lengthChange: false,
-                searching: false,
-                paging: false,
-                info: false,
-                columnDefs: [],
-                order: [],
-                columns: [{
-                    data: 'date',
-                    className: "text-start",
-                }, {
-                    data: 'qty',
-                    className: "text-center",
-                }, ],
-                buttons: [],
-            });
-
-            $('#modal_detail').modal('show')
-        });
-
         $('#table tbody').on('click', 'tr .btn-delete', function() {
             row = $(this).parents('tr')[0];
             id = table.row(row).data().id
             send_delete(URL_INDEX + "/" + id)
+        });
+
+        $('#table tbody').on('click', 'tr .btn-view', function() {
+            row = $(this).parents('tr')[0];
+            id = table.row(row).data().id
+            window.location.href = `${URL_INDEX}/${id}`
+        });
+
+        $('#table tbody').on('click', 'tr .btn-scan', function() {
+            row = $(this).parents('tr')[0];
+            id = table.row(row).data().id
+            window.location.href = `${URL_INDEX}/${id}/scan`
         });
 
         $('#table tbody').on('click', 'tr .btn-edit', function() {
@@ -199,9 +192,10 @@
             row = $(this).parents('tr')[0];
             id = table.row(row).data().id
             $.get(URL_INDEX + '/' + id).done(function(result) {
-                $('#name').val(result.data.name)
-                $('#code').val(result.data.code)
+                $('#number').val(result.data.number)
                 $('#desc').val(result.data.desc)
+                $("#date").data('daterangepicker').setStartDate(result.data.date);
+                $("#date").data('daterangepicker').setEndDate(result.data.date);
 
                 $('#form').attr('action', URL_INDEX + '/' + id)
                 $('#modal_form_title').html('Edit Data')
@@ -214,7 +208,7 @@
         });
 
         $('#modal_form').on('shown.bs.modal', function() {
-            $('#code').focus();
+            $('#number').focus();
             clear_validate('form')
         })
 
@@ -228,8 +222,9 @@
             $('#modal_form_submit').val('POST')
             $('#modal_form_title').html('Tambah Data')
             $('#modal_form').modal('show')
-            $('#name').val('')
-            $('#code').val('')
+
+            $('#number').val('')
+            $('#date').val('')
             $('#desc').val('')
         }
     </script>

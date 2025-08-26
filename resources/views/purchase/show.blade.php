@@ -10,7 +10,11 @@
     <div class="card mb-4">
         <div class="card-body">
             <div class="mb-4">
-                <h5 class="card-title mb-0">Information Purchase <span class="text-danger">{{ $data->po_no }}</span></h5>
+                <h5 class="card-title mb-0">
+                    <a href="{{ route('purchases.index') }}" class="btn btn-sm btn-info"><i
+                            class="fas fa-arrow-left"></i>Back</a> Information Purchase <span
+                        class="text-danger">{{ $data->po_no }}</span>
+                </h5>
             </div>
             <div class="row mb-2">
                 <div class="col-md-6">
@@ -63,8 +67,9 @@
                             <th class="text-center">Lot</th>
                             <th class="text-center">Qty KBN</th>
                             <th class="text-center">Qty Order</th>
-                            <th class="text-center">Barcode</th>
+                            <th class="text-center">Qty In</th>
                             <th class="text-center">Outstanding </th>
+                            <th class="text-center"># </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -144,14 +149,14 @@
                 className: "text-center",
 
             }, {
-                data: 'barcodes_count',
+                data: 'qty_in',
                 className: "text-center",
                 searchable: false,
             }, {
                 data: 'id',
                 className: "text-center",
                 render: function(data, type, row, meta) {
-                    let out = parseInt(row.qty_kbn) - parseInt(row.barcodes_count);
+                    let out = parseInt(row.qty_ord) - parseInt(row.qty_in);
                     return out;
                 }
 
@@ -241,13 +246,16 @@
 
         $('#table tbody').on('click', 'tr .btn-view', function() {
             row = $(this).parents('tr')[0];
-            id = table.row(row).data().id
+            data = table.row(row).data()
+            id = data.id
             $('#table_item').DataTable().clear().destroy();
+
+            $('#modal_detail_title').html(`Activity ${data.product.code}`)
 
             table_item = $("#table_item").DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('barcodes.index') }}" + "?purchase_item_id=" + id,
+                ajax: "{{ route('purchase-trx.index') }}" + "?purchase_item_id=" + id,
                 dom: "<'dt--top-section'<'row mb-2'<'col-sm-12 col-md-6 d-flex justify-content-md-start justify-content-center'B><'col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-center mt-md-0 mt-0'f>>>" +
                     "<'table-responsive'tr>" +
                     "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
@@ -267,11 +275,11 @@
                 columnDefs: [],
                 order: [],
                 columns: [{
-                    data: 'barcode',
+                    data: 'date',
                     className: "text-start",
                 }, {
-                    data: 'input_date',
-                    className: "text-start",
+                    data: 'qty',
+                    className: "text-center",
                 }, ],
                 buttons: [],
             });

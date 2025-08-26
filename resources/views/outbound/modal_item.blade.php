@@ -9,22 +9,22 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <input type="hidden" name="outbound_id" value="{{ $data->id }}">
                     <div class="form-group">
-                        <label for="code">Product Code</label>
-                        <input type="text" name="code" class="form-control" id="code"
-                            placeholder="Enter Code" maxlength="100" required>
-                        <span class="error invalid-feedback err_code" style="display: hide;"></span>
+                        <label for="product_id">Product</label>
+                        <select name="product_id" id="product_id" class="form-control" style="width: 100%;" required>
+                            <option value="">Select Product</option>
+                            @foreach ($products as $item)
+                                <option value="{{ $item->id }}">[{{ $item->code }}] {{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                        <span class="error invalid-feedback err_product_id" style="display: hide;"></span>
                     </div>
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Name"
-                            maxlength="100" required>
-                        <span class="error invalid-feedback err_name" style="display: hide;"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="desc">Description</label>
-                        <textarea name="desc" id="desc" class="form-control" maxlength="200" placeholder="Enter Desc"></textarea>
-                        <span class="error invalid-feedback err_desc" style="display: hide;"></span>
+                        <label for="qty">Qty</label>
+                        <input type="number" name="qty" class="form-control" id="qty" placeholder="Enter Qty"
+                            min="1" required>
+                        <span class="error invalid-feedback err_qty" style="display: hide;"></span>
                     </div>
                 </div>
                 <div class="modal-footer">

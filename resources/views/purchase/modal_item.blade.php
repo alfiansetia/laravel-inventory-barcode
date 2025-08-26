@@ -59,7 +59,7 @@
         <div class="modal-dialog  modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title fw-bold" id="modal_detail_title">List Barcode</h5>
+                    <h5 class="modal-title fw-bold" id="modal_detail_title">Activity</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"></span>
                     </button>
@@ -69,8 +69,8 @@
                         style="width: 100%;cursor: pointer;">
                         <thead>
                             <tr>
-                                <th>Barcode</th>
                                 <th>Input Date</th>
+                                <th>Qty</th>
                             </tr>
                         </thead>
                         <tbody>

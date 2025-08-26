@@ -11,8 +11,10 @@ class PurchaseItemController extends Controller
     public function index(Request $request)
     {
         $filters = $request->only(['purchase_id']);
-        $query = PurchaseItem::query()->with('product')->withCount('barcodes')->filter($filters);
-        return DataTables::eloquent($query)->toJson();
+        $query = PurchaseItem::query()->with('product')
+            ->withSum('trx as qty_in', 'qty')
+            ->filter($filters);
+        return DataTables::eloquent($query)->addIndexColumn()->toJson();
     }
 
     public function show(PurchaseItem $purchase_item)

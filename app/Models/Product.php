@@ -27,4 +27,14 @@ class Product extends Model
     {
         return $this->hasMany(Barcode::class)->where('barcodes.available', 1);
     }
+
+    public function trx()
+    {
+        return $this->hasMany(PurchaseTransaction::class);
+    }
+
+    public function out()
+    {
+        return $this->hasMany(OutboundItem::class);
+    }
 }

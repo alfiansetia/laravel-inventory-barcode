@@ -15,6 +15,21 @@ class PurchaseItem extends Model
         }
     }
 
+    protected $casts = [
+        'qty_in' => 'integer',
+    ];
+
+    public function getQtyInAttribute($value)
+    {
+        return intval($value ?? 0);
+    }
+
+    public  function isFull()
+    {
+        return $this->qty_in >= $this->qty_ord;
+    }
+
+
     public  function barcodes()
     {
         return $this->hasMany(Barcode::class);
@@ -28,5 +43,10 @@ class PurchaseItem extends Model
     public function purchase()
     {
         return $this->belongsTo(Purchase::class);
+    }
+
+    public  function trx()
+    {
+        return $this->hasMany(PurchaseTransaction::class);
     }
 }

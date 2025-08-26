@@ -63,22 +63,22 @@
                      <h4 class="text-section">Transaction</h4>
                  </li>
 
-                 <li class="nav-item {{ $title == 'Inbound' ? 'active' : '' }}">
+                 <li class="nav-item {{ $title == 'Purchase' ? 'active' : '' }}">
                      <a class="" href="{{ route('purchases.index') }}">
                          <i class="ti ti-transfer-in"></i>
-                         <p>Inbound</p>
+                         <p>Purchase</p>
                      </a>
                  </li>
 
-                 <li class="nav-item {{ $title == 'Scan' ? 'active' : '' }}">
+                 {{-- <li class="nav-item {{ $title == 'Scan' ? 'active' : '' }}">
                      <a class="" href="{{ route('barcodes.scan') }}">
                          <i class="ti ti-barcode"></i>
                          <p>Scan</p>
                      </a>
-                 </li>
+                 </li> --}}
 
-                 <li class="nav-item {{ $title == 'Purchase Out' ? 'active' : '' }}">
-                     <a class="" href="{{ route('purchases.index') }}">
+                 <li class="nav-item {{ $title == 'Outbound' ? 'active' : '' }}">
+                     <a class="" href="{{ route('outbounds.index') }}">
                          <i class="ti ti-transfer-out"></i>
                          <p>Outbound</p>
                      </a>

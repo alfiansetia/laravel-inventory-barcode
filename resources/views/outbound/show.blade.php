@@ -34,7 +34,39 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12 mb-2">
+                    <label for="barcode" class="form-label">Barcode Barang</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="barcode" placeholder="Scan atau ketik ID barang"
+                            value="BAH-MTL-034+76862-1+1" autofocus>
+                        <button type="button" class="btn btn-primary" id="btn_search">
+                            <i class="ti ti-search"></i>
+                            <span>Cari</span>
+                        </button>
+                        {{-- <button type="button" class="btn btn-secondary" id="btn_pilih">
+                            <i class="ti ti-list"></i>
+                            <span>Pilih</span>
+                        </button> --}}
+                    </div>
+                    <div id="emailHelp" class="form-text">Format Barcode : ITEM_CODE+PO_NO</div>
+                    {{-- <div id="emailHelp" class="form-text">Format Barcode : SEBANGO+PO_NO+QTY_KBN.</div> --}}
+                </div>
+            </div>
 
+        </div>
+    </div>
+
+    <div class="alert alert-danger" role="alert" style="display: none" id="div_alert">
+        <h4 id="alert_content"></h4>
+    </div>
+
+    <div class="alert alert-success" role="alert" style="display: none" id="div_alert_success">
+        <h4 id="alert_content_success"></h4>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
             <h5 class="card-title mb-3">Detail Product</h5>
             <div class="border rounded">
                 <table id="table" class="table-sm align-middle mb-0">
@@ -51,7 +83,6 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 
@@ -166,16 +197,6 @@
                 action: function(e, dt, node, config) {
                     table.ajax.reload()
                 }
-            }, {
-                text: '<i class="fas fa-barcode me-1"></i>Scan',
-                className: 'btn btn-sm btn-info bs-tooltip',
-                attr: {
-                    'data-toggle': 'tooltip',
-                    'title': 'Scan Barcode'
-                },
-                action: function(e, dt, node, config) {
-                    window.location.href = "{{ route('purchases.scan', $data->id) }}"
-                }
             }, ],
             initComplete: function() {
                 $('#table').DataTable().buttons().container().appendTo(
@@ -234,5 +255,98 @@
             $('#product_id').val('').change()
             $('#qty').val(1)
         }
+
+        function search_data() {
+            $('#div_alert').hide()
+            $('#div_detail').hide()
+            $('#div_alert_success').hide()
+            $('#alert_content_success').html("")
+            $('#save_barcode').show()
+            let barcode = $('#barcode').val()
+            barcode = barcode.trim()
+            if (barcode == null || barcode == '') {
+                return
+            }
+            $.get("{{ route('outbounds.scan', $data->id) }}?barcode=" + encodeURIComponent(barcode))
+                .done(function(result) {
+                    table.ajax.reload()
+                    $('#barcode').val('')
+                }).fail(function(xhr) {
+                    $('#barcode').val('')
+                    // show_toast('error', xhr.responseJSON.message || "Server Error!")
+                    $('#div_alert').show()
+                    $('#alert_content').html(xhr.responseJSON.message || "Server Error!")
+                })
+
+        }
+
+
+        $('#btn_search').click(function() {
+            search_data()
+        })
+
+        $('#barcode').change(function() {
+            search_data()
+        })
+
+        $('#btn_close').click(function() {
+            $('#div_detail').hide()
+        })
+
+
+        let barcodeBuffer = '';
+        let barcodeTimeout = null;
+
+        $(document).on('keypress', function(e) {
+            // Only process if we're not in an input field and modal is not open
+            if (!$(e.target).is('input, textarea, select') && !$('.modal').hasClass('show')) {
+                const char = String.fromCharCode(e.which);
+
+                // Add character to buffer
+                barcodeBuffer += char;
+
+                // Clear existing timeout
+                if (barcodeTimeout) {
+                    clearTimeout(barcodeTimeout);
+                }
+
+                // Set timeout to process buffer (hardware scanners are typically very fast)
+                barcodeTimeout = setTimeout(function() {
+                    if (barcodeBuffer.length >= 4) { // Minimum barcode length
+                        console.log('Hardware barcode detected:', barcodeBuffer);
+
+                        // Set the barcode and search
+                        $('#barcode').val(barcodeBuffer);
+                        search_data()
+
+                    }
+
+                    // Clear buffer
+                    barcodeBuffer = '';
+                }, 100); // 100ms timeout for hardware scanners
+            }
+        });
+
+        // Clear buffer on Enter key (common for hardware scanners)
+        $(document).on('keydown', function(e) {
+            if (e.which === 13 && barcodeBuffer.length > 0) { // Enter key
+                e.preventDefault();
+
+                if (barcodeTimeout) {
+                    clearTimeout(barcodeTimeout);
+                }
+
+                if (barcodeBuffer.length >= 4) {
+                    console.log('Hardware barcode detected (Enter):', barcodeBuffer);
+
+                    // Set the barcode and search
+                    $('#barcode').val(barcodeBuffer);
+                    search_data()
+                }
+
+                // Clear buffer
+                barcodeBuffer = '';
+            }
+        });
     </script>
 @endpush

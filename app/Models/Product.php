@@ -18,6 +18,11 @@ class Product extends Model
         return $this->stock < 1;
     }
 
+    public function notEnoughStock(int $qty): bool
+    {
+        return $this->stock < $qty;
+    }
+
     public function vendor()
     {
         return $this->belongsTo(Vendor::class);

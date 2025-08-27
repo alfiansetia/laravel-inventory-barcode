@@ -6,6 +6,7 @@ use App\Http\Controllers\BarcodeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OutboundController;
 use App\Http\Controllers\OutboundItemController;
+use App\Http\Controllers\OutboundScanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseController;
@@ -53,6 +54,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/purchase-trxs', [PurchaseTransactionController::class, 'index'])->name('purchase-trx.index');
 
+    Route::get('/outbounds/{outbound}/scan', [OutboundScanController::class, 'get'])->name('outbounds.scan');
     Route::resource('outbounds', OutboundController::class)->except(['edit', 'create']);
     Route::resource('outbound-items', OutboundItemController::class)->except(['edit', 'create']);
 });

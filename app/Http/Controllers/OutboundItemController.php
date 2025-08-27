@@ -46,6 +46,9 @@ class OutboundItemController extends Controller
         if ($product->outOffStock()) {
             return response()->json(['message' => 'Out Off Stock!'], 400);
         }
+        if ($product->notEnoughStock($request->qty)) {
+            return response()->json(['message' => 'Stock tidak mencukupi, sisa : ' . $product->stock . '!'], 400);
+        }
         OutboundItem::create([
             'outbound_id'   => $request->outbound_id,
             'product_id'    => $request->product_id,
@@ -61,11 +64,31 @@ class OutboundItemController extends Controller
             'product_id'    => 'required|exists:products,id',
             'qty'           => 'required|integer|gte:1',
         ]);
+
+        // ambil product dengan stoknya
+        $product = Product::query()
+            ->withSum('trx as in', 'qty')
+            ->withSum('purchase_items as qty_ord', 'qty_ord')
+            ->withSum('out as out', 'qty')
+            ->find($request->product_id);
+
+        // hitung stok tersedia dengan menambahkan qty lama kembali
+        $availableStock = $product->stock + $outbound_item->qty;
+
+        if ($availableStock < 1) {
+            return response()->json(['message' => 'Out of Stock!'], 400);
+        }
+
+        if ($availableStock < $request->qty) {
+            return response()->json(['message' => 'Stock tidak mencukupi, sisa : ' . $availableStock . '!'], 400);
+        }
+
         $outbound_item->update([
             'outbound_id'   => $request->outbound_id,
             'product_id'    => $request->product_id,
             'qty'           => $request->qty,
         ]);
+
         return response()->json(['message' => 'Data Updated!']);
     }
 

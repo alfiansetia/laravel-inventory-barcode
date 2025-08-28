@@ -228,17 +228,26 @@
 
             // Klik tombol edit
             $('#table tbody').on('click', '.btn-edit', function() {
-                editRow = table.row($(this).parents('tr')); // simpan row
-                let data = editRow.data(); // ambil data row
+                editRow = table.row($(this).parents('tr'));
+                let data = editRow.data();
 
                 console.log(data);
 
+                // ambil outstanding dan step
+                let outstanding = parseInt(data.outstanding);
+                let step = parseInt(data.qty_ord) / parseInt(data.qty_kbn);
+
                 // tampilkan info ke modal
-                let outstanding = data.outstanding;
-                $('#qty_help').html(`(MAX IN/Outstanding : ${outstanding})`);
+                $('#qty_help').html(`(Isi dalam kelipatan ${step}, MAX : ${outstanding})`);
                 $('#modal_qty_title').html(`[${data.product_code}] ${data.product_name}`);
-                $('#qty_in').prop('max', outstanding);
-                $('#qty_in').val(data.qty_in || ''); // kalau ada value sebelumnya
+
+                // set min, max, step
+                $('#qty_in')
+                    .prop('min', step)
+                    .prop('max', outstanding)
+                    .prop('step', step)
+                    .val(data.qty_in || step); // default isi step kalau kosong
+
                 $('#qty_id').val(data.item_id);
 
                 $('#modal_qty').modal('show');
@@ -252,15 +261,24 @@
                 e.preventDefault();
 
                 let newQty = parseInt($('#qty_in').val());
+                let min = parseInt($('#qty_in').prop('min'));
+                let max = parseInt($('#qty_in').prop('max'));
+                let step = parseInt($('#qty_in').prop('step'));
+
+                // validasi kelipatan
+                if (newQty < min || newQty > max || newQty % step !== 0) {
+                    alert(`Qty harus kelipatan ${step}, antara ${min} dan ${max}`);
+                    return;
+                }
+
                 let id = $('#qty_id').val();
 
                 // update data di row DataTable
                 let rowData = editRow.data();
-                rowData.qty_in = newQty; // update kolom qty_in
-                editRow.data(rowData).draw(false); // redraw tanpa reload
+                rowData.qty_in = newQty;
+                editRow.data(rowData).draw(false);
 
                 $('#modal_qty').modal('hide');
-
                 console.log('Updated row:', rowData);
             });
 

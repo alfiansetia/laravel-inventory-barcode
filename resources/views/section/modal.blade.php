@@ -1,0 +1,35 @@
+<div class="modal fade" id="modal_form" tabindex="-1" role="dialog" aria-labelledby="modal_formLabel" aria-hidden="true">
+    <form action="" id="form">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modal_form_title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="code">Section Code</label>
+                        <input type="text" name="code" class="form-control" id="code"
+                            placeholder="Enter Section Code" required maxlength="100">
+                        <span class="error invalid-feedback err_code" style="display: hide;"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Section Name</label>
+                        <input type="text" name="name" class="form-control" id="name"
+                            placeholder="Section Name" required maxlength="100">
+                        <span class="error invalid-feedback err_name" style="display: hide;"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button id="modal_form_submit" type="submit" class="btn btn-primary"><i
+                            class="fas fa-save me-1"></i>Save changes</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

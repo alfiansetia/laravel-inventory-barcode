@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('outbounds', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('section_id')->nullable()->constrained('sections')->nullOnDelete()->cascadeOnUpdate();
             $table->dateTime('date')->useCurrent();
             $table->string('number');
             $table->string('desc')->nullable();

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('purchase_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('purchase_id')->constrained('purchases')->cascadeOnUpdate();
-            $table->foreignId('product_id')->constrained('products')->cascadeOnUpdate();
+            $table->foreignId('purchase_id')->constrained('purchases')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained('products')->cascadeOnUpdate()->cascadeOnDelete();
             $table->integer('lot')->default(0);
             $table->integer('qty_kbn')->default(0);
             $table->integer('qty_ord')->default(0);

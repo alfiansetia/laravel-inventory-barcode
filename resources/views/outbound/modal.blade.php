@@ -10,6 +10,18 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="section_id">Section</label>
+                        <select name="section_id" id="section_id" class="form-control" style="width: 100%;" required>
+                            <option value="">Select Section</option>
+                            @foreach ($sections as $item)
+                                <option value="{{ $item->id }}" data-code="{{ $item->code }}">
+                                    [{{ $item->code }}] {{ $item->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <span class="error invalid-feedback err_vendor_id" style="display: hide;"></span>
+                    </div>
+                    <div class="form-group">
                         <label for="number">Number</label>
                         <input type="text" name="number" class="form-control" id="number"
                             placeholder="Enter Number" maxlength="100" required>

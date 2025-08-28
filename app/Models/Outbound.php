@@ -8,6 +8,11 @@ class Outbound extends Model
 {
     protected $guarded = ['id'];
 
+    public function section()
+    {
+        return $this->belongsTo(Section::class);
+    }
+
     public function items()
     {
         return $this->hasMany(OutboundItem::class);

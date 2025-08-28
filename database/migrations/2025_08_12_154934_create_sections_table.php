@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barcode_activities', function (Blueprint $table) {
+        Schema::create('sections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('barcode_id')->constrained('barcodes')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->dateTime('time')->useCurrent();
-            $table->string('desc')->nullable();
+            $table->string('code');
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('barcode_activities');
+        Schema::dropIfExists('sections');
     }
 };

@@ -13,6 +13,7 @@ use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\PurchaseItemController;
 use App\Http\Controllers\PurchaseScanController;
 use App\Http\Controllers\PurchaseTransactionController;
+use App\Http\Controllers\SectionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +37,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', UserController::class)->except(['edit', 'create']);
     Route::resource('products', ProductController::class)->except(['edit', 'create']);
     Route::resource('vendors', VendorController::class)->except(['edit', 'create']);
+    Route::resource('sections', SectionController::class)->except(['edit', 'create']);
 
     Route::get('/purchases/{purchase}/scan', [PurchaseScanController::class, 'index'])->name('purchases.scan');
     Route::post('/purchases/{purchase}/scan', [PurchaseScanController::class, 'save'])->name('purchases.save');

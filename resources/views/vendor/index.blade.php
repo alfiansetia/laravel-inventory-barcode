@@ -67,10 +67,13 @@
                 orderable: false,
             }, {
                 data: 'vendor_id',
+                className: "text-start",
             }, {
                 data: 'name',
+                className: "text-start",
             }, {
                 data: 'address',
+                className: "text-start",
             }, {
                 data: 'id',
                 searchable: false,

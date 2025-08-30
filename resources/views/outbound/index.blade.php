@@ -15,10 +15,10 @@
                     <thead>
                         <tr>
                             <th width="30">No</th>
+                            <th>Number</th>
                             <th>Date</th>
                             <th>Karyawan Name</th>
                             <th>Karyawan ID Card</th>
-                            <th>Number</th>
                             <th>Desc</th>
                             <th>Items</th>
                             <th>#</th>
@@ -98,6 +98,9 @@
                 searchable: false,
                 orderable: false,
             }, {
+                data: 'number',
+                className: "text-start",
+            }, {
                 data: 'date',
                 className: "text-start",
             }, {
@@ -105,9 +108,6 @@
                 className: "text-start",
             }, {
                 data: 'karyawan.id_card',
-                className: "text-start",
-            }, {
-                data: 'number',
                 className: "text-start",
             }, {
                 data: 'desc',
@@ -212,6 +212,7 @@
                 $('#desc').val(result.data.desc)
                 $("#date").data('daterangepicker').setStartDate(result.data.date);
                 $("#date").data('daterangepicker').setEndDate(result.data.date);
+                $('#div_number').show()
 
                 $('#form').attr('action', URL_INDEX + '/' + id)
                 $('#modal_form_title').html('Edit Data')
@@ -224,7 +225,8 @@
         });
 
         $('#modal_form').on('shown.bs.modal', function() {
-            $('#number').focus();
+            // $('#date').focus();
+            $('#karyawan_id').select2('open')
             clear_validate('form')
         })
 
@@ -233,9 +235,9 @@
             send_ajax('form', $('#modal_form_submit').val())
         })
 
-        $('#section_id').on('change', function() {
-            let code = $(this).find(':selected').data('code');
-            console.log("Kode terpilih:", code);
+        $('#karyawan_id').on('change', function() {
+            let card = $(this).find(':selected').data('card');
+            console.log("Card terpilih:", card);
         });
 
         function modal_add() {
@@ -248,6 +250,83 @@
             $('#number').val('')
             $('#date').val('')
             $('#desc').val('')
+            $('#div_number').hide()
         }
+
+        function search_data(barcode) {
+            if (!barcode) {
+                return;
+            }
+            let foundValue = null;
+            $('#karyawan_id option').each(function() {
+                console.log($(this).data('card') || 'nonoe');
+                if ($(this).data('card') == barcode) {
+                    foundValue = $(this).val();
+                    return false;
+                }
+            });
+
+            if (foundValue) {
+                $('#karyawan_id').val(foundValue).trigger('change');
+                show_toast('success', 'Karyawan dengan kode ' + barcode + ' Berhasil dipilih!');
+            } else {
+                show_toast('error', 'Karyawan dengan id_card ' + barcode + ' tidak ditemukan!');
+            }
+        }
+
+        let barcodeBuffer = '';
+        let barcodeTimeout = null;
+
+        $(document).on('keypress', function(e) {
+            // Only process if we're not in an input field and modal is not open
+            if (!$(e.target).is('input, textarea, select') && !$('.modal').hasClass('show')) {
+                const char = String.fromCharCode(e.which);
+
+                // Add character to buffer
+                barcodeBuffer += char;
+
+                // Clear existing timeout
+                if (barcodeTimeout) {
+                    clearTimeout(barcodeTimeout);
+                }
+
+                // Set timeout to process buffer (hardware scanners are typically very fast)
+                barcodeTimeout = setTimeout(function() {
+                    if (barcodeBuffer.length >= 4) { // Minimum barcode length
+                        console.log('Hardware barcode detected:', barcodeBuffer);
+
+                        // Set the barcode and search
+                        // $('#barcode').val(barcodeBuffer);
+                        search_data(barcodeBuffer)
+
+                    }
+
+                    // Clear buffer
+                    barcodeBuffer = '';
+                }, 100); // 100ms timeout for hardware scanners
+            }
+        });
+
+        // Clear buffer on Enter key (common for hardware scanners)
+        $(document).on('keydown', function(e) {
+            if (e.which === 13 && barcodeBuffer.length > 0) { // Enter key
+                e.preventDefault();
+
+                if (barcodeTimeout) {
+                    clearTimeout(barcodeTimeout);
+                }
+
+                if (barcodeBuffer.length >= 4) {
+                    console.log('Hardware barcode detected (Enter):', barcodeBuffer);
+
+                    // Set the barcode and search
+                    // $('#barcode').val(barcodeBuffer);
+                    search_data(barcodeBuffer)
+                }
+
+                // Clear buffer
+                barcodeBuffer = '';
+            }
+        });
     </script>
 @endpush

@@ -14,17 +14,17 @@
                         <select name="karyawan_id" id="karyawan_id" class="form-control" style="width: 100%;" required>
                             <option value="">Select Karyawan</option>
                             @foreach ($karyawans as $item)
-                                <option value="{{ $item->id }}">
+                                <option value="{{ $item->id }}" data-card="{{ $item->id_card }}">
                                     [{{ $item->id_card }}] {{ $item->name }}
                                 </option>
                             @endforeach
                         </select>
                         <span class="error invalid-feedback err_vendor_id" style="display: hide;"></span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="div_number">
                         <label for="number">Number</label>
                         <input type="text" name="number" class="form-control" id="number"
-                            placeholder="Enter Number" maxlength="100" required>
+                            placeholder="Enter Number" maxlength="100" required readonly disabled>
                         <span class="error invalid-feedback err_number" style="display: hide;"></span>
                     </div>
                     <div class="form-group">
@@ -42,6 +42,9 @@
 
                 </div>
                 <div class="modal-footer">
+                    <button type="button" id="tes" class="btn btn-secondary">
+                        <i class="fas fa-times me-1"></i> asd
+                    </button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i> Close
                     </button>

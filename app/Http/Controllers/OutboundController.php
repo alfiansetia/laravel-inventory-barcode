@@ -6,6 +6,7 @@ use App\Models\Karyawan;
 use App\Models\Outbound;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Yajra\DataTables\Facades\DataTables;
 
 class OutboundController extends Controller
@@ -34,13 +35,23 @@ class OutboundController extends Controller
     {
         $this->validate($request, [
             'karyawan_id'   => 'required|exists:karyawans,id',
-            'number'        => 'required|unique:outbounds,number',
+            // 'number'        => 'required|unique:outbounds,number',
             'date'          => 'required|date_format:Y-m-d H:i:s',
             'desc'          => 'nullable|max:200',
         ]);
+        $karyawan_id = $request->karyawan_id;
+        $karyawan = Karyawan::find($karyawan_id);
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', $request->date);
+        $last = Outbound::query()
+            ->where('karyawan_id', $karyawan_id)
+            ->whereMonth('date', $date->month)
+            ->count();
+        $order = str_pad(($last ?? 0) + 1, 2, '0', STR_PAD_LEFT);
+        $monthYear = $date->format('mY');
+        $number = $karyawan->id_card . '-' . $monthYear . '-' . $order;
         Outbound::create([
             'karyawan_id'   => $request->karyawan_id,
-            'number'        => $request->number,
+            'number'        => $number,
             'date'          => $request->date,
             'desc'          => $request->desc,
         ]);
@@ -51,13 +62,13 @@ class OutboundController extends Controller
     {
         $this->validate($request, [
             'karyawan_id' => 'required|exists:karyawans,id',
-            'number'    => 'required|unique:outbounds,number,' . $outbound->id,
+            // 'number'    => 'required|unique:outbounds,number,' . $outbound->id,
             'date'      => 'required|date_format:Y-m-d H:i:s',
             'desc'      => 'nullable|max:200',
         ]);
         $outbound->update([
             'karyawan_id' => $request->karyawan_id,
-            'number'    => $request->number,
+            // 'number'    => $request->number,
             'date'      => $request->date,
             'desc'      => $request->desc,
         ]);

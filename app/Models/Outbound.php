@@ -8,9 +8,9 @@ class Outbound extends Model
 {
     protected $guarded = ['id'];
 
-    public function section()
+    public function karyawan()
     {
-        return $this->belongsTo(Section::class);
+        return $this->belongsTo(Karyawan::class);
     }
 
     public function items()

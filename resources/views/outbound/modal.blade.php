@@ -10,12 +10,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="section_id">Section</label>
-                        <select name="section_id" id="section_id" class="form-control" style="width: 100%;" required>
-                            <option value="">Select Section</option>
-                            @foreach ($sections as $item)
-                                <option value="{{ $item->id }}" data-code="{{ $item->code }}">
-                                    [{{ $item->code }}] {{ $item->name }}
+                        <label for="karyawan_id">Karyawan</label>
+                        <select name="karyawan_id" id="karyawan_id" class="form-control" style="width: 100%;" required>
+                            <option value="">Select Karyawan</option>
+                            @foreach ($karyawans as $item)
+                                <option value="{{ $item->id }}">
+                                    [{{ $item->id_card }}] {{ $item->name }}
                                 </option>
                             @endforeach
                         </select>

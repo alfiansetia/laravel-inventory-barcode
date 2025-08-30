@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BarcodeActivityController;
 use App\Http\Controllers\BarcodeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\OutboundController;
 use App\Http\Controllers\OutboundItemController;
 use App\Http\Controllers\OutboundScanController;
@@ -38,6 +39,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('products', ProductController::class)->except(['edit', 'create']);
     Route::resource('vendors', VendorController::class)->except(['edit', 'create']);
     Route::resource('sections', SectionController::class)->except(['edit', 'create']);
+    Route::resource('karyawans', KaryawanController::class)->except(['edit', 'create']);
 
     Route::get('/purchases/{purchase}/scan', [PurchaseScanController::class, 'index'])->name('purchases.scan');
     Route::post('/purchases/{purchase}/scan', [PurchaseScanController::class, 'save'])->name('purchases.save');

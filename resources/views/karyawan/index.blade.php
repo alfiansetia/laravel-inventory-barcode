@@ -1,10 +1,7 @@
-@extends('layouts.template', ['title' => 'Outbound', 'breadcumbs' => ['Outbound']])
+@extends('layouts.template', ['title' => 'Karyawan', 'breadcumbs' => ['Karyawan']])
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('kai/assets/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('kai/lib/select2-bootstrap-5-theme-1.3.0/select2-bootstrap-5-theme.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('kai/lib/bootstrap-daterangepicker/daterangepicker.css') }}">
 @endpush
 
 @section('contents')
@@ -15,12 +12,9 @@
                     <thead>
                         <tr>
                             <th width="30">No</th>
-                            <th>Date</th>
-                            <th>Karyawan Name</th>
-                            <th>Karyawan ID Card</th>
-                            <th>Number</th>
-                            <th>Desc</th>
-                            <th>Items</th>
+                            <th>ID Card</th>
+                            <th>ID Absen</th>
+                            <th>Name</th>
                             <th>#</th>
                         </tr>
                     </thead>
@@ -31,40 +25,14 @@
         </div>
     </div>
 
-    @include('outbound.modal')
+    @include('karyawan.modal')
 @endsection
 @push('js')
-    <script src="{{ asset('kai/lib/moment/min/moment.min.js') }}"></script>
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
-    <script src="{{ asset('kai/lib/select2/dist/js/select2.full.min.js') }}"></script>
-
-
-    <script src="{{ asset('kai/lib/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-
-
     <script>
-        const URL_INDEX = "{{ route('outbounds.index') }}"
+        const URL_INDEX = "{{ route('karyawans.index') }}"
     </script>
     <script>
-        $(document).ready(function() {
-
-            $('#karyawan_id').select2({
-                theme: 'bootstrap-5',
-                dropdownParent: $('#modal_form')
-            });
-
-            $('#date').daterangepicker({
-                singleDatePicker: true,
-                showDropdowns: true,
-                timePicker: true,
-                timePicker24Hour: true,
-                locale: {
-                    format: 'YYYY-MM-DD HH:mm:ss'
-                }
-            });
-
-        })
-
         var table = $("#table").DataTable({
             processing: true,
             serverSide: true,
@@ -98,24 +66,14 @@
                 searchable: false,
                 orderable: false,
             }, {
-                data: 'date',
+                data: 'id_card',
                 className: "text-start",
             }, {
-                data: 'karyawan.name',
+                data: 'id_absen',
                 className: "text-start",
             }, {
-                data: 'karyawan.id_card',
+                data: 'name',
                 className: "text-start",
-            }, {
-                data: 'number',
-                className: "text-start",
-            }, {
-                data: 'desc',
-                className: "text-start",
-            }, {
-                data: 'items_count',
-                className: "text-center",
-                searchable: false,
             }, {
                 data: 'id',
                 searchable: false,
@@ -125,11 +83,9 @@
                     if (type == 'display') {
                         return `
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-info btn-sm btn-view"><i class="fas fa-eye"></i></button>
                             <button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
                             <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>
-                        </div>
-                        `;
+                        </div>`;
                     } else {
                         return data
                     }
@@ -189,29 +145,14 @@
             id = table.row(row).data().id
             send_delete(URL_INDEX + "/" + id)
         });
-
-        $('#table tbody').on('click', 'tr .btn-view', function() {
-            row = $(this).parents('tr')[0];
-            id = table.row(row).data().id
-            window.location.href = `${URL_INDEX}/${id}`
-        });
-
-        $('#table tbody').on('click', 'tr .btn-scan', function() {
-            row = $(this).parents('tr')[0];
-            id = table.row(row).data().id
-            window.location.href = `${URL_INDEX}/${id}/scan`
-        });
-
         $('#table tbody').on('click', 'tr .btn-edit', function() {
             clear_validate('form')
             row = $(this).parents('tr')[0];
             id = table.row(row).data().id
             $.get(URL_INDEX + '/' + id).done(function(result) {
-                $('#section_id').val(result.data.section_id).change()
-                $('#number').val(result.data.number)
-                $('#desc').val(result.data.desc)
-                $("#date").data('daterangepicker').setStartDate(result.data.date);
-                $("#date").data('daterangepicker').setEndDate(result.data.date);
+                $('#id_card').val(result.data.id_card)
+                $('#id_absen').val(result.data.id_absen)
+                $('#name').val(result.data.name)
 
                 $('#form').attr('action', URL_INDEX + '/' + id)
                 $('#modal_form_title').html('Edit Data')
@@ -224,7 +165,7 @@
         });
 
         $('#modal_form').on('shown.bs.modal', function() {
-            $('#number').focus();
+            $('#id_card').focus();
             clear_validate('form')
         })
 
@@ -233,21 +174,15 @@
             send_ajax('form', $('#modal_form_submit').val())
         })
 
-        $('#section_id').on('change', function() {
-            let code = $(this).find(':selected').data('code');
-            console.log("Kode terpilih:", code);
-        });
-
         function modal_add() {
             $('#form').attr('action', URL_INDEX)
             $('#modal_form_submit').val('POST')
             $('#modal_form_title').html('Tambah Data')
             $('#modal_form').modal('show')
 
-            $('#section_id').val('').change()
-            $('#number').val('')
-            $('#date').val('')
-            $('#desc').val('')
+            $('#id_card').val('')
+            $('#id_absen').val('')
+            $('#name').val('')
         }
     </script>
 @endpush

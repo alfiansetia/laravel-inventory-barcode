@@ -49,10 +49,16 @@
                          <p>Vendor</p>
                      </a>
                  </li>
-                 <li class="nav-item {{ $title == 'Section' ? 'active' : '' }}">
+                 {{-- <li class="nav-item {{ $title == 'Section' ? 'active' : '' }}">
                      <a class="" href="{{ route('sections.index') }}">
                          <i class="ti ti-blocks"></i>
                          <p>Section</p>
+                     </a>
+                 </li> --}}
+                 <li class="nav-item {{ $title == 'Karyawan' ? 'active' : '' }}">
+                     <a class="" href="{{ route('karyawans.index') }}">
+                         <i class="ti ti-users-group"></i>
+                         <p>Karyawan</p>
                      </a>
                  </li>
                  {{-- <li class="nav-item {{ $title == 'Barcode' ? 'active' : '' }}">

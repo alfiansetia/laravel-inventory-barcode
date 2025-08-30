@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Karyawan;
+use App\Models\Outbound;
+use App\Models\Product;
+use App\Models\Purchase;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $purchase_count  = Purchase::count();
+        $outbound_count  = Outbound::count();
+        $karyawan_count  = Karyawan::count();
+        $product_count  = Product::count();
+        return view('home', compact([
+            'purchase_count',
+            'outbound_count',
+            'karyawan_count',
+            'product_count',
+        ]));
     }
 }

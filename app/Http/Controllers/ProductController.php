@@ -69,4 +69,14 @@ class ProductController extends Controller
         $product->delete();
         return response()->json(['message' => 'Data Deleted!']);
     }
+
+
+    public function history(Request $request, Product $product)
+    {
+        if ($request->ajax()) {
+            // 
+        }
+        $data = $product;
+        return view('product.history', compact('data'));
+    }
 }

@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::resource('users', UserController::class)->except(['edit', 'create']);
+    Route::get('/products/{product}/history', [ProductController::class, 'history'])->name('products.history');
     Route::resource('products', ProductController::class)->except(['edit', 'create']);
     Route::resource('vendors', VendorController::class)->except(['edit', 'create']);
     Route::resource('sections', SectionController::class)->except(['edit', 'create']);

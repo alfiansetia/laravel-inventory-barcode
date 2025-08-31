@@ -19,6 +19,8 @@ class ProductController extends Controller
             return DataTables::eloquent($query)
                 ->addColumn('stock', function ($row) {
                     return (intval($row->in) - intval($row->out)) ?? 0;
+                })->addColumn('outstanding', function ($row) {
+                    return (intval($row->qty_ord) - intval($row->in)) ?? 0;
                 })->editColumn('qty_ord', function ($row) {
                     return intval($row->qty_ord) ?? 0;
                 })->addIndexColumn()->toJson();

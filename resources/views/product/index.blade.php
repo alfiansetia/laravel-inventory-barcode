@@ -14,7 +14,7 @@
                             <th width="30">No</th>
                             <th>Product Code</th>
                             <th>Name</th>
-                            <th>Qty Order</th>
+                            <th>Outstanding</th>
                             <th>Stock</th>
                             <th>Description</th>
                             <th>#</th>
@@ -72,7 +72,7 @@
             }, {
                 data: 'name',
             }, {
-                data: 'qty_ord',
+                data: 'outstanding',
                 className: 'text-center',
                 searchable: false,
             }, {

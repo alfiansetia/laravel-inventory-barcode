@@ -39,7 +39,7 @@
                     <label for="barcode" class="form-label">Barcode Barang</label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="barcode" placeholder="Scan atau ketik ID barang"
-                            value="BAH-MTL-034+76862-1+1" autofocus>
+                            value="" autofocus>
                         <button type="button" class="btn btn-primary" id="btn_search">
                             <i class="ti ti-search"></i>
                             <span>Cari</span>

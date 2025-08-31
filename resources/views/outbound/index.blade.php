@@ -18,7 +18,6 @@
                             <th>Number</th>
                             <th>Date</th>
                             <th>Karyawan Name</th>
-                            <th>Karyawan ID Card</th>
                             <th>Desc</th>
                             <th>Items</th>
                             <th>#</th>
@@ -105,9 +104,6 @@
                 className: "text-start",
             }, {
                 data: 'karyawan.name',
-                className: "text-start",
-            }, {
-                data: 'karyawan.id_card',
                 className: "text-start",
             }, {
                 data: 'desc',
@@ -207,12 +203,15 @@
             row = $(this).parents('tr')[0];
             id = table.row(row).data().id
             $.get(URL_INDEX + '/' + id).done(function(result) {
-                $('#section_id').val(result.data.section_id).change()
+                $('#karyawan_id').val(result.data.karyawan_id).change()
                 $('#number').val(result.data.number)
                 $('#desc').val(result.data.desc)
                 $("#date").data('daterangepicker').setStartDate(result.data.date);
                 $("#date").data('daterangepicker').setEndDate(result.data.date);
                 $('#div_number').show()
+                $('#date').prop('disabled', true)
+                $('#date').prop('readonly', true)
+                $('#karyawan_id').prop('disabled', true)
 
                 $('#form').attr('action', URL_INDEX + '/' + id)
                 $('#modal_form_title').html('Edit Data')
@@ -235,10 +234,10 @@
             send_ajax('form', $('#modal_form_submit').val())
         })
 
-        $('#karyawan_id').on('change', function() {
-            let card = $(this).find(':selected').data('card');
-            console.log("Card terpilih:", card);
-        });
+        // $('#karyawan_id').on('change', function() {
+        //     let card = $(this).find(':selected').data('card');
+        //     console.log("Card terpilih:", card);
+        // });
 
         function modal_add() {
             $('#form').attr('action', URL_INDEX)
@@ -246,11 +245,14 @@
             $('#modal_form_title').html('Tambah Data')
             $('#modal_form').modal('show')
 
-            $('#section_id').val('').change()
+            $('#karyawan_id').val('').change()
+            $('#karyawan_id').prop('disabled', false)
             $('#number').val('')
             $('#date').val('')
             $('#desc').val('')
             $('#div_number').hide()
+            $('#date').prop('disabled', false)
+            $('#date').prop('readonly', false)
         }
 
         function search_data(barcode) {

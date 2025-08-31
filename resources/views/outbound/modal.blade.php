@@ -27,7 +27,7 @@
                             placeholder="Enter Number" maxlength="100" required readonly disabled>
                         <span class="error invalid-feedback err_number" style="display: hide;"></span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="div_date">
                         <label for="date">Date</label>
                         <input type="text" name="date" class="form-control" id="date"
                             placeholder="Enter Date" maxlength="100" required>
@@ -42,9 +42,6 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="tes" class="btn btn-secondary">
-                        <i class="fas fa-times me-1"></i> asd
-                    </button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         <i class="fas fa-times me-1"></i> Close
                     </button>

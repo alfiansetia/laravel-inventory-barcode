@@ -14,7 +14,7 @@
                             <th width="30">No</th>
                             <th>Product Code</th>
                             <th>Name</th>
-                            <th>Outstanding</th>
+                            <th>Incoming</th>
                             <th>Stock</th>
                             <th>Description</th>
                             <th>#</th>

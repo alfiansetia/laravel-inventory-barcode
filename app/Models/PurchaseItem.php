@@ -49,4 +49,9 @@ class PurchaseItem extends Model
     {
         return $this->hasMany(PurchaseTransaction::class);
     }
+
+     public  function out()
+    {
+        return $this->hasMany(OutboundItem::class);
+    }
 }

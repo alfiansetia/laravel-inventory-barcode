@@ -74,7 +74,28 @@ class ProductController extends Controller
     public function history(Request $request, Product $product)
     {
         if ($request->ajax()) {
-            // 
+            $in = $product->trx()->get()->map(function ($item) {
+                return [
+                    'type' => 'in',           // kasih label
+                    'date' => $item->date,    // tanggal masuk
+                    'qty'  => $item->qty,
+                    'reff' => $item->purchase_item->purchase->po_no ?? null, // kalau ada field lain
+                    'data' => $item,
+                ];
+            });
+            $out = $product->out()->get()->map(function ($item) {
+                return [
+                    'type' => 'out',
+                    'date' => $item->outbound->date ?? null,
+                    'qty'  => $item->qty,
+                    'reff' => $item->outbound->number ?? null,
+                    'data' => $item,
+                ];
+            });
+            $history = $in->concat($out)->sortBy('date')->values();
+            return response()->json([
+                'data' => $history
+            ]);
         }
         $data = $product;
         return view('product.history', compact('data'));

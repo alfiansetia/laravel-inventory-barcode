@@ -36,15 +36,10 @@
                 <table id="table" class="table-sm align-middle mb-0">
                     <thead>
                         <tr>
-                            <th width="30">No</th>
-                            <th>Product Code</th>
-                            <th>Product Name</th>
-                            <th class="text-center">Lot</th>
-                            <th class="text-center">Qty KBN</th>
-                            <th class="text-center">Qty Order</th>
-                            <th class="text-center">Qty In</th>
-                            <th class="text-center">Outstanding </th>
-                            <th class="text-center"># </th>
+                            <th>Date</th>
+                            <th>In</th>
+                            <th>Out</th>
+                            <th>Reff</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,12 +52,11 @@
 @endsection
 @push('js')
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
     <script src="{{ asset('kai/lib/select2/dist/js/select2.full.min.js') }}"></script>
 
 
     <script>
-        const URL_INDEX = "{{ route('purchase-items.index') }}"
+        const URL_INDEX = "{{ route('products.history', $data->id) }}"
     </script>
     <script>
         $(document).ready(function() {
@@ -77,7 +71,7 @@
             serverSide: false,
             rowId: 'id',
             ajax: {
-                url: URL_INDEX + '?purchase_id={{ $data->id }}',
+                url: URL_INDEX,
                 error: function(xhr, error, code) {
                     $("#table_processing").hide()
                     $(".dt-empty").text('Error, Please Refresh!')
@@ -100,69 +94,31 @@
             columnDefs: [],
             order: [],
             columns: [{
-                data: 'id',
+                data: 'date',
+                className: "text-start",
+            }, {
+                data: 'qty',
                 className: "text-center",
                 render: function(data, type, row, meta) {
-                    return parseInt(meta.row) + 1;
-                }
-            }, {
-                data: 'product.code',
-            }, {
-                data: 'product.name',
-            }, {
-                data: 'lot',
-                className: "text-center",
-
-            }, {
-                data: 'qty_kbn',
-                className: "text-center",
-
-            }, {
-                data: 'qty_ord',
-                className: "text-center",
-
-            }, {
-                data: 'qty_in',
-                className: "text-center",
-                searchable: false,
-            }, {
-                data: 'id',
-                className: "text-center",
-                render: function(data, type, row, meta) {
-                    let out = parseInt(row.qty_ord) - parseInt(row.qty_in);
-                    return out;
-                }
-
-            }, {
-                data: 'id',
-                searchable: false,
-                orderable: false,
-                className: "text-center",
-                render: function(data, type, row, meta) {
-                    if (type == 'display') {
-                        return `
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-info btn-sm btn-view"><i class="fas fa-eye"></i></button>
-                            <button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
-                            <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>
-                        </div>
-                        `;
-                    } else {
+                    if (row.type == 'in' && type == 'display') {
                         return data
                     }
-                }
-            }],
-            buttons: [{
-                text: '<i class="fa fa-plus me-1"></i>Add',
-                className: 'btn btn-sm btn-primary bs-tooltip',
-                attr: {
-                    'data-toggle': 'tooltip',
-                    'title': 'Add Data'
-                },
-                action: function(e, dt, node, config) {
-                    modal_add()
+                    return ''
                 }
             }, {
+                data: 'qty',
+                className: "text-center",
+                render: function(data, type, row, meta) {
+                    if (row.type == 'out' && type == 'display') {
+                        return data
+                    }
+                    return ''
+                }
+            }, {
+                data: 'reff',
+                className: "text-start",
+            }, ],
+            buttons: [{
                 extend: "colvis",
                 attr: {
                     'data-toggle': 'tooltip',
@@ -185,16 +141,6 @@
                 },
                 action: function(e, dt, node, config) {
                     table.ajax.reload()
-                }
-            }, {
-                text: '<i class="fas fa-barcode me-1"></i>Scan',
-                className: 'btn btn-sm btn-info bs-tooltip',
-                attr: {
-                    'data-toggle': 'tooltip',
-                    'title': 'Scan Barcode'
-                },
-                action: function(e, dt, node, config) {
-                    window.location.href = "{{ route('purchases.scan', $data->id) }}"
                 }
             }, ],
             initComplete: function() {

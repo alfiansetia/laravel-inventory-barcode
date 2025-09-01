@@ -84,7 +84,6 @@
 @endsection
 @push('js')
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
     <script src="{{ asset('kai/lib/select2/dist/js/select2.full.min.js') }}"></script>
 
 

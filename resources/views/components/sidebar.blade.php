@@ -96,6 +96,13 @@
                      </a>
                  </li>
 
+                 <li class="nav-item {{ $title == 'Report' ? 'active' : '' }}">
+                     <a class="" href="{{ route('reports.index') }}">
+                         <i class="ti ti-report"></i>
+                         <p>Report</p>
+                     </a>
+                 </li>
+
                  <li class="nav-section">
                      <span class="sidebar-mini-icon">
                          <i class="fa fa-ellipsis-h"></i>

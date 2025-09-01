@@ -38,11 +38,6 @@ class Product extends Model
         return $this->hasMany(PurchaseItem::class);
     }
 
-    public function available_barcodes()
-    {
-        return $this->hasMany(Barcode::class)->where('barcodes.available', 1);
-    }
-
     public function trx()
     {
         return $this->hasMany(PurchaseTransaction::class);

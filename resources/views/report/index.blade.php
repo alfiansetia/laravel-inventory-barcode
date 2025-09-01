@@ -1,4 +1,4 @@
-@extends('layouts.template', ['title' => 'Product', 'breadcumbs' => ['Product']])
+@extends('layouts.template', ['title' => 'Report', 'breadcumbs' => ['Report']])
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}">
@@ -14,10 +14,9 @@
                             <th width="30">No</th>
                             <th>Product Code</th>
                             <th>Name</th>
-                            <th>Incoming</th>
-                            <th>Stock</th>
-                            <th>Description</th>
-                            <th>#</th>
+                            <th>IN</th>
+                            <th>OUT</th>
+                            <th>Akhir</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,12 +31,12 @@
 @push('js')
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
     <script>
-        const URL_INDEX = "{{ route('products.index') }}"
+        const URL_INDEX = "{{ route('reports.data') }}"
     </script>
     <script>
         var table = $("#table").DataTable({
             processing: true,
-            serverSide: true,
+            serverSide: false,
             rowId: 'id',
             ajax: {
                 url: URL_INDEX,
@@ -66,38 +65,22 @@
                 data: 'DT_RowIndex',
                 className: "text-center",
                 searchable: false,
-                orderable: false,
             }, {
                 data: 'code',
             }, {
                 data: 'name',
             }, {
-                data: 'outstanding',
+                data: 'in',
                 className: 'text-center',
                 searchable: false,
             }, {
-                data: 'stock',
+                data: 'out',
                 className: 'text-center',
                 searchable: false,
             }, {
-                data: 'desc',
-            }, {
-                data: 'id',
+                data: 'ending',
+                className: 'text-center',
                 searchable: false,
-                orderable: false,
-                className: "text-center",
-                render: function(data, type, row, meta) {
-                    if (type == 'display') {
-                        return `
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-info btn-sm btn-view"><i class="fas fa-eye"></i></button>
-                            <button type="button" class="btn btn-warning btn-sm btn-edit"><i class="fas fa-edit"></i></button>
-                            <button type="button" class="btn btn-danger btn-sm btn-delete"><i class="fas fa-trash"></i></button>
-                         </div>`;
-                    } else {
-                        return data
-                    }
-                }
             }],
             buttons: [{
                 text: '<i class="fa fa-plus me-1"></i>Add',
@@ -147,56 +130,5 @@
         });
 
         $.fn.dataTable.ext.errMode = 'none';
-
-        $('#table tbody').on('click', 'tr .btn-view', function() {
-            row = $(this).parents('tr')[0];
-            id = table.row(row).data().id
-            window.location.href = URL_INDEX + '/' + id + '/history'
-        });
-
-        $('#table tbody').on('click', 'tr .btn-delete', function() {
-            row = $(this).parents('tr')[0];
-            id = table.row(row).data().id
-            send_delete(URL_INDEX + "/" + id)
-        });
-
-        $('#table tbody').on('click', 'tr .btn-edit', function() {
-            clear_validate('form')
-            row = $(this).parents('tr')[0];
-            id = table.row(row).data().id
-            $.get(URL_INDEX + '/' + id).done(function(result) {
-                $('#name').val(result.data.name)
-                $('#code').val(result.data.code)
-                $('#desc').val(result.data.desc)
-
-                $('#form').attr('action', URL_INDEX + '/' + id)
-                $('#modal_form_title').html('Edit Data')
-                $('#modal_form_submit').val('PUT')
-                $('#modal_form_password_help').show()
-                $('#modal_form').modal('show')
-            }).fail(function(xhr) {
-                show_toast('error', xhr.responseJSON.message || 'server Error!')
-            })
-        });
-
-        $('#modal_form').on('shown.bs.modal', function() {
-            $('#code').focus();
-            clear_validate('form')
-        })
-
-        $('#form').submit(function(e) {
-            e.preventDefault()
-            send_ajax('form', $('#modal_form_submit').val())
-        })
-
-        function modal_add() {
-            $('#form').attr('action', URL_INDEX)
-            $('#modal_form_submit').val('POST')
-            $('#modal_form_title').html('Tambah Data')
-            $('#modal_form').modal('show')
-            $('#name').val('')
-            $('#code').val('')
-            $('#desc').val('')
-        }
     </script>
 @endpush

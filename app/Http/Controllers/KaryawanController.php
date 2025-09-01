@@ -41,8 +41,8 @@ class KaryawanController extends Controller
     {
         $this->validate($request, [
             'name'      => 'required|max:100',
-            'absen'     => 'required|string|max:100|unique:sections,absen,' . $karyawan->id,
-            'card'      => 'required|string|max:100|unique:sections,card,' . $karyawan->id,
+            'id_absen'  => 'required|string|max:100|unique:karyawans,id_absen,' . $karyawan->id,
+            'id_card'   => 'required|string|max:100|unique:karyawans,id_card,' . $karyawan->id,
         ]);
         $karyawan->update([
             'name'      => $request->name,

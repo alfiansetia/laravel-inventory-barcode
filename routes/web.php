@@ -14,6 +14,7 @@ use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\PurchaseItemController;
 use App\Http\Controllers\PurchaseScanController;
 use App\Http\Controllers\PurchaseTransactionController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
@@ -62,4 +63,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/outbounds/{outbound}/scan', [OutboundScanController::class, 'get'])->name('outbounds.scan');
     Route::resource('outbounds', OutboundController::class)->except(['edit', 'create']);
     Route::resource('outbound-items', OutboundItemController::class)->except(['edit', 'create']);
+
+
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('/reports/data', [ReportController::class, 'data'])->name('reports.data');
 });

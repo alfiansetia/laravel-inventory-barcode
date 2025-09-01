@@ -27,15 +27,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $purchase_count  = Purchase::count();
-        $outbound_count  = Outbound::count();
-        $karyawan_count  = Karyawan::count();
+        $purchase_count = Purchase::where('status', 'open')->count();
+
+        $outbound_count = Outbound::whereYear('date', now()->year)
+            ->whereMonth('date', now()->month)
+            ->count();
+
+        $karyawan_count = Karyawan::count();
         $product_count  = Product::count();
-        return view('home', compact([
+
+        return view('home', compact(
             'purchase_count',
             'outbound_count',
             'karyawan_count',
             'product_count',
-        ]));
+        ));
     }
 }

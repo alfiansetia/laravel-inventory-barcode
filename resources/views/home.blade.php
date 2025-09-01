@@ -14,7 +14,7 @@
                         </div>
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers">
-                                <p class="card-category">Purchace</p>
+                                <p class="card-category">Purchace Open</p>
                                 <h4 class="card-title">{{ $purchase_count }}</h4>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers">
-                                <p class="card-category">Outbound</p>
+                                <p class="card-category">Outbound This Month</p>
                                 <h4 class="card-title">{{ $outbound_count }}</h4>
                             </div>
                         </div>

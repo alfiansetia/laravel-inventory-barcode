@@ -1,9 +1,7 @@
-@extends('layouts.template', ['title' => 'Product', 'breadcumbs' => ['Product', $data->code, 'History']])
+@extends('layouts.template', ['title' => 'Product', 'breadcumbs' => ['Product', $data->code, 'History Move']])
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('kai/assets/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('kai/lib/select2-bootstrap-5-theme-1.3.0/select2-bootstrap-5-theme.min.css') }}">
 @endpush
 
 @section('contents')
@@ -52,18 +50,12 @@
 @endsection
 @push('js')
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
-    <script src="{{ asset('kai/lib/select2/dist/js/select2.full.min.js') }}"></script>
-
 
     <script>
         const URL_INDEX = "{{ route('products.history', $data->id) }}"
     </script>
     <script>
         $(document).ready(function() {
-            $('#product_id').select2({
-                theme: 'bootstrap-5',
-                dropdownParent: $('#modal_form')
-            });
 
         })
         var table = $("#table").DataTable({
@@ -156,96 +148,5 @@
         });
 
         $.fn.dataTable.ext.errMode = 'none';
-
-        $('#table tbody').on('click', 'tr .btn-delete', function() {
-            row = $(this).parents('tr')[0];
-            id = table.row(row).data().id
-            send_delete(URL_INDEX + "/" + id)
-        });
-
-        $('#table tbody').on('click', 'tr .btn-view', function() {
-            row = $(this).parents('tr')[0];
-            data = table.row(row).data()
-            id = data.id
-            $('#table_item').DataTable().clear().destroy();
-
-            $('#modal_detail_title').html(`Activity ${data.product.code}`)
-
-            table_item = $("#table_item").DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('purchase-trx.index') }}" + "?purchase_item_id=" + id,
-                dom: "<'dt--top-section'<'row mb-2'<'col-sm-12 col-md-6 d-flex justify-content-md-start justify-content-center'B><'col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-center mt-md-0 mt-0'f>>>" +
-                    "<'table-responsive'tr>" +
-                    "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
-                oLanguage: {
-                    oPaginate: {
-                        sPrevious: '<i class="fas fa-chevron-left"></i>',
-                        sNext: '<i class="fas fa-chevron-right"></i>'
-                    },
-                    sSearch: '',
-                    sSearchPlaceholder: "Search...",
-                    sLengthMenu: "Results :  _MENU_",
-                },
-                lengthChange: false,
-                searching: false,
-                paging: false,
-                info: false,
-                columnDefs: [],
-                order: [],
-                columns: [{
-                    data: 'date',
-                    className: "text-start",
-                }, {
-                    data: 'qty',
-                    className: "text-center",
-                }, ],
-                buttons: [],
-            });
-
-            $('#modal_detail').modal('show')
-        });
-
-        $('#table tbody').on('click', 'tr .btn-edit', function() {
-            clear_validate('form')
-            row = $(this).parents('tr')[0];
-            id = table.row(row).data().id
-            $.get(URL_INDEX + '/' + id).done(function(result) {
-                $('#product_id').val(result.data.product_id).change()
-                $('#lot').val(result.data.lot)
-                $('#qty_kbn').val(result.data.qty_kbn)
-                $('#qty_ord').val(result.data.qty_ord)
-
-                $('#form').attr('action', URL_INDEX + '/' + id)
-                $('#modal_form_title').html('Edit Data')
-                $('#modal_form_submit').val('PUT')
-                $('#modal_form_password_help').show()
-                $('#modal_form').modal('show')
-            }).fail(function(xhr) {
-                show_toast('error', xhr.responseJSON.message || 'server Error!')
-            })
-        });
-
-        $('#modal_form').on('shown.bs.modal', function() {
-            $('#lot').focus();
-            clear_validate('form')
-        })
-
-        $('#form').submit(function(e) {
-            e.preventDefault()
-            send_ajax('form', $('#modal_form_submit').val())
-        })
-
-        function modal_add() {
-            $('#form').attr('action', URL_INDEX)
-            $('#modal_form_submit').val('POST')
-            $('#modal_form_title').html('Tambah Data')
-            $('#modal_form').modal('show')
-
-            $('#product_id').val('').change()
-            $('#lot').val(1)
-            $('#qty_kbn').val(1)
-            $('#qty_ord').val(1)
-        }
     </script>
 @endpush

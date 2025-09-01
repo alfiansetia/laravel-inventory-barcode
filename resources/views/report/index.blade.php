@@ -201,6 +201,7 @@
         $('#btn_filter_close').click(function() {
             $("#range").data('daterangepicker').setStartDate("{{ date('d/m/Y') }}");
             $("#range").data('daterangepicker').setEndDate("{{ date('d/m/Y') }}");
+            table.ajax.reload()
         })
 
         $('#range').change(function() {

@@ -1,7 +1,7 @@
 @extends('layouts.template', ['title' => 'Report', 'breadcumbs' => ['Report']])
 
 @push('css')
-    <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}?v=2">
     <link rel="stylesheet" href="{{ asset('kai/lib/bootstrap-daterangepicker/daterangepicker.css') }}">
 @endpush
 
@@ -40,7 +40,7 @@
     @include('product.modal')
 @endsection
 @push('js')
-    <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
+    <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}?v=2"></script>
     <script src="{{ asset('kai/lib/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
     <script>
         const URL_INDEX = "{{ route('reports.data') }}"

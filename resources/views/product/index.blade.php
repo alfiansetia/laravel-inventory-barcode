@@ -16,7 +16,7 @@
                             <th>Name</th>
                             <th>Incoming</th>
                             <th>Stock</th>
-                            <th>Description</th>
+                            <th>Satuan</th>
                             <th>#</th>
                         </tr>
                     </thead>
@@ -80,7 +80,8 @@
                 className: 'text-center',
                 searchable: false,
             }, {
-                data: 'desc',
+                data: 'satuan',
+                className: 'text-center',
             }, {
                 data: 'id',
                 searchable: false,
@@ -167,7 +168,7 @@
             $.get(URL_INDEX + '/' + id).done(function(result) {
                 $('#name').val(result.data.name)
                 $('#code').val(result.data.code)
-                $('#desc').val(result.data.desc)
+                $('#satuan').val(result.data.satuan)
 
                 $('#form').attr('action', URL_INDEX + '/' + id)
                 $('#modal_form_title').html('Edit Data')
@@ -196,7 +197,7 @@
             $('#modal_form').modal('show')
             $('#name').val('')
             $('#code').val('')
-            $('#desc').val('')
+            $('#satuan').val('')
         }
     </script>
 @endpush

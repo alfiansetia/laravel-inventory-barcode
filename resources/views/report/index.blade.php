@@ -25,6 +25,7 @@
                             <th width="30">No</th>
                             <th>Product Code</th>
                             <th>Name</th>
+                            <th>Awal</th>
                             <th>IN</th>
                             <th>OUT</th>
                             <th>Akhir</th>
@@ -108,6 +109,10 @@
                 data: 'code',
             }, {
                 data: 'name',
+            }, {
+                data: 'stok_awal',
+                className: 'text-center',
+                searchable: false,
             }, {
                 data: 'in',
                 className: 'text-center',

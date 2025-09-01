@@ -26,13 +26,27 @@ class ReportController extends Controller
         $date_from = Carbon::createFromFormat('Y-m-d', $from)->startOfDay();
         $date_to   = Carbon::createFromFormat('Y-m-d', $to)->endOfDay();
 
-        // Ambil total in per product
+        // Total in sebelum periode
+        $in_before = PurchaseTransaction::select('product_id', DB::raw('SUM(qty) as total_in'))
+            ->where('date', '<', $date_from)
+            ->groupBy('product_id')
+            ->pluck('total_in', 'product_id');
+
+        // Total out sebelum periode
+        $out_before = OutboundItem::select('product_id', DB::raw('SUM(qty) as total_out'))
+            ->whereHas('outbound', function ($q) use ($date_from) {
+                $q->where('date', '<', $date_from);
+            })
+            ->groupBy('product_id')
+            ->pluck('total_out', 'product_id');
+
+        // Total in dalam periode
         $ins = PurchaseTransaction::select('product_id', DB::raw('SUM(qty) as total_in'))
             ->whereBetween('date', [$date_from, $date_to])
             ->groupBy('product_id')
             ->pluck('total_in', 'product_id');
 
-        // Ambil total out per product
+        // Total out dalam periode
         $outs = OutboundItem::select('product_id', DB::raw('SUM(qty) as total_out'))
             ->whereHas('outbound', function ($q) use ($date_from, $date_to) {
                 $q->whereBetween('date', [$date_from, $date_to]);
@@ -40,19 +54,28 @@ class ReportController extends Controller
             ->groupBy('product_id')
             ->pluck('total_out', 'product_id');
 
-        // Ambil semua produk, lalu merge dengan hasil in/out
-        $rekap = Product::select('id', 'code', 'name')->get()->map(function ($product) use ($ins, $outs) {
+        // Ambil semua produk dan gabungkan
+        $rekap = Product::select('id', 'code', 'name')->get()->map(function ($product) use ($in_before, $out_before, $ins, $outs) {
+            $awal_in  = $in_before[$product->id] ?? 0;
+            $awal_out = $out_before[$product->id] ?? 0;
+            $stok_awal = $awal_in - $awal_out;
+
             $in  = $ins[$product->id] ?? 0;
             $out = $outs[$product->id] ?? 0;
+
+            $ending = $stok_awal + $in - $out;
+
             return [
                 'product_id' => $product->id,
                 'code'       => $product->code,
                 'name'       => $product->name,
+                'stok_awal'  => $stok_awal,
                 'in'         => $in,
                 'out'        => $out,
-                'ending'     => $in - $out,
+                'ending'     => $ending,
             ];
         });
+
 
         return DataTables::of($rekap)->addIndexColumn()->toJson();
     }

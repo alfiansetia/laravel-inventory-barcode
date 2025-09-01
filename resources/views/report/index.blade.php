@@ -2,9 +2,20 @@
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('kai/lib/bootstrap-daterangepicker/daterangepicker.css') }}">
 @endpush
 
 @section('contents')
+    <div class="row">
+        <div class="col-md-6">
+            <input type="text" class="form-control mb-2" placeholder="Range Date" id="range">
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-primary" id="btn_filter"><i class="fas fa-filter me-1"></i>Filter</button>
+            <button type="button" class="btn btn-warning" id="btn_filter_close">
+                <i class="fas fa-times me-1"></i>Clear</button>
+        </div>
+    </div>
     <div class="card">
         <div class="card-body">
             <div class="rounded mb-4">
@@ -30,16 +41,44 @@
 @endsection
 @push('js')
     <script src="{{ asset('kai/lib/datatable-new/datatables.min.js') }}"></script>
+    <script src="{{ asset('kai/lib/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
     <script>
         const URL_INDEX = "{{ route('reports.data') }}"
     </script>
     <script>
+        $('#range').daterangepicker({
+            locale: {
+                format: 'DD/MM/YYYY'
+            },
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days').startOf('day'), moment().endOf('day')],
+                'Last 31 Days': [moment().subtract(30, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment()],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf(
+                    'month')],
+            },
+            showDropdowns: true,
+            startDate: moment().startOf('month'),
+            endDate: moment(),
+            parentEl: "#modal_export",
+        });
+
+        $("#range").data('daterangepicker').setStartDate("{{ date('d/m/Y') }}");
+        $("#range").data('daterangepicker').setEndDate("{{ date('d/m/Y') }}");
+        document.title = `Report Stok Product From : {{ date('d/m/Y') }} To : {{ date('d/m/Y') }}`
+
         var table = $("#table").DataTable({
             processing: true,
             serverSide: false,
             rowId: 'id',
             ajax: {
                 url: URL_INDEX,
+                data: function(d) {
+                    d.from = $('#range').data('daterangepicker').startDate.format('YYYY-MM-DD');
+                    d.to = $('#range').data('daterangepicker').endDate.format('YYYY-MM-DD');
+                },
                 error: function(xhr, error, code) {
                     $("#table_processing").hide()
                     $(".dt-empty").text('Error, Please Refresh!')
@@ -83,16 +122,6 @@
                 searchable: false,
             }],
             buttons: [{
-                text: '<i class="fa fa-plus me-1"></i>Add',
-                className: 'btn btn-sm btn-primary bs-tooltip',
-                attr: {
-                    'data-toggle': 'tooltip',
-                    'title': 'Add Data'
-                },
-                action: function(e, dt, node, config) {
-                    modal_add()
-                }
-            }, {
                 extend: "colvis",
                 attr: {
                     'data-toggle': 'tooltip',
@@ -116,7 +145,41 @@
                 action: function(e, dt, node, config) {
                     table.ajax.reload()
                 }
-            }, ],
+            }, {
+                extend: "collection",
+                text: '<i class="fas fa-download me-1"></i>Export',
+                attr: {
+                    'data-toggle': 'tooltip',
+                    'title': 'Export Data'
+                },
+                className: 'btn btn-sm btn-info',
+                buttons: [{
+                    extend: 'copy',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }, {
+                    extend: 'csv',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }, {
+                    extend: 'pdf',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }, {
+                    extend: 'excel',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }, {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }],
+            }],
             initComplete: function() {
                 $('#table').DataTable().buttons().container().appendTo(
                     '#tableData_wrapper .col-md-6:eq(0)');
@@ -130,5 +193,20 @@
         });
 
         $.fn.dataTable.ext.errMode = 'none';
+
+        $('#btn_filter').click(function() {
+            table.ajax.reload()
+        })
+
+        $('#btn_filter_close').click(function() {
+            $("#range").data('daterangepicker').setStartDate("{{ date('d/m/Y') }}");
+            $("#range").data('daterangepicker').setEndDate("{{ date('d/m/Y') }}");
+        })
+
+        $('#range').change(function() {
+            let from = $('#range').data('daterangepicker').startDate.format('DD/MM/YYYY');
+            let to = $('#range').data('daterangepicker').endDate.format('DD/MM/YYYY');
+            document.title = `Report Stok Product From : ${from} To : ${to}`
+        })
     </script>
 @endpush

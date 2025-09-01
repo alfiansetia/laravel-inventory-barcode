@@ -116,6 +116,9 @@
 
     <!-- Kaiadmin JS -->
     <script src="{{ asset('kai/assets/js/kaiadmin.min.js') }}"></script>
+
+    <script src="{{ asset('kai/lib/moment/min/moment.min.js') }}"></script>
+
     <script>
         function ajax_setup() {
             $.ajaxSetup({

@@ -27,12 +27,14 @@ class VendorController extends Controller
         $this->validate($request, [
             'name'      => 'required|max:100',
             'vendor_id' => 'required|string|max:100|unique:vendors,vendor_id',
-            'address'   => 'nullable|max:200',
+            'npwp'      => 'required|max:100',
+            'type'      => 'required|max:100',
         ]);
         Vendor::create([
             'name'      => $request->name,
             'vendor_id' => $request->vendor_id,
-            'address'   => $request->address,
+            'npwp'      => $request->npwp,
+            'type'      => $request->type,
         ]);
         return response()->json(['message' => 'Data Inserted!']);
     }
@@ -42,12 +44,14 @@ class VendorController extends Controller
         $this->validate($request, [
             'name'      => 'required|max:100',
             'vendor_id' => 'required|max:100|unique:vendors,vendor_id,' . $vendor->id,
-            'address'   => 'nullable|max:200',
+            'npwp'      => 'required|max:100',
+            'type'      => 'required|max:100',
         ]);
         $param = [
             'name'      => $request->name,
             'vendor_id' => $request->vendor_id,
-            'address'   => $request->address,
+            'npwp'      => $request->npwp,
+            'type'      => $request->type,
         ];
         $vendor->update($param);
         return response()->json(['message' => 'Data Updated!']);

@@ -1,0 +1,3470 @@
+[
+    {
+        "VEN_ID": "TC-001-001",
+        "VEN_NAME": "ALIFINDO MITRA BERSAMA, PT",
+        "NPWP": "21.114.426.6-432.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-002-001",
+        "VEN_NAME": "ARTHA INDOKIMIA RAYA, PT",
+        "NPWP": "02.422.594.8-414.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-003-001",
+        "VEN_NAME": "ARTHA UTAMA PLASINDO, PT",
+        "NPWP": "02.321.564.3-431.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-004-001",
+        "VEN_NAME": "AZ TECS INDONESIA, PT",
+        "NPWP": "02.422.052.7-413.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-005-001",
+        "VEN_NAME": "BAHANA UNINDO TEKNIK, PT",
+        "NPWP": "31.295.439.9-435.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-006-001",
+        "VEN_NAME": "BINA NIAGA MULTIUSAHA, PT",
+        "NPWP": "01.788.294.5-431.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-007-001",
+        "VEN_NAME": "BINA SUKSES DAIICHI, CV",
+        "NPWP": "31.179.451.5-413.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-008-001",
+        "VEN_NAME": "BUANA TUNGGUL, CV",
+        "NPWP": "02.422.441.2-414.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-009-001",
+        "VEN_NAME": "CAHAYA MANUNGGAL, CV",
+        "NPWP": "31.432.725.5-414.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-010-001",
+        "VEN_NAME": "CHIYODA INTEGRE INDONESIA, PT",
+        "NPWP": "01.824.280.0-055.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-011-001",
+        "VEN_NAME": "CITRA LANGGENG SENTOSA, PT",
+        "NPWP": "02.185.771.9-431.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-012-001",
+        "VEN_NAME": "CITRAGAMA GEMILANG MANDIRI, PT",
+        "NPWP": "02.362.598.1-402.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-013-001",
+        "VEN_NAME": "DACO JAYA ABADI, PT",
+        "NPWP": "02.589.446.0-413.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-014-001",
+        "VEN_NAME": "DAKARA CITRA TANGGUH, PT",
+        "NPWP": "71.552.141.5-432.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-015-001",
+        "VEN_NAME": "DUAKA SEKAWAN SENTRA MUKTI, PT",
+        "NPWP": "01.650.580.2-432.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-016-001",
+        "VEN_NAME": "ELASTOMIX INDONESIA, PT",
+        "NPWP": "31.765.794.8-433.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-017-001",
+        "VEN_NAME": "FORMAX, PT",
+        "NPWP": "02.500.996.0-061.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-018-001",
+        "VEN_NAME": "GADING MURNI, PT",
+        "NPWP": "01.108.743.4-631.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-019-001",
+        "VEN_NAME": "GEMAH RIPAH LOH JINAWI, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-020-001",
+        "VEN_NAME": "GLOBAL SINERGI, CV",
+        "NPWP": "31.163.817.5-407.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-021-001",
+        "VEN_NAME": "INDRAGRAHA NUSAPLASINDO, PT",
+        "NPWP": "01.718.193.4-073.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-022-001",
+        "VEN_NAME": "INTI RAGAM OLEFINDO, PT",
+        "NPWP": "01.402.101.8-007.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-023-001",
+        "VEN_NAME": "IWATANI INDUSTRIAL GAS, PT",
+        "NPWP": "01.071.718.9-052.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-024-001",
+        "VEN_NAME": "JFE SHOJI STEEL INDONESIA, PT",
+        "NPWP": "01.071.035.8-055.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-025-001",
+        "VEN_NAME": "KANEFUSA INDONESIA, PT",
+        "NPWP": "01.061.560.7-055.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-026-001",
+        "VEN_NAME": "KIIK LESTARI, PT",
+        "NPWP": "31.628.477.7-408.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-027-001",
+        "VEN_NAME": "KIMU SUKSES ABADI, PT",
+        "NPWP": "31.416.390.8-435.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-028-001",
+        "VEN_NAME": "KOFUKU ABADI, PT",
+        "NPWP": "02.744.364.7-413.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-029-001",
+        "VEN_NAME": "LAJU KARYA SAHABAT, PT",
+        "NPWP": "70.907.525.3-414.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-030-001",
+        "VEN_NAME": "LANGGENG MULTI USAHA, PT",
+        "NPWP": "02.248.466.1-074.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-031-001",
+        "VEN_NAME": "MANDIRI PANCA PRIMA, PT",
+        "NPWP": "02.094.850.1-046.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-032-001",
+        "VEN_NAME": "MITRA GLOBAL INTRANIAGA, PT",
+        "NPWP": "81.033.704.8-032.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-033-001",
+        "VEN_NAME": "MULTI PRATAMA INTERBUANA INDONESIA, PT",
+        "NPWP": "01.824.484.8-052.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-034-001",
+        "VEN_NAME": "MULYA ADHI PARAMITA, PT",
+        "NPWP": "01.362.094.3-059.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-035-001",
+        "VEN_NAME": "NIFCO INDONESIA, PT",
+        "NPWP": "03.133.881.7-408.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-036-001",
+        "VEN_NAME": "NITTO MATERIALS INDONESIA, PT",
+        "NPWP": "01.824.282.6-055.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-037-001",
+        "VEN_NAME": "POSMI STEEL INDONESIA, PT",
+        "NPWP": "01.071.481.4-055.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-038-001",
+        "VEN_NAME": "RESIN PLATING TECHNOLOGY, PT",
+        "NPWP": "31.712.146.5-413.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-039-001",
+        "VEN_NAME": "RIKEN INDONESIA, PT",
+        "NPWP": "01.071.018.4-052.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-040-001",
+        "VEN_NAME": "RIZQUNA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-041-001",
+        "VEN_NAME": "RUKUN SEJAHTERA TEKNIK, PT",
+        "NPWP": "02.321.220.2-038.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-042-001",
+        "VEN_NAME": "SATRIA LAKSANA KARYA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-043-001",
+        "VEN_NAME": "SATRIA PANCARAN BERKAT SAFETY",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-044-001",
+        "VEN_NAME": "SEJAHTERA VISITAMA, PT",
+        "NPWP": "21.097.268.3-451.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-045-001",
+        "VEN_NAME": "SHIRAISHI CALCIUM INDONESIA, PT",
+        "NPWP": "01.789.630.9-056.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-046-001",
+        "VEN_NAME": "SORAYA INTERINDO, PT",
+        "NPWP": "01.569.984.6-021.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-047-001",
+        "VEN_NAME": "SUPER STEEL KARAWANG, PT",
+        "NPWP": "01.869.213.7-055.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-048-001",
+        "VEN_NAME": "SUPLAI INDO TEHNIK, PT",
+        "NPWP": "73.481.914.7-032.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-049-001",
+        "VEN_NAME": "TOSAMA ABADI, PT",
+        "NPWP": "01.729.789.6-007.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-050-001",
+        "VEN_NAME": "TOYOTA TSUSHO CORPORATION, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-051-001",
+        "VEN_NAME": "TOYOTA TSUSHO INDONESIA, PT",
+        "NPWP": "01.069.247.3-056.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-052-001",
+        "VEN_NAME": "WIJAYA SENTOSA, PD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-053-001",
+        "VEN_NAME": "YASUFUKU INDONESIA, PT",
+        "NPWP": "01.071.079.6-052.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-054-001",
+        "VEN_NAME": "YUANSA ABADI, PT",
+        "NPWP": "01.647.464.5-434.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-055-001",
+        "VEN_NAME": "TMG INTERNASIONAL INDONESIA",
+        "NPWP": "76.450.179.7-414.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-056-001",
+        "VEN_NAME": "AFTECH RAND PERKASA, PT",
+        "NPWP": "02.010.024.4-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-057-001",
+        "VEN_NAME": "ACCESS MICRO SYSTEM, PT",
+        "NPWP": "03.093.707.2-031.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-058-001",
+        "VEN_NAME": "ACE HARDWARE, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-059-001",
+        "VEN_NAME": "ADAM FLORA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-060-001",
+        "VEN_NAME": "ADIRAYA MANDIRI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-061-001",
+        "VEN_NAME": "ADITYA KENCANA SAKTI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-062-001",
+        "VEN_NAME": "ADITYA SRIWIJAYA, PT",
+        "NPWP": "21.127.786.8-432.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-063-001",
+        "VEN_NAME": "ADIYASA ABADI, PT",
+        "NPWP": "02.744.223.5-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-064-001",
+        "VEN_NAME": "AKBAR NUSANTARA PERKASA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-065-001",
+        "VEN_NAME": "ALAM JAYA GRAHA KARAWANG, PT",
+        "NPWP": "66.455.413.6-408.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-066-001",
+        "VEN_NAME": "ALDINA LOGAM INDUSTRI",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-067-001",
+        "VEN_NAME": "ALFA SENTOSA RAYA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-068-001",
+        "VEN_NAME": "ALFA TEKNOLOGI",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-069-001",
+        "VEN_NAME": "ALFON FAJAR CEMERLANG, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-070-001",
+        "VEN_NAME": "AL-ZEENA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-071-001",
+        "VEN_NAME": "AMASINDO BINTANG CEMERLANG, PT",
+        "NPWP": "02.461.021.4-046.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-072-001",
+        "VEN_NAME": "ANDALAN NUSANTARA TEKNOLOGI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-073-001",
+        "VEN_NAME": "ANEKA TAMBANG TBK, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-074-001",
+        "VEN_NAME": "ANUGERAH ABADI BERSAUDARA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-075-001",
+        "VEN_NAME": "ANUGERAH SUMBER ABADI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-076-001",
+        "VEN_NAME": "ANUGRAH PETRINDO MORATAMA, PT",
+        "NPWP": "31.650.227.7-004.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-077-001",
+        "VEN_NAME": "ARENA TEKNIK, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-078-001",
+        "VEN_NAME": "ARJUNA INTI SELARAS, CV",
+        "NPWP": "31.803.111.9-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-079-001",
+        "VEN_NAME": "ART WIRE, PT",
+        "NPWP": "02.744.189.8-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-080-001",
+        "VEN_NAME": "ASABA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-081-001",
+        "VEN_NAME": "ASCO PRIMA MOBILINDO, PT",
+        "NPWP": "01.707.742.1-062.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-082-001",
+        "VEN_NAME": "ASIAPARTS INDOTECH, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-083-001",
+        "VEN_NAME": "ASTRA GRAPHIA TBK, PT",
+        "NPWP": "01.307.261.6-054.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-084-001",
+        "VEN_NAME": "ASTRA INTERNASIONAL TBK-DAIHATSU BEKASI NAROGONG, PT",
+        "NPWP": "01.302.584.6-092.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-085-001",
+        "VEN_NAME": "ASTRA INTERNASIONAL TBK-TOYOTA SALES OPERATION, PT",
+        "NPWP": "01.302.584.6-092.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-086-001",
+        "VEN_NAME": "ASTRA INTERNATIONAL TBK - TSO CIKARANG, PT",
+        "NPWP": "01.302.584.6-092.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-087-001",
+        "VEN_NAME": "ASTRA INTERNATIONAL TBK-AUTO2000, PT",
+        "NPWP": "01.302.584.6-092.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-088-001",
+        "VEN_NAME": "ASTRA INTERNATIONAL TBK-TSO BEKASI, PT",
+        "NPWP": "01.302.584.6-092.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-089-001",
+        "VEN_NAME": "ASTRA OTOPART, PT",
+        "NPWP": "01.345.243.8-054.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-090-001",
+        "VEN_NAME": "ASTRIDO PRIMA MOBILINDO, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-091-001",
+        "VEN_NAME": "ATLAS PETROCHEM INDO, PT",
+        "NPWP": "01.738.368.8-073.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-092-001",
+        "VEN_NAME": "AUTOMATION JAYA ",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-093-001",
+        "VEN_NAME": "AZBIL BERCA INDONESIA, PT",
+        "NPWP": "01.824.558.9-059.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-094-001",
+        "VEN_NAME": "BAHTERA MADYA UTAMA, PT",
+        "NPWP": "02.744.203.7-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-095-001",
+        "VEN_NAME": "BANGKIT JAYA SERVICE, CV",
+        "NPWP": "72.495.468.0-434.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-096-001",
+        "VEN_NAME": "BATARA ELEKTRINDO, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-097-001",
+        "VEN_NAME": "BEKASI ACRYLIC",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-098-001",
+        "VEN_NAME": "BENUA KENCANA MAKMUR, PT",
+        "NPWP": "02.461.396.0-041.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-099-001",
+        "VEN_NAME": "BERKAH MULIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-100-001",
+        "VEN_NAME": "BERKAH MANDIRI, UD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-101-001",
+        "VEN_NAME": "BERLIAN INTERIOR DESIGN",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-102-001",
+        "VEN_NAME": "BERSAMA JAYA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-103-001",
+        "VEN_NAME": "BHINNEKA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-104-001",
+        "VEN_NAME": "BHINNEKA MENTARI DIMENSI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-105-001",
+        "VEN_NAME": "BIMA ESTETIKA LESTARI TANGGUH, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-106-001",
+        "VEN_NAME": "BINA ADIDAYA, PT",
+        "NPWP": "01.439.869.7-415.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-107-001",
+        "VEN_NAME": "BINTANG KENCANA TEKNIK, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-108-001",
+        "VEN_NAME": "BINTANG MEDIA JAYA ABADI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-109-001",
+        "VEN_NAME": "BINTANG RAYA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-110-001",
+        "VEN_NAME": "BINTANG SEJAHTERA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-111-001",
+        "VEN_NAME": "BIO MEDI CENTRE",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-112-001",
+        "VEN_NAME": "BIRUTAMA ENVITECH, CV",
+        "NPWP": "70.452.311.7-407.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-113-001",
+        "VEN_NAME": "BITI 2000, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-114-001",
+        "VEN_NAME": "CYGNUS CYRUS CEMERLANG, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-115-001",
+        "VEN_NAME": "CAESAR, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-116-001",
+        "VEN_NAME": "CAHAYA DUTA UTAMA, PT",
+        "NPWP": "31.750.168.2-433.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-117-001",
+        "VEN_NAME": "CAHAYA JAYA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-118-001",
+        "VEN_NAME": "CALTESYS INDONESIA, PT",
+        "NPWP": "02.248.139.4-086.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-119-001",
+        "VEN_NAME": "CENTRO ADHIKARSA UTAMA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-120-001",
+        "VEN_NAME": "CHEETAH, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-121-001",
+        "VEN_NAME": "CIPTA KEMALA FAIZTAMA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-122-001",
+        "VEN_NAME": "CIPTA SATRIA INFORMATIKA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-123-001",
+        "VEN_NAME": "CIPTA SURYA SEJAHTERA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-124-001",
+        "VEN_NAME": "CITRA AIRINDO ABADI, PT",
+        "NPWP": "02.415.611.9-038.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-125-001",
+        "VEN_NAME": "CITRA MULTI SERVICE, PT",
+        "NPWP": "02.433.010.2-015.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-126-001",
+        "VEN_NAME": "CITRA SARANA MEDIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-127-001",
+        "VEN_NAME": "CITRA TEKNIK, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-128-001",
+        "VEN_NAME": "CMG INT TRADE",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-129-001",
+        "VEN_NAME": "CMYK, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-130-001",
+        "VEN_NAME": "COLUMBIA COMPUTER",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-131-001",
+        "VEN_NAME": "COMMINDO SAKTI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-132-001",
+        "VEN_NAME": "DAI SABISU INDONESIA, PT",
+        "NPWP": "31.247.829.0-432.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-133-001",
+        "VEN_NAME": "DAIHAN CO., LTD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-134-001",
+        "VEN_NAME": "DAIKIN AIRCONDITIONING INDONESIA, PT",
+        "NPWP": "31.497.873.5-026.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-135-001",
+        "VEN_NAME": "DANACHRIST TEKNINDO, PT",
+        "NPWP": "03.159.118.3-048.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-136-001",
+        "VEN_NAME": "DASA NUSA PERSADA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-137-001",
+        "VEN_NAME": "DATASCRIP, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-138-001",
+        "VEN_NAME": "DENA PELLA LESTARI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-139-001",
+        "VEN_NAME": "DHARMA MOTORTAMA NUSANTARA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-140-001",
+        "VEN_NAME": "DIGIGUNA PRESISI, PT",
+        "NPWP": "01.721.142.6-032.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-141-001",
+        "VEN_NAME": "DIGITAL POINS",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-142-001",
+        "VEN_NAME": "DIP ENGINEERING, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-143-001",
+        "VEN_NAME": "DIVA PRINTING",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-144-001",
+        "VEN_NAME": "DJAYA BERSAMA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-145-001",
+        "VEN_NAME": "D-SCALE INDONESIA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-146-001",
+        "VEN_NAME": "DU AZ SOLUTION, PT",
+        "NPWP": "02.109.739.9-023.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-147-001",
+        "VEN_NAME": "DUTA FUJI ELECTRIC, PT",
+        "NPWP": "01.310.671.1-073.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-148-001",
+        "VEN_NAME": "DUTA LISTRIK NIAGA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-149-001",
+        "VEN_NAME": "DUTA PROIDEA, PT",
+        "NPWP": "02.004.773.4-031.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-150-001",
+        "VEN_NAME": "DUTAFLOW HIDROLIK, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-151-001",
+        "VEN_NAME": "DYCOM ENGINEERING, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-152-001",
+        "VEN_NAME": "EASTERN PRO ENGINEERING, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-153-001",
+        "VEN_NAME": "ELITA TEKNIKA CEMERLANG, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-154-001",
+        "VEN_NAME": "ELMECON MULTIKENCANA, PT",
+        "NPWP": "01.777.726.9-037.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-155-001",
+        "VEN_NAME": "ELMO BENTARA PRAWIRATAMA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-156-001",
+        "VEN_NAME": "EMI JAYA ADHIGANA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-157-001",
+        "VEN_NAME": "ETERNA KARYA SEJAHTERA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-158-001",
+        "VEN_NAME": "FASTFOOD INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-159-001",
+        "VEN_NAME": "FORTA LARESE, PT",
+        "NPWP": "01.001.828.1-028.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-160-001",
+        "VEN_NAME": "FUJITSU INDONESIA, PT",
+        "NPWP": "01.070.967.3-058.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-161-001",
+        "VEN_NAME": "GADING NUSA PERSADA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-162-001",
+        "VEN_NAME": "GAMA INTI WAHANA, PT",
+        "NPWP": "01.994.221.8-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-163-001",
+        "VEN_NAME": "GAMAKO MANDIRI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-164-001",
+        "VEN_NAME": "GAYA TRENDY JAYA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-165-001",
+        "VEN_NAME": "GEMA NUSA PERTIWI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-166-001",
+        "VEN_NAME": "GEWINN GOLD HOTAMA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-167-001",
+        "VEN_NAME": "GLASS BLOWER, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-168-001",
+        "VEN_NAME": "GLOBAL MEGA INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-169-001",
+        "VEN_NAME": "GONG MAS TEKNIK ",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-170-001",
+        "VEN_NAME": "GRAFITAMA DELTAKREASI, PT",
+        "NPWP": "01.620.409.1-077.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-171-001",
+        "VEN_NAME": "GRAMEDIA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-172-001",
+        "VEN_NAME": "GREGAH REKADAYA ABADI, PT",
+        "NPWP": "31.348.807.4-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-173-001",
+        "VEN_NAME": "GRIYA RESIK CEMERLANG, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-174-001",
+        "VEN_NAME": "GUNUNG MAS ENGINEERING",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-175-001",
+        "VEN_NAME": "HAMANROKO, PT",
+        "NPWP": "01.396.048.9-059.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-176-001",
+        "VEN_NAME": "HANDAL DUTA KINARYA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-177-001",
+        "VEN_NAME": "HARAPAN JAYA, UD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-178-001",
+        "VEN_NAME": "HARAPAN MULIA ENGINEERING, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-179-001",
+        "VEN_NAME": "HARIDNA INDONESIA, CV",
+        "NPWP": "31.617.506.6-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-180-001",
+        "VEN_NAME": "HEMEL ELECTRIC, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-181-001",
+        "VEN_NAME": "HERMON PANCAKARSA LIBRATAMA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-182-001",
+        "VEN_NAME": "HIMALAYA EVEREST JAYA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-183-001",
+        "VEN_NAME": "HOKA-HOKA BENTO",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-184-001",
+        "VEN_NAME": "HOME CENTER INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-185-001",
+        "VEN_NAME": "HORIGUCHI ENGINEERING INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-186-001",
+        "VEN_NAME": "HIPERNET INDODATA, PT",
+        "NPWP": "02.485.008.3-036.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-187-001",
+        "VEN_NAME": "ICOM INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-188-001",
+        "VEN_NAME": "IKATAN OTOMOTIF CIKARANG",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-189-001",
+        "VEN_NAME": "IMPERO NUSA PRATAMA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-190-001",
+        "VEN_NAME": "INDAH OFFSET PRINTING, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-191-001",
+        "VEN_NAME": "INDAH PERMATA TEKNIK, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-192-001",
+        "VEN_NAME": "INDOASIA THRIVETAMA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-193-001",
+        "VEN_NAME": "INDONESIA MS MOLD, PT",
+        "NPWP": "31.683.942.2-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-194-001",
+        "VEN_NAME": "INDOSEIKI SUKSES MANDIRI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-195-001",
+        "VEN_NAME": "INDOTARA PERSADA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-196-001",
+        "VEN_NAME": "INDOTEKNIK DOTCOM GEMILANG, PT",
+        "NPWP": "74.226.022.7-086.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-197-001",
+        "VEN_NAME": "INOV PERDANA TEKNOLOGI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-198-001",
+        "VEN_NAME": "INTEC INSTRUMENTS, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-199-001",
+        "VEN_NAME": "INTEGRA SOLUSINDO UTAMA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-200-001",
+        "VEN_NAME": "INTER TEKNIK, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-201-001",
+        "VEN_NAME": "INTIPLAZ UTAMA INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-202-001",
+        "VEN_NAME": "IQBAL ACRYLIC COSTUM",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-203-001",
+        "VEN_NAME": "JAYA ABADI TEKNIK",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-204-001",
+        "VEN_NAME": "JAYA PUTRA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-205-001",
+        "VEN_NAME": "JIEI (THAILAND) CO, LTD.",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-206-001",
+        "VEN_NAME": "JP CLUB GOLF STICKS CONSULTANT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-207-001",
+        "VEN_NAME": "KANSAI PAINT INDONESIA, PT",
+        "NPWP": "01.882.650.3-052.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-208-001",
+        "VEN_NAME": "KARYA BARU",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-209-001",
+        "VEN_NAME": "KARYA BERSAMA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-210-001",
+        "VEN_NAME": "KARYA ELOK",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-211-001",
+        "VEN_NAME": "KARYA INSANI AUTO INTRAPERSADA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-212-001",
+        "VEN_NAME": "KARYA MUKTI",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-213-001",
+        "VEN_NAME": "KARYA PUTRA SANGKURIANG, PT",
+        "NPWP": "01.421.870.5-441.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-214-001",
+        "VEN_NAME": "KASEI KOGYO CO, LTD.",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-215-001",
+        "VEN_NAME": "KATNIS EVERGREEN CALIBRATION",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-216-001",
+        "VEN_NAME": "KAWAN DAMAI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-217-001",
+        "VEN_NAME": "KAWAN LAMA SEJAHTERA, PT",
+        "NPWP": "01.363.367.2-038.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-218-001",
+        "VEN_NAME": "KAWATA MARKETING INDONESIA, PT",
+        "NPWP": "70.155.200.2-031.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-219-001",
+        "VEN_NAME": "KAWATA PACIFIC PTE LTD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-220-001",
+        "VEN_NAME": "KAWAZURA TEKNINDO, CV",
+        "NPWP": "66.886.876.3-408.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-221-001",
+        "VEN_NAME": "KAYU MANIS TEKNIK",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-222-001",
+        "VEN_NAME": "KENWA INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-223-001",
+        "VEN_NAME": "KERTAYASA UTAMA, PT",
+        "NPWP": "02.726.834.1-432.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-224-001",
+        "VEN_NAME": "KEYENCE INDONESIA, PT",
+        "NPWP": "03.312.322.5-016.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-225-001",
+        "VEN_NAME": "KEYENCE SINGAPORE PTE LTD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-226-001",
+        "VEN_NAME": "KHARISMA TEKNINDO PERKASA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-227-001",
+        "VEN_NAME": "KIANIS PRATAMA, PT",
+        "NPWP": "02.589.971.7-004.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-228-001",
+        "VEN_NAME": "KITA CIPTA SOLUSINDO, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-229-001",
+        "VEN_NAME": "KITAMASKARANG",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-230-001",
+        "VEN_NAME": "KITOMA INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-231-001",
+        "VEN_NAME": "KRISBOW INDONESIA, PT",
+        "NPWP": "31.662.316.4-086.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-232-001",
+        "VEN_NAME": "KYODO DIE-WORKS (THAILAND) CO, LTD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-233-001",
+        "VEN_NAME": "LANGGENG MANDIRI BERSAMA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-234-001",
+        "VEN_NAME": "LAUTAN BERLIAN TEKNIK",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-235-001",
+        "VEN_NAME": "LAUTAN KENCANA HIDUP, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-236-001",
+        "VEN_NAME": "LECAPSEAL INDONESIA, PT",
+        "NPWP": "31.579.792.8-432.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-237-001",
+        "VEN_NAME": "LEMBAGA PENDIDIKAN DAN KURSUS MIRAI",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-238-001",
+        "VEN_NAME": "LE'PARD PUTRA MANDIRI, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-239-001",
+        "VEN_NAME": "LESTARI MANDIRI, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-240-001",
+        "VEN_NAME": "LOGICA ENGINEERING, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-241-001",
+        "VEN_NAME": "LOTTE SHOPPING INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-242-001",
+        "VEN_NAME": "LUMBUNG MULTI USAHA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-243-001",
+        "VEN_NAME": "MADANI UTAMA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-244-001",
+        "VEN_NAME": "MAHESA KARYA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-245-001",
+        "VEN_NAME": "MAHKOTA MAS MANDIRI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-246-001",
+        "VEN_NAME": "MAJENG SELARAS, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-247-001",
+        "VEN_NAME": "MAJU NUGRAH ABADI",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-248-001",
+        "VEN_NAME": "MAKMUR ABADI",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-249-001",
+        "VEN_NAME": "MANDIRI TRANSFORMA GLOBAL, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-250-001",
+        "VEN_NAME": "MARISCA CITRA PRATAMA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-251-001",
+        "VEN_NAME": "MASTER HOSE RAYA, PT",
+        "NPWP": "72.872.781.9-414.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-252-001",
+        "VEN_NAME": "MASTER LOGAM PRESISI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-253-001",
+        "VEN_NAME": "MATAHARI ABADI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-254-001",
+        "VEN_NAME": "MATRACO KOMPONEN, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-255-001",
+        "VEN_NAME": "MAWAR PUTIH CERIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-256-001",
+        "VEN_NAME": "MEGA KARYA ELEKTRIKA, PT",
+        "NPWP": "31.219.798.1-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-257-001",
+        "VEN_NAME": "MEGA KARYA PERSADA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-258-001",
+        "VEN_NAME": "MELODHIA AKBAR, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-259-001",
+        "VEN_NAME": "MESINDOMITRA REKAYASA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-260-001",
+        "VEN_NAME": "MICRO DENSHIN CO, LTD.",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-261-001",
+        "VEN_NAME": "MIMO",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-262-001",
+        "VEN_NAME": "MISUMI INDONESIA, PT",
+        "NPWP": "03.277.962.1-063.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-263-001",
+        "VEN_NAME": "MITRA SARANA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-264-001",
+        "VEN_NAME": "MITRA SINERGI INTERNASIONAL, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-265-001",
+        "VEN_NAME": "MITRA SOLUSI INDUSTRI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-266-001",
+        "VEN_NAME": "MITSUBISHI ELECTRIC, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-267-001",
+        "VEN_NAME": "MORBI DATA RISET INDONESIA, PT",
+        "NPWP": "03.190.360.2-005.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-268-001",
+        "VEN_NAME": "MUARA CAHAYA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-269-001",
+        "VEN_NAME": "MULTI KARYA SERVICE",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-270-001",
+        "VEN_NAME": "MULTI SELARAS ABADI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-271-001",
+        "VEN_NAME": "MUSTIKA CIPTA KHARISMA, PT",
+        "NPWP": "02.413.352.2-432.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-272-001",
+        "VEN_NAME": "NAO, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-273-001",
+        "VEN_NAME": "NARMADA SETIA, PT",
+        "NPWP": "66.172.123.3-407.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-274-001",
+        "VEN_NAME": "NEO TEKNIK PRIMA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-275-001",
+        "VEN_NAME": "NIHON ETCHING INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-276-001",
+        "VEN_NAME": "NISSEI PLASTIC INDONESIA, PT",
+        "NPWP": "70.615.322.8-044.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-277-001",
+        "VEN_NAME": "NOBLE ELECTRINDO, PT",
+        "NPWP": "31.238.689.9-407.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-278-001",
+        "VEN_NAME": "INTI SOLUSI BERSAMA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-279-001",
+        "VEN_NAME": "NTT INDONESIA, PT",
+        "NPWP": "01.358.014.7-058.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-280-001",
+        "VEN_NAME": "NUVOS SOLUSINDO, PT",
+        "NPWP": "02.695.298.6-043.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-281-001",
+        "VEN_NAME": "OCTA PRIMA LESTARI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-282-001",
+        "VEN_NAME": "OFFICE ONE",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-283-001",
+        "VEN_NAME": "OHTOMI, PT",
+        "NPWP": "01.303.293.3-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-284-001",
+        "VEN_NAME": "PANDU AMAN SEJATI, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-285-001",
+        "VEN_NAME": "PANDU HYDRO PNEUMATICS, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-286-001",
+        "VEN_NAME": "PAPABUNZ",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-287-001",
+        "VEN_NAME": "PARKER METAL TREATMENT INDONESIA, PT",
+        "NPWP": "02.193.878.2-058.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-288-001",
+        "VEN_NAME": "PARKERINDO SOLUSI HOSE, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-289-001",
+        "VEN_NAME": "PASIFIC MULTITECH SUPPLY, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-290-001",
+        "VEN_NAME": "PASSTECH, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-291-001",
+        "VEN_NAME": "PATRATEK MEZATOI INDONESIA,CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-292-001",
+        "VEN_NAME": "PERCETAKAN DWIHARA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-293-001",
+        "VEN_NAME": "PERKASA SOLUSI MANDIRI, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-294-001",
+        "VEN_NAME": "PETRACO, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-295-001",
+        "VEN_NAME": "PILLAR UTAMA CONTRINDO, PT",
+        "NPWP": "02.064.292.2-441.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-296-001",
+        "VEN_NAME": "PINANGGIH, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-297-001",
+        "VEN_NAME": "PITUNG MARUNDA HIJAU",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-298-001",
+        "VEN_NAME": "POLES 123.COM",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-299-001",
+        "VEN_NAME": "PRACTECH INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-300-001",
+        "VEN_NAME": "PRATAMA GRAHA SEMESTA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-301-001",
+        "VEN_NAME": "PRATAMA PRODUCT, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-302-001",
+        "VEN_NAME": "PRIMA JAYA PERKASA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-303-001",
+        "VEN_NAME": "PRIMADAYA TRAINING CENTRE, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-304-001",
+        "VEN_NAME": "PRIMAGIFTA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-305-001",
+        "VEN_NAME": "PROLABMAS MURNI SWADA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-306-001",
+        "VEN_NAME": "PROSPECT MOTOR - HONDA CIKARANG, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-307-001",
+        "VEN_NAME": "PROTON TECHINDO, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-308-001",
+        "VEN_NAME": "PUNCAK ANEKA KEMAKMURAN, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-309-001",
+        "VEN_NAME": "PUTRA KARYA MANDIRI, UD",
+        "NPWP": "03.320.333.2-414.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-310-001",
+        "VEN_NAME": "RAGAM PROTEKSI INTERMEDIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-311-001",
+        "VEN_NAME": "RAJA GOLF, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-312-001",
+        "VEN_NAME": "RAMA INTERBUANA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-313-001",
+        "VEN_NAME": "RODA HAMMERINDO JAYA, PT",
+        "NPWP": "01.955.603.4-039.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-314-001",
+        "VEN_NAME": "RODA KAWAN SEJAHTERA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-315-001",
+        "VEN_NAME": "ROSELA INDAH MEDICAL CENTRE",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-316-001",
+        "VEN_NAME": "SADDHA MAKMUR SENTOSA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-317-001",
+        "VEN_NAME": "SAI GLOBAL INDONESIA, PT",
+        "NPWP": "01.071.730.4-058.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-318-001",
+        "VEN_NAME": "SAIGAWA INDO PRATAMA, CV",
+        "NPWP": "74.153.087.7-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-319-001",
+        "VEN_NAME": "SANDAI",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-320-001",
+        "VEN_NAME": "SANKIYO TEKNIK, CV",
+        "NPWP": "02.580.423.8-407.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-321-001",
+        "VEN_NAME": "SARANA MITRA LUAS, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-322-001",
+        "VEN_NAME": "SARITECH PRATAMA MANDIRI, PT",
+        "NPWP": "02.680.991.3-403.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-323-001",
+        "VEN_NAME": "SEKUENSA TEKNIK INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-324-001",
+        "VEN_NAME": "SELEKTA KENCANA, PT",
+        "NPWP": "02.590.338.6-048.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-325-001",
+        "VEN_NAME": "SEMESTA SISTEM INTEGRASI",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-326-001",
+        "VEN_NAME": "SENTOSA TEKNIK, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-327-001",
+        "VEN_NAME": "SENTRA CAHAYA NUSANTARA, PT",
+        "NPWP": "02.422.903.1-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-328-001",
+        "VEN_NAME": "SENTRA TEKNOLOGI POLIMER, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-329-001",
+        "VEN_NAME": "SENTRAL SISTEM CALIBRATION, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-330-001",
+        "VEN_NAME": "SENTRAS VARITAMA, PT",
+        "NPWP": "01.703.536.1-403.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-331-001",
+        "VEN_NAME": "SERVATEX ANDALAN ENGINEERING, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-332-001",
+        "VEN_NAME": "SETIA MITRA KINERJA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-333-001",
+        "VEN_NAME": "SETSUYO ASTEC, PT",
+        "NPWP": "02.414.721.7-056.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-334-001",
+        "VEN_NAME": "SGS INDONESIA , PT",
+        "NPWP": "01.071.153.9-058.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-335-001",
+        "VEN_NAME": "SHIMIZU BANGUN CIPTAKONTRAKTOR, PT",
+        "NPWP": "01.070.732.1-011.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-336-001",
+        "VEN_NAME": "SHIMIZU CORPORATION",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-337-001",
+        "VEN_NAME": "SHINI INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-338-001",
+        "VEN_NAME": "SHURIKEN ARSY INDONESIA, PT",
+        "NPWP": "70.766.282.1-407.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-339-001",
+        "VEN_NAME": "SHURIKEN UNLIMITED, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-340-001",
+        "VEN_NAME": "SIDO MULYO TEKNIK, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-341-001",
+        "VEN_NAME": "SIGMA VISUALINDO, PT",
+        "NPWP": "21.078.864.2-435.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-342-001",
+        "VEN_NAME": "SILVANA COMPUTER CENTER",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-343-001",
+        "VEN_NAME": "SINAR AGUNG KENCANA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-344-001",
+        "VEN_NAME": "SINAR BENGAWAN MANDIRI, PT",
+        "NPWP": "66.089.780.2-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-345-001",
+        "VEN_NAME": "SINAR LIMA PERKASA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-346-001",
+        "VEN_NAME": "SINAR MUTIARA CAKRABUANA, PT",
+        "NPWP": "75.352.090.7-032.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-347-001",
+        "VEN_NAME": "SINAR SUKSES SEKAWAN, PT",
+        "NPWP": "02.672.955.8-416.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-348-001",
+        "VEN_NAME": "SLICKBAR INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-349-001",
+        "VEN_NAME": "SOLO TEKNOLOGI PERKASA, PT",
+        "NPWP": "71.198.212.4-435.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-350-001",
+        "VEN_NAME": "SOLUSI REKATAMA MAKMUR, PT",
+        "NPWP": "02.125.204.4-086.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-351-001",
+        "VEN_NAME": "SOLUTECH INDONESIA JAYA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-352-001",
+        "VEN_NAME": "SOMAKHO POWERINDO, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-353-001",
+        "VEN_NAME": "SRIBANGUN BUMINITIYA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-354-001",
+        "VEN_NAME": "SRIKANDHI JAYA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-355-001",
+        "VEN_NAME": "SRIKANDI JAYA PRINTING, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-356-001",
+        "VEN_NAME": "SUKSES MANDIRI, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-357-001",
+        "VEN_NAME": "SUMBER GUNA NUSANTARA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-358-001",
+        "VEN_NAME": "SUMBER INDAH",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-359-001",
+        "VEN_NAME": "SUMBER PERKAKAS SUPPLY, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-360-001",
+        "VEN_NAME": "SUMBER REJEKI, UD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-361-001",
+        "VEN_NAME": "SUMBER TEKNIK MOTOR",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-362-001",
+        "VEN_NAME": "SUMBERMULIA HASILGUNA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-363-001",
+        "VEN_NAME": "SUPRA ENGINEERING, PT",
+        "NPWP": "01.602.572.8-074.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-364-001",
+        "VEN_NAME": "SURYA INDAH PERKASA, PD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-365-001",
+        "VEN_NAME": "SURYA MESINDO ABADI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-366-001",
+        "VEN_NAME": "SURYA SARANA DINAMIKA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-367-001",
+        "VEN_NAME": "SUSUN ARTA RAHARJA, PT",
+        "NPWP": "02.143.888.2-001.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-368-001",
+        "VEN_NAME": "TAHARICA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-369-001",
+        "VEN_NAME": "TAISE, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-370-001",
+        "VEN_NAME": "TAWADA HIJAU NUSANTARA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-371-001",
+        "VEN_NAME": "TEKAMA SEJAHTERA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-372-001",
+        "VEN_NAME": "TEKINDO ABADI, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-373-001",
+        "VEN_NAME": "TEN SHEEG MACHINERY CO.,LTD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-374-001",
+        "VEN_NAME": "TENAGA BARU LIN ENGINEERING, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-375-001",
+        "VEN_NAME": "TESTINDO, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-376-001",
+        "VEN_NAME": "THAMI BERSAMA, UD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-377-001",
+        "VEN_NAME": "TIGA REKSA PERDANA INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-378-001",
+        "VEN_NAME": "TNZ INDONESIA, PT",
+        "NPWP": "02.559.034.0-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-379-001",
+        "VEN_NAME": "TOACS (THAILAND) CO, LTD.",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-380-001",
+        "VEN_NAME": "TOKAI KOGYO CO, LTD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-381-001",
+        "VEN_NAME": "TOKO ANEKA BARANG",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-382-001",
+        "VEN_NAME": "TOKO BINTANG MAS",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-383-001",
+        "VEN_NAME": "TOKO GOLO",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-384-001",
+        "VEN_NAME": "TOKO MESIN MAKSINDO, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-385-001",
+        "VEN_NAME": "TOMANG JAYA UTAMA TEKNIKA, PT",
+        "NPWP": "01.575.439.3-009.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-386-001",
+        "VEN_NAME": "TOYOTA AUTO BODY JAPAN",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-387-001",
+        "VEN_NAME": "TOYOTA TSUSHO (THAILAND) CO., LTD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-388-001",
+        "VEN_NAME": "TOYOTA TSUSHO MECANICAL & ENGINEERING SERVICE INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-389-001",
+        "VEN_NAME": "TOYOTA TSUSHO TAIWAN",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-390-001",
+        "VEN_NAME": "TRAC",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-391-001",
+        "VEN_NAME": "TRIANDA JAYA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-392-001",
+        "VEN_NAME": "TT NETWORK INTEGRATION INDONESIA, PT",
+        "NPWP": "02.930.894.7-048.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-393-001",
+        "VEN_NAME": "TUMBUH MANDIRI, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-394-001",
+        "VEN_NAME": "TUNAS JAYA ARYATAMA, PT",
+        "NPWP": "01.955.577.0-086.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-395-001",
+        "VEN_NAME": "UNGGUL SEMESTA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-396-001",
+        "VEN_NAME": "UNICORN ASEANINDO, PT",
+        "NPWP": "03.089.611.2-032.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-397-001",
+        "VEN_NAME": "UNIMETRIKA UTAMA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-398-001",
+        "VEN_NAME": "UNITECH PERKASA ENGINEERING, PT",
+        "NPWP": "02.858.395.3-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-399-001",
+        "VEN_NAME": "UNIVERSAL TATA GEMILANG, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-400-001",
+        "VEN_NAME": "USAHA JASA AYU MANDIRI",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-401-001",
+        "VEN_NAME": "USAHA SAUDARA MANDIRI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-402-001",
+        "VEN_NAME": "UTAMA MANDIRI SUKSES, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-403-001",
+        "VEN_NAME": "VARASNADYNA JAYA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-404-001",
+        "VEN_NAME": "VINSON INTI PRATAMA, CV",
+        "NPWP": "02.422.090.7-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-405-001",
+        "VEN_NAME": "VIRERA MANDIRI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-406-001",
+        "VEN_NAME": "VISITEC INDONESIA ELECTRIC",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-407-001",
+        "VEN_NAME": "WALLS",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-408-001",
+        "VEN_NAME": "WIJAYA SOLUSINDO, PT",
+        "NPWP": "02.532.100.1-412.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-409-001",
+        "VEN_NAME": "WIRATAMA MITRA ABADI",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-410-001",
+        "VEN_NAME": "WORLDNET MANDIRI INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-411-001",
+        "VEN_NAME": "YASKAWA ELECTRIC INDONESIA, PT",
+        "NPWP": "02.718.290.6-063.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-412-001",
+        "VEN_NAME": "ZOVAN TEHNIK, CV",
+        "NPWP": "31.821.664.5-435.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-413-001",
+        "VEN_NAME": "BERKAH  MULIA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-414-001",
+        "VEN_NAME": "KALINGGA TATARAYA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-415-001",
+        "VEN_NAME": "MEGA GEMILANG INDOPRIMA ",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-416-001",
+        "VEN_NAME": "NISSEI PLASTICS INDUSTRIAL CO.LTD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-417-001",
+        "VEN_NAME": "SENTRAL SISTEM CONSULTING",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-418-001",
+        "VEN_NAME": "GIGANTIC COMPUTINDO",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-419-001",
+        "VEN_NAME": "GLOBAL MANDIRI INSTRUMENTASI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-420-001",
+        "VEN_NAME": "GLOBAL QUALITY INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-421-001",
+        "VEN_NAME": "HOCK JAYA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-422-001",
+        "VEN_NAME": "INTERJAYA SURYAMEGAH, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-423-001",
+        "VEN_NAME": "MUJTABA ADVERTISING",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-424-001",
+        "VEN_NAME": "TOKO JAYA RAYA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-425-001",
+        "VEN_NAME": "FREE COMPUTER",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-426-001",
+        "VEN_NAME": "BUKALAPAK",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-427-001",
+        "VEN_NAME": "TOKOPEDIA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-428-001",
+        "VEN_NAME": "LAZADA",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-429-001",
+        "VEN_NAME": "JD.ID",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-430-001",
+        "VEN_NAME": "FAWWAZINDO GHINA PERSADA, PT",
+        "NPWP": "31.480.490.7-413.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-431-001",
+        "VEN_NAME": "INTISUPPLIES MEGA PERKASA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-432-001",
+        "VEN_NAME": "BERKAT LANCAR",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-433-001",
+        "VEN_NAME": "ARMAZ QNQ",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-434-001",
+        "VEN_NAME": "TRUSTINDO MEKATRONICS MULYA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-435-001",
+        "VEN_NAME": "MITRA SUKSES MANDIRI, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-436-001",
+        "VEN_NAME": "SUKANDA DJAYA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-437-001",
+        "VEN_NAME": "EKA BOGAINTI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-438-001",
+        "VEN_NAME": "SUPER SINAR ABADI, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-439-001",
+        "VEN_NAME": "TOP ONE PLASTINDO, PT",
+        "NPWP": "02.026.741-5-413-001",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-440-001",
+        "VEN_NAME": "RAFA CITRA SELARAS, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-441-001",
+        "VEN_NAME": "DAMANRU COMPUTER",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-442-001",
+        "VEN_NAME": "KILAS MESIN MANDIRI",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-443-001",
+        "VEN_NAME": "MAH SING INDONESIA, PT",
+        "NPWP": "01.071.364-2-052.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-444-001",
+        "VEN_NAME": "NIPPON KINZOKU (MALAYSIA) SDN BHD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-445-001",
+        "VEN_NAME": "SARANA TEKNIK, PT",
+        "NPWP": "03.086.749.0-032.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-446-001",
+        "VEN_NAME": "TOKYO ZAIRYO INDONESIA, PT",
+        "NPWP": "02.414.341.4-056.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-447-001",
+        "VEN_NAME": "PILAR BERSAMA MAJU, PT",
+        "NPWP": "01.622.331.5-038.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-448-001",
+        "VEN_NAME": "INTERAKTIF CIPTA SOLUSINDO, PT",
+        "NPWP": "02.188.283.2-026.000",
+        "VENDOR_TYPE": "NONRUTIN"
+    },
+    {
+        "VEN_ID": "TC-449-001",
+        "VEN_NAME": "HIKMAH JAYA SENTOSA, PT",
+        "NPWP": "74.425.317.0-016.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-450-001",
+        "VEN_NAME": "WAHYU MULTY TECHNOLOGY, CV",
+        "NPWP": "31.822.826.9-422.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-451-001",
+        "VEN_NAME": "SANJAYA MITRA SEJATI, CV",
+        "NPWP": "02.605.139.1-002.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-452-001",
+        "VEN_NAME": "ADI RAYA MANDIRI, CV",
+        "NPWP": "21.151.207.4-016.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-453-001",
+        "VEN_NAME": "CLARUS INNOVACE TEKNOLOGI, PT",
+        "NPWP": "03.230.177.2-031.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-454-001",
+        "VEN_NAME": "SUGITY CREATIVES, PT",
+        "NPWP": "01.071.048.1-055.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-455-001",
+        "VEN_NAME": "SENTOSA MULTI TEKNIKA, PT",
+        "NPWP": "74.643.792.0-414.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-456-001",
+        "VEN_NAME": "MUTU GLOBAL INSTRUMENTASI, PT ",
+        "NPWP": "66.896.214.5-407.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-457-001",
+        "VEN_NAME": "ARJUNA SOLUSI SEJAHTERA, PT ",
+        "NPWP": "73.218.096.3-036.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-458-001",
+        "VEN_NAME": "INILED INDONESIA INDUSTRI, PT",
+        "NPWP": "31.659.214.6-414.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-459-001",
+        "VEN_NAME": "ASIA TALENTA MANDIRI, PT",
+        "NPWP": "02.576.275.8-415.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-460-001",
+        "VEN_NAME": "MK ENGINEERING CO, LTD",
+        "NPWP": "00.218.030.2-016.451",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-461-001",
+        "VEN_NAME": "GLOBAL SUKSES TEKNOLOGI, PT",
+        "NPWP": "85.601.975.7-414.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-462-001",
+        "VEN_NAME": "BONA MESTY GEMILANG, PT",
+        "NPWP": "72.612.217.9-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-463-001",
+        "VEN_NAME": "CAHAYA BERKAT ANDA,PT",
+        "NPWP": "02.630.511.0.407.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-464-001",
+        "VEN_NAME": "MARGO JAYA, CV",
+        "NPWP": "02.408.653.0-024.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-465-001",
+        "VEN_NAME": "MITRA KEMASINDO, PT",
+        "NPWP": "02.589.480.9-418.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-466-001",
+        "VEN_NAME": "BEST INSTRUMENT INDONESIA, PT",
+        "NPWP": "31.284.933.4-436.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-467-001",
+        "VEN_NAME": "FUTARI MECCA UTAMA, PT",
+        "NPWP": "02.630.756.1-435.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-468-001",
+        "VEN_NAME": "DANADIPA HARAPAN SENTOSA, PT",
+        "NPWP": "02.630.756.1-435.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-469-001",
+        "VEN_NAME": "HENRY TEKNIK UTAMA , PT",
+        "NPWP": "01.877.221.0.026.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-470-001",
+        "VEN_NAME": "NAKAMA AE INDONESIA, PT",
+        "NPWP": "31.384.064.7-407.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-471-001",
+        "VEN_NAME": "INDONESIA BELTING SOLUTION, PT",
+        "NPWP": "02.824.582.7-614.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-472-001",
+        "VEN_NAME": "TICO MANDIRI SUKSES, PT",
+        "NPWP": "85.556.566.9-023.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-473-001",
+        "VEN_NAME": "ANUGERAH CAHAYA MANDIRI, CV",
+        "NPWP": "71.184.339.1.414.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-474-001",
+        "VEN_NAME": "SINAR SAHABAT TEKNIK, PT",
+        "NPWP": "91.104.699.3-413.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-475-001",
+        "VEN_NAME": "DAMARINDO BUANA ABADI, PT",
+        "NPWP": "81.845.502.4-414.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-476-001",
+        "VEN_NAME": "MIRKA DIRAYA ABIPURA, PT",
+        "NPWP": "83.044.655.5.414.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-477-001",
+        "VEN_NAME": "JAYAINDO ABADI MAKMUR, PT",
+        "NPWP": "90.196.518.6-414.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-478-001",
+        "VEN_NAME": "ADHI PRATAMA METAL, PT",
+        "NPWP": "90.741.830.5-435.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-479-001",
+        "VEN_NAME": "VIOTEK HADAYA ESA MANDIRI, PT",
+        "NPWP": "72.129.251.4-413.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-480-001",
+        "VEN_NAME": "SMARTY HANDS, PT",
+        "NPWP": "69.933.039.5-432.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-481-001",
+        "VEN_NAME": "SAHABAT GO GREEN, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-482-001",
+        "VEN_NAME": "JAVA TENSAI INDONESIA, PT",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-483-001",
+        "VEN_NAME": "WAKITA, CV",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-484-001",
+        "VEN_NAME": "KURNIA FURNITURE",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-485-001",
+        "VEN_NAME": "INDO TERA SEJAHTERA, CV",
+        "NPWP": "85.025.397.2-408.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-486-001",
+        "VEN_NAME": "BERKAH TEKNIK MANDIRI, CV",
+        "NPWP": "83.571.979.0-413.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-487-001",
+        "VEN_NAME": "MAJU MAKMUR UTAMA, PT ",
+        "NPWP": "84.099.326.5-413.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-488-001",
+        "VEN_NAME": "PANDULIMA HYDROMATIC, PT",
+        "NPWP": "01.877.112.1-026.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-489-001",
+        "VEN_NAME": "HANA CITRA BUANA, CV",
+        "NPWP": "21.013.907.7-412.000",
+        "VENDOR_TYPE": "NON RUTIN "
+    },
+    {
+        "VEN_ID": "TC-490-001",
+        "VEN_NAME": "SINAR MANDIRI TEKNOLOGI, PT",
+        "NPWP": "93.429.642.7-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-491-001",
+        "VEN_NAME": "YOGYA PRESISI TEHNIKATAMA INDUSTRI, PT",
+        "NPWP": "01.921.028.5-542.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-492-001",
+        "VEN_NAME": "PANCA MAKMUR BARU, PT",
+        "NPWP": "76.212.070.7-043.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-493-001",
+        "VEN_NAME": "MURNI CAHAYA PRATAMA, PT",
+        "NPWP": "01.368.580.5-038.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-494-001",
+        "VEN_NAME": "TEKMA PRESITAMA, PT",
+        "NPWP": "31.561.625.0-432.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-495-001",
+        "VEN_NAME": "KNT INDONESIA, PT ",
+        "NPWP": "01.869.512.2-055.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-496-001",
+        "VEN_NAME": "TSKEI MOLDING INDONESIA, PT ",
+        "NPWP": "70.535.279.7-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-497-001",
+        "VEN_NAME": "RATU GLOBAL SOLUSINDO, PT",
+        "NPWP": "83.961.969.9-432.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-498-001",
+        "VEN_NAME": "KRIDA PERKASA NUSANTARA, PT",
+        "NPWP": "91.111.102.9-414.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-499-001",
+        "VEN_NAME": "SINAR PRIMA PLASTISINDO, PT",
+        "NPWP": "02.449.460.1-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-500-001",
+        "VEN_NAME": "VIETNAM TOKAI CO.LTD",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-501-001",
+        "VEN_NAME": "ORITSU TEKNOLOGI INDONESIA, PT",
+        "NPWP": "80.895.597.5-432.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-502-001",
+        "VEN_NAME": "PLASTICS COLOR TECHNOLOGY, PT",
+        "NPWP": "81.735.910.2-452.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-503-001",
+        "VEN_NAME": "SEIKO TEISINDO MANDIRI, PT",
+        "NPWP": "91.782.958.2-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-504-001",
+        "VEN_NAME": "FASITA UTAMA SAKTI PERKASA, PT",
+        "NPWP": "02.107.932.2-432.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-505-001",
+        "VEN_NAME": "BUANA ABADI MASINDO SEJAHTERA, PT",
+        "NPWP": "81.074.506.7-427.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-506-001",
+        "VEN_NAME": "PINANGGIH TEKHNIKATAMA INDONESIA, PT",
+        "NPWP": "83.149.715.1-004.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-507-001",
+        "VEN_NAME": "SEJAHTERA OIL INTERNASIONAL, PT",
+        "NPWP": "81.820.793.8-435.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-508-001",
+        "VEN_NAME": "TOYOTA TSUSHO SYSTEMS INDONESIA, PT",
+        "NPWP": "02.930.894.7-048.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-509-001",
+        "VEN_NAME": "TIRTA PELUMASINDO JAYA, PT",
+        "NPWP": "71.090.513.4-416.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-510-001",
+        "VEN_NAME": "DINAMIK ERA MASAGI, PT",
+        "NPWP": "70.605.653.8-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-511-001",
+        "VEN_NAME": "MULIA INDUSTRINDO TBK, PT",
+        "NPWP": "01.332.773.9-054.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-512-001",
+        "VEN_NAME": "AEC INDO SYSTEM, PT",
+        "NPWP": "86.026.401.9-085.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-513-001",
+        "VEN_NAME": "MONOTARO INDONESIA, PT",
+        "NPWP": "03.211.341.7-012.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-514-001",
+        "VEN_NAME": "SAVISI JAYA SOLUSI, PT",
+        "NPWP": "93.749.495.3-444.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-515-001",
+        "VEN_NAME": "OKAYA INDONESIA, PT",
+        "NPWP": "03.155.228.4-022.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-516-001",
+        "VEN_NAME": "EKA MITRA TEKNIK, PT",
+        "NPWP": "95.660.841.8-432.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-517-001",
+        "VEN_NAME": "AFTA GLOBAL UTAMA, PT",
+        "NPWP": "02.751.012.2-038.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-518-001",
+        "VEN_NAME": "JAYA PRAKARSA, PT",
+        "NPWP": "03.330.263.9-414.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-519-001",
+        "VEN_NAME": "INTI TEKNIK PRESISI, PT",
+        "NPWP": "85.539.225.1-435.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-520-001",
+        "VEN_NAME": "DIMONTONATE FLOCCATI S.P.A",
+        "NPWP": "00.000.000.0-000.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-521-001",
+        "VEN_NAME": "PENGOLAH LIMBAH INDUSTRI BEKASI,PT",
+        "NPWP": "72.813.305.9-432.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-522-001",
+        "VEN_NAME": "KUANTUM ABADI MITRA INDONESIA,PT",
+        "NPWP": "66.567.162.4-435.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-523-001",
+        "VEN_NAME": "KARYA SEKELUARGA PUTRA, PT",
+        "NPWP": "31.173.761.3-436.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-524-001",
+        "VEN_NAME": "BISMAN BINTANG BUANA, PT",
+        "NPWP": "70.898.493.5-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-525-001",
+        "VEN_NAME": "YOTSU SELARAS INDONESIA, PT",
+        "NPWP": "42.839.510.7-435.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-526-001",
+        "VEN_NAME": "TUJUH TUJUH LUXURY, PT",
+        "NPWP": "86.728.427.5-408.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-527-001",
+        "VEN_NAME": "EUREKA TJIPTA MAJU, PT",
+        "NPWP": "82.622.585.6-034.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-528-001",
+        "VEN_NAME": "UNITED STEEL CENTER INDONESIA, PT",
+        "NPWP": "02.047.617.2-431.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-529-001",
+        "VEN_NAME": "DIAN NUSA TUNGGUL, PT",
+        "NPWP": "43.850.541.4-442.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-530-001",
+        "VEN_NAME": "INDO METAL TEHNIK, PT",
+        "NPWP": "02.057.126.1-432.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-531-001",
+        "VEN_NAME": "TRIMITRA CIKARANG, PT",
+        "NPWP": "02.198.590.8-431.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-532-001",
+        "VEN_NAME": "CYGNUS CYRUS CEMERLANG, PT",
+        "NPWP": "76.387.216.5-412.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-533-001",
+        "VEN_NAME": "KONISHI INDONESIA, PT",
+        "NPWP": "03.303.8662-043.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-534-001",
+        "VEN_NAME": "METACHEM CAHAYA INDONESIA, PT",
+        "NPWP": "92.926.863.9-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-535-001",
+        "VEN_NAME": "CITRA GALVALINDO SUKSES MANDIRI, PT",
+        "NPWP": "01.605.886.9-415.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-536-001",
+        "VEN_NAME": "ALENA JAVA ANUGERAH, PT",
+        "NPWP": "61.428.339.8-413.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-537-001",
+        "VEN_NAME": "HASTA ASRI DHARMA, PT",
+        "NPWP": "84.162.577.5-432.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-538-001",
+        "VEN_NAME": "ERIK VAMILI INDONSIA, PT",
+        "NPWP": "66.825.392.5-435.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-539-001",
+        "VEN_NAME": "ATRIA TAMA SAPUTRA, PT",
+        "NPWP": "42.605.769.1-604.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-540-001",
+        "VEN_NAME": "CHEMINDO INTERBUANA, PT",
+        "NPWP": "01.348.062.9-038.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-541-001",
+        "VEN_NAME": "KARUNIA CIPTA, PT",
+        "NPWP": "21.022.999.3-432.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-542-001",
+        "VEN_NAME": "ARSYA KENCANA UNIVERSAL, PT",
+        "NPWP": "53.007.424.4-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-543-001",
+        "VEN_NAME": "SOFTPREN INDUSTRIES INDONESIA, PT",
+        "NPWP": "71.942.618.1-413.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-544-001",
+        "VEN_NAME": "YOGMA WIJAYA KUSUMA, PT",
+        "NPWP": "31.820.254.6-435.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-545-001",
+        "VEN_NAME": "PT. YUSEN LOGISTICS SOLUTIONS INDONESIA (YSID)",
+        "NPWP": "01.071.534.0-058.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-546-001",
+        "VEN_NAME": "TARIAK YANTI TEKNIK, PT",
+        "NPWP": "43.392.158.2-414.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-547-001",
+        "VEN_NAME": "KITO INDONESIA, PT",
+        "NPWP": "03.155.260.7-022.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-548-001",
+        "VEN_NAME": "SINERGY ENGINEERING INDONESIA, PT",
+        "NPWP": "95.193.438.9-404.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-549-001",
+        "VEN_NAME": "TAKUMI ASSIST INTERNATIONAL, PT",
+        "NPWP": "21.014.466.3-341.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-550-001",
+        "VEN_NAME": "PESONA INTI MURNI, PT",
+        "NPWP": "86.852.550.2-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-551-001",
+        "VEN_NAME": "FOKUS MANUFAKTUR AKSES, PT",
+        "NPWP": "75.559.005.6-408.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-552-001",
+        "VEN_NAME": "ALDIRA MULTI MANDIRI, PT",
+        "NPWP": "90.150.643.6-414.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-553-001",
+        "VEN_NAME": "GOKASI SEJAHTERA INDONESIA, PT",
+        "NPWP": "87.809.683.6-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-554-001",
+        "VEN_NAME": "AUTOMATION JAYA ELECTRIC, PT",
+        "NPWP": "31.301.597.6-451.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-555-001",
+        "VEN_NAME": "AUTO ELEKTRIKAL INDONESIA, PT",
+        "NPWP": "81.214.169.5-414.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-556-001",
+        "VEN_NAME": "TRIVINDO PRIMA MANDIRI, PT",
+        "NPWP": "92.820.487.4-455.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-557-001",
+        "VEN_NAME": "DELAPAN BAJA MULTECH, PT",
+        "NPWP": "42.894.690.9-414.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-558-001",
+        "VEN_NAME": "CIPTA SOLUSI INFORMATIKA, PT",
+        "NPWP": "01.960.393.5-026.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-559-001",
+        "VEN_NAME": "MICS STEEL INDONESIA, PT",
+        "NPWP": "31.819.404.0-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-560-001",
+        "VEN_NAME": "DWICIPTA PLASMA LESTARI, PT",
+        "NPWP": "94.544.511.2-036.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-561-001",
+        "VEN_NAME": "MASTER SEJUK ABADI, PT",
+        "NPWP": "96.018.047.9-403.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-562-001",
+        "VEN_NAME": "SHERICH INTERNATIONAL SUPPLY, PT",
+        "NPWP": "02.792.398.6-044.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-563-001",
+        "VEN_NAME": "TENTA EKA PRATAMA, PT ",
+        "NPWP": "072.751.898.7-402.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-564-001",
+        "VEN_NAME": "BERKAH TAMA MULTINDO, PT",
+        "NPWP": "50.545.225.0-413.00",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-565-001",
+        "VEN_NAME": "LINGGA MAKMUR ELEKTRIKA, PT",
+        "NPWP": "02.188.941.5-037.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-566-001",
+        "VEN_NAME": "SATRIA SAKTI PERKASA, PT",
+        "NPWP": "002.094.843.6-026.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-567-001",
+        "VEN_NAME": "SEONGSAN INTERNATIONAL, PT",
+        "NPWP": "031.280.619.3-064.000",
+        "VENDOR_TYPE": ""
+    },
+    {
+        "VEN_ID": "TC-568-001",
+        "VEN_NAME": "TOMODACHI ANUGERAH SEJAHTERA, PT",
+        "NPWP": "81.677.519.1-435.000",
+        "VENDOR_TYPE": ""
+    },
+    {
+        "VEN_ID": "TC-569-001",
+        "VEN_NAME": "HULANE TECH MANUFACTURING, PT",
+        "NPWP": "31.232.466.8.414.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-570-001",
+        "VEN_NAME": "ELEKTRINDO MEGA SINARSARI, CV",
+        "NPWP": "31.346.030.5-414.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-571-001",
+        "VEN_NAME": "BINTANG ANUGERAH MANUFACTURING INDONESIA, PT",
+        "NPWP": "99.186.855.5-413.000",
+        "VENDOR_TYPE": "RUTIN"
+    },
+    {
+        "VEN_ID": "TC-572-001",
+        "VEN_NAME": "TENTRA EKA PRATAMA, PT",
+        "NPWP": "72.751.898.7-402.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-573-001",
+        "VEN_NAME": "ARTHA MAS GLOBALINDO, PT",
+        "NPWP": "012.701.494.2-017.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-574-001",
+        "VEN_NAME": "TERAOKA SEISAKUSHO INDONESIA ",
+        "NPWP": "32.277.579.4-408.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-575-001",
+        "VEN_NAME": "ASSALAM PUTRA JAYA,PT",
+        "NPWP": "031.650.418.2-413.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-576-001",
+        "VEN_NAME": "SARI SARANA KIMIATAMA, PT",
+        "NPWP": "031.641.941.5-034.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-577-001",
+        "VEN_NAME": "HANWA STEEL SERVICE INDONESIA, PT",
+        "NPWP": "002.858.326.8-431.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    },
+    {
+        "VEN_ID": "TC-578-001",
+        "VEN_NAME": "PERSADA SILVER , PT",
+        "NPWP": "003.098.583.2-077.000",
+        "VENDOR_TYPE": "NON RUTIN"
+    }
+]

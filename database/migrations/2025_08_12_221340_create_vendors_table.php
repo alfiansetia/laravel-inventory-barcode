@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('vendor_id')->unique();
             $table->string('name')->nullable();
-            $table->string('address')->nullable();
+            $table->string('npwp')->nullable();
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }

@@ -22,9 +22,16 @@
                         <span class="error invalid-feedback err_name" style="display: hide;"></span>
                     </div>
                     <div class="form-group">
-                        <label for="address">Address</label>
-                        <textarea name="address" id="address" class="form-control" maxlength="200" placeholder="Enter Address"></textarea>
-                        <span class="error invalid-feedback err_address" style="display: hide;"></span>
+                        <label for="npwp">NPWP</label>
+                        <input type="text" name="npwp" class="form-control" id="npwp"
+                            placeholder="Enter NPWP" required maxlength="100">
+                        <span class="error invalid-feedback err_npwp" style="display: hide;"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <input type="text" name="type" class="form-control" id="type"
+                            placeholder="Enter Vendor Type" required maxlength="100">
+                        <span class="error invalid-feedback err_type" style="display: hide;"></span>
                     </div>
                 </div>
                 <div class="modal-footer">

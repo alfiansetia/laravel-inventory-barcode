@@ -14,7 +14,8 @@
                             <th width="30">No</th>
                             <th>Vendor ID</th>
                             <th>Name</th>
-                            <th>Address</th>
+                            <th>NPWP</th>
+                            <th>Type</th>
                             <th>#</th>
                         </tr>
                     </thead>
@@ -72,8 +73,11 @@
                 data: 'name',
                 className: "text-start",
             }, {
-                data: 'address',
+                data: 'npwp',
                 className: "text-start",
+            }, {
+                data: 'type',
+                className: "text-center",
             }, {
                 data: 'id',
                 searchable: false,
@@ -152,7 +156,8 @@
             $.get(URL_INDEX + '/' + id).done(function(result) {
                 $('#vendor_id').val(result.data.vendor_id)
                 $('#name').val(result.data.name)
-                $('#address').val(result.data.address)
+                $('#npwp').val(result.data.npwp)
+                $('#type').val(result.data.type)
 
                 $('#form').attr('action', URL_INDEX + '/' + id)
                 $('#modal_form_title').html('Edit Data')
@@ -182,7 +187,8 @@
 
             $('#vendor_id').val('')
             $('#name').val('')
-            $('#address').val('')
+            $('#npwp').val('')
+            $('#type').val('')
         }
     </script>
 @endpush

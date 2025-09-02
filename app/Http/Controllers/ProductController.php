@@ -38,12 +38,12 @@ class ProductController extends Controller
         $this->validate($request, [
             'name'      => 'required|max:100',
             'code'      => 'required|string|max:100|unique:products,code',
-            'desc'      => 'nullable|max:200',
+            'satuan'    => 'required|max:10',
         ]);
         Product::create([
             'name'      => $request->name,
             'code'      => $request->code,
-            'desc'      => $request->desc,
+            'satuan'    => $request->satuan,
         ]);
         return response()->json(['message' => 'Data Inserted!']);
     }
@@ -53,12 +53,12 @@ class ProductController extends Controller
         $this->validate($request, [
             'name'      => 'required|max:100',
             'code'      => 'required|max:100|unique:products,code,' . $product->id,
-            'desc'      => 'nullable|max:200',
+            'satuan'    => 'required|max:10',
         ]);
         $param = [
             'name'      => $request->name,
             'code'      => $request->code,
-            'desc'      => $request->desc,
+            'satuan'    => $request->satuan,
         ];
         $product->update($param);
         return response()->json(['message' => 'Data Updated!']);

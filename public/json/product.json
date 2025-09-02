@@ -742,8 +742,8 @@
         "BUY_UM": "KG"
     },
     {
-        "ITEM_NO": "EMX-MTL-011",
-        "MATL_CODE": "EMX-MTL-011",
+        "ITEM_NO": "EMX-MTL-025",
+        "MATL_CODE": "EMX-MTL-025",
         "SEBANGO": "EMX-MTL-025",
         "PART_NAME": "WS-06-VA",
         "BUY_UM": "KG"
@@ -6923,13 +6923,6 @@
         "BUY_UM": "PC"
     },
     {
-        "ITEM_NO": "DEN-MTL-004",
-        "MATL_CODE": "DEN-MTL-004",
-        "SEBANGO": "DEN-MTL-004",
-        "PART_NAME": "JFE-CNA 0.4 X 29.7 SLIT",
-        "BUY_UM": "PC"
-    },
-    {
         "ITEM_NO": "DEN-MTL-033",
         "MATL_CODE": "DEN-MTL-033",
         "SEBANGO": "DEN-MTL-033",
@@ -7508,34 +7501,6 @@
         "MATL_CODE": "EVI-MTL-047",
         "SEBANGO": "EVI-MTL-047",
         "PART_NAME": "67872-BZ200",
-        "BUY_UM": "PC"
-    },
-    {
-        "ITEM_NO": "EVI-MTL-044",
-        "MATL_CODE": "EVI-MTL-044",
-        "SEBANGO": "EVI-MTL-048",
-        "PART_NAME": "67861-BZ220 (EXPORT)",
-        "BUY_UM": "PC"
-    },
-    {
-        "ITEM_NO": "EVI-MTL-045",
-        "MATL_CODE": "EVI-MTL-045",
-        "SEBANGO": "EVI-MTL-049",
-        "PART_NAME": "67862-BZ210 (EXPORT)",
-        "BUY_UM": "PC"
-    },
-    {
-        "ITEM_NO": "EVI-MTL-046",
-        "MATL_CODE": "EVI-MTL-046",
-        "SEBANGO": "EVI-MTL-050",
-        "PART_NAME": "67871-BZ210 (EXPORT)",
-        "BUY_UM": "PC"
-    },
-    {
-        "ITEM_NO": "EVI-MTL-047",
-        "MATL_CODE": "EVI-MTL-047",
-        "SEBANGO": "EVI-MTL-051",
-        "PART_NAME": "67872-BZ200 (EXPORT)",
         "BUY_UM": "PC"
     },
     {

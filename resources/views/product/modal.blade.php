@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label for="satuan">Product Satuan</label>
                         <input type="text" name="satuan" class="form-control" id="satuan"
-                            placeholder="Enter Satuan" maxlength="100" required>
+                            placeholder="Enter Satuan" maxlength="10" required>
                         <span class="error invalid-feedback err_satuan" style="display: hide;"></span>
                     </div>
                 </div>
@@ -39,4 +39,3 @@
         </div>
     </form>
 </div>
-

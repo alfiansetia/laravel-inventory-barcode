@@ -14,7 +14,7 @@
                         </div>
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers">
-                                <p class="card-category">Purchace Open</p>
+                                <p class="card-category">Purchase Open</p>
                                 <h4 class="card-title">{{ $purchase_count }}</h4>
                             </div>
                         </div>

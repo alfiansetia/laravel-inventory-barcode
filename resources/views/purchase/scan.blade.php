@@ -314,7 +314,7 @@
                 editRow = table.row($(this).parents('tr'));
                 let data = editRow.data();
 
-                console.log(data);
+                // console.log(data);
 
                 // ambil outstanding dan step
                 let outstanding = parseInt(data.outstanding);
@@ -464,7 +464,7 @@
                                 product_id: rows.map(r => r.product_id),
                                 qty_in: rows.map(r => r.qty_in),
                             }
-                            console.log(payload);
+                            // console.log(payload);
 
                             $.ajax({
                                 url: "{{ route('purchases.scan', $data->id) }}",

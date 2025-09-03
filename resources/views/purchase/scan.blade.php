@@ -8,7 +8,9 @@
     <div class="card mb-4">
         <div class="card-body">
             <div class="mb-4">
-                <h5 class="card-title mb-0">Information Purchase <span class="text-danger">{{ $data->po_no }}</span></h5>
+                <h5 class="card-title mb-0"><a href="{{ route('purchases.index') }}" class="btn btn-sm btn-info"><i
+                            class="fas fa-arrow-left"></i>Back</a>Information Purchase <span
+                        class="text-danger">{{ $data->po_no }}</span></h5>
             </div>
             <div class="row mb-2">
                 <div class="col-md-6">
@@ -79,14 +81,6 @@
         <h4 id="alert_content_success"></h4>
     </div>
 
-    <form action="" id="form_save">
-        @csrf
-        <input type="hidden" name="purchase_item_id" id="input_purchase_item_id">
-        <input type="hidden" name="barcode" id="input_barcode">
-        <input type="hidden" name="product_id" id="input_product_id">
-    </form>
-
-
     <div class="card mb-4">
         <div class="card-body">
             <h5>Daftar Barang</h5>
@@ -122,6 +116,84 @@
             $('#btnScanBarcode').click(function() {
                 $('#hasil').text('Loading...');
                 $('#qrScannerModal').modal('show');
+            });
+
+            var table_item = $("#table_item").DataTable({
+                processing: true,
+                serverSide: false,
+                ajax: {
+                    url: `${URL_INDEX}?purchase_id={{ $data->id }}`,
+                    error: function(xhr, error, code) {
+                        $("#table_processing").hide()
+                        $(".dt-empty").text('Error, Please Refresh!')
+                    }
+                },
+                dom: "<'dt--top-section'<'row mb-2'<'col-sm-12 col-md-6 d-flex justify-content-md-start justify-content-center'B><'col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-center mt-md-0 mt-0'f>>>" +
+                    "<'table-responsive'tr>" +
+                    "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
+                oLanguage: {
+                    sSearch: '',
+                    sSearchPlaceholder: "Search...",
+                    sLengthMenu: "Results :  _MENU_",
+                },
+                lengthMenu: [
+                    [10, 50, 100, 500, 1000],
+                    ['10 rows', '50 rows', '100 rows', '500 rows', '1000 rows']
+                ],
+                pageLength: 10,
+                lengthChange: true,
+                columnDefs: [],
+                order: [],
+                columns: [{
+                    data: 'product.code',
+                    className: "text-start",
+                }, {
+                    data: 'product.name',
+                    className: "text-start",
+                }, {
+                    data: 'qty_ord',
+                    className: "text-center",
+                    render: function(data, type, row, meta) {
+                        return parseInt(row.qty_ord) - parseInt(row.qty_in)
+                    }
+                }, {
+                    data: 'product_id',
+                    searchable: false,
+                    orderable: false,
+                    className: "text-center",
+                    render: function(data, type, row, meta) {
+                        if (type == 'display') {
+                            return `
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-info btn-sm btn-pilih"><i class="fas fa-check"></i> Pilih</button>
+                                </div>
+                            `
+                        } else {
+                            return data
+                        }
+                    }
+                }],
+                buttons: [{
+                    text: '<i class="fas fa-retweet me-1"></i>Refresh',
+                    className: 'btn btn-sm btn-primary bs-tooltip',
+                    attr: {
+                        'data-toggle': 'tooltip',
+                        'title': 'Refresh'
+                    },
+                    action: function(e, dt, node, config) {
+                        table_item.ajax.reload()
+                    }
+                }, ],
+                initComplete: function() {
+                    $('#table_item').DataTable().buttons().container().appendTo(
+                        '#tableData_wrapper .col-md-6:eq(0)');
+                },
+                drawCallback: function(settings) {
+                    // 
+                },
+                headerCallback: function(e, a, t, n, s) {
+                    // 
+                },
             });
 
             var table = $("#table").DataTable({
@@ -180,8 +252,19 @@
                     }
                 }],
                 buttons: [{
-                    text: '<i class="fa fa-save me-1"></i>Simpan',
+                    text: '<i class="fa fa-plus me-1"></i>Add',
                     className: 'btn btn-sm btn-primary bs-tooltip',
+                    attr: {
+                        'data-toggle': 'tooltip',
+                        'title': 'Add Data'
+                    },
+                    action: function(e, dt, node, config) {
+                        table_item.ajax.reload()
+                        $('#modal_item').modal('show')
+                    }
+                }, {
+                    text: '<i class="fa fa-save me-1"></i>Simpan',
+                    className: 'btn btn-sm btn-warning bs-tooltip',
                     attr: {
                         'data-toggle': 'tooltip',
                         'title': 'Simpan Data'
@@ -295,52 +378,7 @@
                 }
                 $.get("{{ route('purchases.scan', $data->id) }}?barcode=" + encodeURIComponent(barcode))
                     .done(function(result) {
-                        let t_status = '<span class="badge bg-warning fs-6">Belum Ada</span>'
-                        if (result.state) {
-                            t_status = '<span class="badge bg-success fs-6">Tersimpan</span>'
-                            $('#save_barcode').hide()
-                        } else {
-                            $('#save_barcode').show()
-                        }
-                        $('#d_status').html(t_status)
-                        let data = table.rows().data().toArray()
-                        let exist = data.some(item =>
-                            item.product_id == result.data.product_id
-                        )
-                        if (result.data.qty_in >= result.data.qty_ord) {
-                            $('#div_alert').show()
-                            $('#alert_content').html(
-                                `Item ${result.data.product.code} Outstanding : 0 !`)
-                            return
-                        }
-
-                        if (!exist) {
-                            table.row.add({
-                                'item_id': result.data.id,
-                                'product_id': result.data.product_id,
-                                'product_code': result.data.product.code,
-                                'product_name': result.data.product.name,
-                                'qty_kbn': result.data.qty_kbn,
-                                'qty_ord': result.data.qty_ord,
-                                'qty_in': 0,
-                                'outstanding': parseInt(result.data.qty_ord) - parseInt(result.data
-                                    .qty_in),
-                            }).draw()
-
-                            $('#div_alert_success').show()
-                            $('#alert_content_success').html(
-                                `Product ${result.data.product.code} ditambahkan ke tabel!`)
-                        } else {
-                            $('#div_alert').show()
-                            $('#alert_content').html("Barang sudah ada di tabel!")
-                        }
-
-                        $('#d_barcode').text(barcode)
-                        $('#input_barcode').val(barcode)
-                        $('#input_purchase_item_id').val(result.data.id)
-                        $('#input_product_id').val(result.data.product_id)
-                        $('#div_detail').show()
-                        $('#barcode').val('')
+                        insert_table(result.data)
                     }).fail(function(xhr) {
                         $('#barcode').val('')
                         // show_toast('error', xhr.responseJSON.message || "Server Error!")
@@ -348,6 +386,45 @@
                         $('#alert_content').html(xhr.responseJSON.message || "Server Error!")
                     })
 
+            }
+
+            function insert_table(result) {
+                $('#div_alert').hide()
+                $('#div_detail').hide()
+                $('#div_alert_success').hide()
+                $('#alert_content_success').html("")
+                let data = table.rows().data().toArray()
+                let exist = data.some(item =>
+                    item.product_id == result.product_id
+                )
+                if (result.qty_in >= result.qty_ord) {
+                    $('#div_alert').show()
+                    $('#alert_content').html(
+                        `Item ${result.product.code} Outstanding : 0 !`)
+                    return
+                }
+
+                if (!exist) {
+                    table.row.add({
+                        'item_id': result.id,
+                        'product_id': result.product_id,
+                        'product_code': result.product.code,
+                        'product_name': result.product.name,
+                        'qty_kbn': result.qty_kbn,
+                        'qty_ord': result.qty_ord,
+                        'qty_in': 0,
+                        'outstanding': parseInt(result.qty_ord) - parseInt(result
+                            .qty_in),
+                    }).draw()
+
+                    $('#div_alert_success').show()
+                    $('#alert_content_success').html(
+                        `Product ${result.product.code} ditambahkan ke tabel!`)
+                } else {
+                    $('#div_alert').show()
+                    $('#alert_content').html("Barang sudah ada di tabel!")
+                }
+                $('#barcode').val('')
             }
 
             function save_data() {
@@ -407,6 +484,13 @@
                     });
             }
 
+            $('#table_item tbody').on('click', 'tr .btn-pilih', function() {
+                row = $(this).parents('tr')[0];
+                result = table_item.row(row).data()
+                $('#modal_item').modal('hide')
+                insert_table(result)
+            });
+
             $('#btn_search').click(function() {
                 search_data()
             })
@@ -418,6 +502,8 @@
             $('#btn_close').click(function() {
                 $('#div_detail').hide()
             })
+
+
 
 
             let barcodeBuffer = '';

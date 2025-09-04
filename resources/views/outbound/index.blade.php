@@ -209,6 +209,7 @@
                 $("#date").data('daterangepicker').setStartDate(result.data.date);
                 $("#date").data('daterangepicker').setEndDate(result.data.date);
                 $('#div_number').show()
+                $('#div_date').show()
                 $('#date').prop('disabled', true)
                 $('#date').prop('readonly', true)
                 $('#karyawan_id').prop('disabled', true)
@@ -251,6 +252,7 @@
             $('#date').val('')
             $('#desc').val('')
             $('#div_number').hide()
+            $('#div_date').hide()
             $('#date').prop('disabled', false)
             $('#date').prop('readonly', false)
         }
@@ -258,6 +260,9 @@
         function search_data(barcode) {
             if (!barcode) {
                 return;
+            }
+            if ($('#karyawan_id').attr('disabled')) {
+                return
             }
             let foundValue = null;
             $('#karyawan_id option').each(function() {

@@ -36,12 +36,13 @@ class OutboundController extends Controller
         $this->validate($request, [
             'karyawan_id'   => 'required|exists:karyawans,id',
             // 'number'        => 'required|unique:outbounds,number',
-            'date'          => 'required|date_format:Y-m-d H:i:s',
+            // 'date'          => 'required|date_format:Y-m-d H:i:s',
             'desc'          => 'nullable|max:200',
         ]);
         $karyawan_id = $request->karyawan_id;
         $karyawan = Karyawan::find($karyawan_id);
-        $date = Carbon::createFromFormat('Y-m-d H:i:s', $request->date);
+        $d =  date('Y-m-d H:i:s');
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', $d);
         $last = Outbound::query()
             ->where('karyawan_id', $karyawan_id)
             ->whereMonth('date', $date->month)
@@ -53,7 +54,7 @@ class OutboundController extends Controller
         Outbound::create([
             'karyawan_id'   => $request->karyawan_id,
             'number'        => $number,
-            'date'          => $request->date,
+            'date'          => $d,
             'desc'          => $request->desc,
         ]);
         return response()->json(['message' => 'Data Inserted!']);

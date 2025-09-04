@@ -14,7 +14,7 @@
                         <select name="karyawan_id" id="karyawan_id" class="form-control" style="width: 100%;" required>
                             <option value="">Select Karyawan</option>
                             @foreach ($karyawans as $item)
-                                <option value="{{ $item->id }}" data-card="{{ $item->id_card }}">
+                                <option value="{{ $item->id }}" data-card="ttecMart{{ $item->id_card }}">
                                     [{{ $item->id_card }}] {{ $item->name }}
                                 </option>
                             @endforeach
@@ -24,13 +24,13 @@
                     <div class="form-group" id="div_number">
                         <label for="number">Number</label>
                         <input type="text" name="number" class="form-control" id="number"
-                            placeholder="Enter Number" maxlength="100" required readonly disabled>
+                            placeholder="Enter Number" maxlength="100" readonly disabled>
                         <span class="error invalid-feedback err_number" style="display: hide;"></span>
                     </div>
                     <div class="form-group" id="div_date">
                         <label for="date">Date</label>
                         <input type="text" name="date" class="form-control" id="date"
-                            placeholder="Enter Date" maxlength="100" required>
+                            placeholder="Enter Date" maxlength="100" readonly disabled>
                         <span class="error invalid-feedback err_date" style="display: hide;"></span>
                     </div>
 

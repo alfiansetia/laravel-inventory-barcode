@@ -153,6 +153,7 @@ class PurchaseController extends Controller
             return response()->json(['message' => 'Gagal import: ' . $th->getMessage()], 500);
         }
     }
+
     public function destroy(Purchase $purchase)
     {
         $purchase->delete();

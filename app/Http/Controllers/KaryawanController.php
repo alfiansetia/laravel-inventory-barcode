@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Karyawan;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
 
 class KaryawanController extends Controller
@@ -56,5 +59,46 @@ class KaryawanController extends Controller
     {
         $karyawan->delete();
         return response()->json(['message' => 'Data Deleted!']);
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|file|mimes:xlsx,xls,csv|max:5120',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $file = $request->file('file');
+            $data = Excel::toCollection([], $file)[0]->skip(1);
+
+            foreach ($data as $index => $row) {
+                $id_absen = $row[0];
+                $id_card  = $row[1];
+                $name     = $row[2];
+
+                // cek apakah sudah ada
+                $exists = Karyawan::where('id_absen', $id_absen)
+                    ->orWhere('id_card', $id_card)
+                    ->exists();
+
+                if ($exists) {
+                    throw new \Exception("Data duplikat ditemukan di baris " . ($index + 2) .
+                        " (id_absen: $id_absen / id_card: $id_card)");
+                }
+
+                Karyawan::create([
+                    'id_absen' => $id_absen,
+                    'id_card'  => $id_card,
+                    'name'     => $name,
+                ]);
+            }
+
+            DB::commit();
+            return response()->json(['message' => 'success Import']);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return response()->json(['message' => 'Gagal import: ' . $th->getMessage()], 500);
+        }
     }
 }

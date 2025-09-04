@@ -125,6 +125,16 @@
                 },
                 className: 'btn btn-sm btn-info'
             }, {
+                text: '<i class="far fa-file-excel me-1"></i>Import',
+                className: 'btn btn-sm btn-warning bs-tooltip',
+                attr: {
+                    'data-toggle': 'tooltip',
+                    'title': 'Import Data'
+                },
+                action: function(e, dt, node, config) {
+                    $('#modal_import').modal('show')
+                }
+            }, {
                 text: '<i class="fas fa-retweet me-1"></i>Refresh',
                 className: 'btn btn-sm btn-primary bs-tooltip',
                 attr: {
@@ -199,5 +209,26 @@
             $('#code').val('')
             $('#satuan').val('')
         }
+
+        $('#btn_import').on('click', function() {
+            var formData = new FormData($('#form_import')[0]);
+            $.ajax({
+                url: "{{ route('products.import') }}",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    // 
+                },
+                success: function(res) {
+                    table.ajax.reload();
+                    show_toast('success', 'Import berhasil!')
+                },
+                error: function(xhr) {
+                    show_toast('error', xhr.responseJSON.message || 'Terjadi kesalahan saat import.')
+                }
+            });
+        });
     </script>
 @endpush

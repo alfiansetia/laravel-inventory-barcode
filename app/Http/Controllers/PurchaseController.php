@@ -147,7 +147,7 @@ class PurchaseController extends Controller
                 PurchaseItem::insert($details);
             }
             DB::commit();
-            return response()->json($grouped);
+            return response()->json(['message' => 'Success Import Data!', 'data' => $grouped]);
         } catch (\Throwable $th) {
             DB::rollBack();
             return response()->json(['message' => 'Gagal import: ' . $th->getMessage()], 500);

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Vendor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
 
 class VendorController extends Controller
@@ -61,5 +63,47 @@ class VendorController extends Controller
     {
         $vendor->delete();
         return response()->json(['message' => 'Data Deleted!']);
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|file|mimes:xlsx,xls,csv|max:5120',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $file = $request->file('file');
+            $data = Excel::toCollection([], $file)[0]->skip(1);
+
+            foreach ($data as $index => $row) {
+                $id = $row[0];
+                $name     = $row[1];
+                $npwp  = $row[2];
+                $type  = $row[3];
+
+                // cek apakah sudah ada
+                $exists = Vendor::where('vendor_id', $id)
+                    ->exists();
+
+                if ($exists) {
+                    throw new \Exception("Data duplikat ditemukan di baris " . ($index + 2) .
+                        " (vendor_id: $id / name: $name)");
+                }
+
+                Vendor::create([
+                    'vendor_id' => $id,
+                    'name'      => $name,
+                    'npwp'      => $npwp,
+                    'type'      => $type,
+                ]);
+            }
+
+            DB::commit();
+            return response()->json(['message' => 'success Import']);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return response()->json(['message' => 'Gagal import: ' . $th->getMessage()], 500);
+        }
     }
 }

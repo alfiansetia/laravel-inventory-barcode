@@ -45,3 +45,38 @@
         </div>
     </form>
 </div>
+
+
+
+<div class="modal fade" id="modal_import" tabindex="-1" aria-labelledby="modal_importLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_importLabel">Import From File</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form_import" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <label class="control-label" for="import_file">Pilih File :</label>
+                        <input class="form-control" name="file" type="file" id="import_file"
+                            accept=".xlsx,.xls,.csv">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ asset('master/sample-vendor.xlsx') }}" class="btn btn-info" target="_blank">
+                    <i class="fas fa-download me-1" title="Download Sample"></i>Download Sample
+                </a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i> Close
+                </button>
+                <button type="button" id="btn_import" class="btn btn-primary">
+                    <i class="fas fa-upload me-1" title="Upload File"></i>Upload</button>
+            </div>
+        </div>
+    </div>
+</div>

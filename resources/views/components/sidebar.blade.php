@@ -103,6 +103,13 @@
                      </a>
                  </li>
 
+                 <li class="nav-item {{ $title == 'Adjustment' ? 'active' : '' }}">
+                     <a class="" href="{{ route('adjustments.index') }}">
+                         <i class="ti ti-adjustments"></i>
+                         <p>Adjustment</p>
+                     </a>
+                 </li>
+
                  <li class="nav-section">
                      <span class="sidebar-mini-icon">
                          <i class="fa fa-ellipsis-h"></i>

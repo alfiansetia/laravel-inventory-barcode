@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdjustmentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BarcodeActivityController;
 use App\Http\Controllers\BarcodeController;
@@ -73,4 +74,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
     Route::get('/reports/data', [ReportController::class, 'data'])->name('reports.data');
+
+    Route::get('/adjusment', [AdjustmentController::class, 'index'])->name('adjustments.index');
+    Route::post('/adjusment', [AdjustmentController::class, 'save'])->name('adjustments.save');
 });

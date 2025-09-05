@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\AdjustmentController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\BarcodeActivityController;
-use App\Http\Controllers\BarcodeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\OutboundController;
@@ -55,12 +53,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/purchases-import', [PurchaseController::class, 'import'])->name('purchases.import');
     Route::resource('purchases', PurchaseController::class)->except(['edit', 'create']);
     Route::resource('purchase-items', PurchaseItemController::class)->except(['edit', 'create']);
-    Route::resource('barcodes', BarcodeController::class)->except(['edit', 'create']);
-
-    Route::get('/barcode-scan', [BarcodeController::class, 'scan'])->name('barcodes.scan');
-    Route::get('/barcode-get', [BarcodeController::class, 'get'])->name('barcodes.get');
-
-    Route::resource('barcode-activities', BarcodeActivityController::class)->only(['index']);
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -13,15 +13,17 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            // $query = Product::query()->withSum('barcodes as stock', 'qty');
             $query = Product::query()
                 ->withSum('trx as in', 'qty')
                 ->withSum('purchase_items as qty_ord', 'qty_ord')
                 ->withSum('out as out', 'qty');
             return DataTables::eloquent($query)
                 ->addColumn('stock', function ($row) {
-                    return (intval($row->in) - intval($row->out)) ?? 0;
+                    return $row->stock;
                 })->addColumn('outstanding', function ($row) {
+                    if ((intval($row->qty_ord) < 1)) {
+                        return 0;
+                    }
                     return (intval($row->qty_ord) - intval($row->in)) ?? 0;
                 })->editColumn('qty_ord', function ($row) {
                     return intval($row->qty_ord) ?? 0;

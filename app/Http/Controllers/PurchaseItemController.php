@@ -19,7 +19,7 @@ class PurchaseItemController extends Controller
 
     public function show(PurchaseItem $purchase_item)
     {
-        return response()->json(['data' => $purchase_item->load(['product', 'barcodes', 'purchase'])]);
+        return response()->json(['data' => $purchase_item->load(['product', 'purchase'])]);
     }
 
     public function store(Request $request)

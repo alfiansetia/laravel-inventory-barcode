@@ -16,7 +16,8 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <div class="form-text">Vendor</div>
-                        <div class="fs-5">[<b>{{ $data->vendor->vendor_id }}</b>] {{ $data->vendor->name }}</div>
+                        <div class="fs-5">[<b>{{ $data->vendor->vendor_id ?? ('-' ?? '-') }}</b>] {{ $data->vendor->name }}
+                        </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-text">PO NO</div>

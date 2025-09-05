@@ -28,11 +28,6 @@ class Product extends Model
         return $this->belongsTo(Vendor::class);
     }
 
-    public function barcodes()
-    {
-        return $this->hasMany(Barcode::class);
-    }
-
     public function purchase_items()
     {
         return $this->hasMany(PurchaseItem::class);

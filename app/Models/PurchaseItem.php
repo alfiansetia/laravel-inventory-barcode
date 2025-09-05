@@ -29,12 +29,6 @@ class PurchaseItem extends Model
         return $this->qty_in >= $this->qty_ord;
     }
 
-
-    public  function barcodes()
-    {
-        return $this->hasMany(Barcode::class);
-    }
-
     public function product()
     {
         return $this->belongsTo(Product::class);
@@ -50,7 +44,7 @@ class PurchaseItem extends Model
         return $this->hasMany(PurchaseTransaction::class);
     }
 
-     public  function out()
+    public  function out()
     {
         return $this->hasMany(OutboundItem::class);
     }

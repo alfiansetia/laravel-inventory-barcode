@@ -22,7 +22,7 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <a href="{{ asset('master/sample-karyawan.xlsx') }}" class="btn btn-info" target="_blank">
+                                <a href="{{ asset('master/sample-adjustment.xlsx') }}" class="btn btn-info" target="_blank">
                                     <i class="fas fa-download me-1" title="Download Sample"></i>Download Sample
                                 </a>
                                 <button type="button" id="btn_import" class="btn btn-primary">
@@ -49,7 +49,7 @@
                     // 
                 },
                 success: function(res) {
-                    table.ajax.reload();
+                    // table.ajax.reload();
                     show_toast('success', 'Import berhasil!')
                 },
                 error: function(xhr) {

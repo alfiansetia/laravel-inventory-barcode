@@ -19,27 +19,35 @@ class AdjustmentController extends Controller
         return view('adjustment.index');
     }
 
-    function save(Request $request)
+    public function save(Request $request)
     {
         $request->validate([
             'file' => 'required|mimes:xlsx,csv,xls'
         ]);
 
         $data = Excel::toArray([], $request->file('file'));
-        $rows = $data[0];
+        $rows = collect($data[0])->skip(1); // skip header row
+        $dt = now()->format('YmdHis');
 
         DB::beginTransaction();
         try {
-            $inbounds = [];
-            $outbounds = [];
+            // ✅ cek duplikat kode produk
+            $duplicates = $rows->pluck(0)->map(fn($c) => trim($c))->duplicates();
+            if ($duplicates->isNotEmpty()) {
+                throw new \Exception("Terdapat duplikat kode produk di file Excel: " . $duplicates->unique()->implode(', '));
+            }
 
-            foreach ($rows as $index => $row) {
-                if ($index === 0) continue; // skip header
+            $inbounds = collect();
+            $outbounds = collect();
 
+            $rows->each(function ($row) use ($inbounds, $outbounds) {
                 $kode = trim($row[0]);
                 $stokReal = (int) $row[1];
 
-                $product = Product::where('code', $kode)->first();
+                $product = Product::query()
+                    ->withSum('trx as in', 'qty')
+                    ->withSum('out as out', 'qty')
+                    ->where('code', $kode)->first();
 
                 if (!$product) {
                     throw new \Exception("Produk dengan kode {$kode} tidak ditemukan di sistem!");
@@ -48,74 +56,70 @@ class AdjustmentController extends Controller
                 $stokSistem = $product->stock;
 
                 if ($stokReal > $stokSistem) {
-                    $inbounds[] = [
+                    $inbounds->push([
                         'product_id' => $product->id,
                         'qty'        => $stokReal - $stokSistem,
-                    ];
+                    ]);
                 } elseif ($stokReal < $stokSistem) {
-                    $outbounds[] = [
+                    $outbounds->push([
                         'product_id' => $product->id,
                         'qty'        => $stokSistem - $stokReal,
-                    ];
+                    ]);
                 }
-            }
+            });
 
             // === proses inbound ===
-            if (count($inbounds) > 0) {
+            if ($inbounds->isNotEmpty()) {
                 $purchase = Purchase::create([
-                    'supplier_id'   => null,
-                    'purchase_date' => now(),
-                    'notes'         => 'Adjustment stok inbound ' . now()->format('d-m-Y'),
+                    'po_no'     => "P-ADJ-" . $dt,
+                    'vendor_id' => null,
+                    'status'    => 'close',
                 ]);
 
-                foreach ($inbounds as $item) {
+                $inbounds->each(function ($item) use ($purchase) {
                     $purchaseItem = PurchaseItem::create([
                         'purchase_id' => $purchase->id,
                         'product_id'  => $item['product_id'],
-                        'qty'         => $item['qty'],
-                        'price'       => 0,
                     ]);
 
                     PurchaseTransaction::create([
                         'purchase_item_id' => $purchaseItem->id,
+                        'product_id'       => $item['product_id'],
+                        'date'             => now(),
                         'qty'              => $item['qty'],
-                        'type'             => 'IN',
                     ]);
-                }
+                });
             }
 
             // === proses outbound ===
-            if (count($outbounds) > 0) {
+            if ($outbounds->isNotEmpty()) {
                 $outbound = Outbound::create([
-                    'date'  => now(),
-                    'notes' => 'Adjustment stok outbound ' . now()->format('d-m-Y'),
+                    'date'   => now(),
+                    'number' => "O-ADJ-" . $dt,
+                    'desc'   => 'Adjustment stok outbound',
                 ]);
 
-                foreach ($outbounds as $item) {
+                $outbounds->each(function ($item) use ($outbound) {
                     OutboundItem::create([
                         'outbound_id' => $outbound->id,
                         'product_id'  => $item['product_id'],
                         'qty'         => $item['qty'],
                     ]);
-                }
+                });
             }
 
             DB::commit();
 
             return response()->json([
-                'status'  => 'success',
-                'message' => 'Adjustment stok berhasil diproses',
-                'inbounds_count'  => count($inbounds),
-                'outbounds_count' => count($outbounds)
+                'message'         => 'Adjustment stok berhasil diproses',
+                'inbounds_count'  => $inbounds->count(),
+                'outbounds_count' => $outbounds->count()
             ]);
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json([
-                'status'  => 'error',
                 'message' => $e->getMessage()
             ], 400);
         }
-
-        return response()->json(['message' => 'Success Import!']);
     }
 }

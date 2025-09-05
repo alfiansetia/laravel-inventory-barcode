@@ -61,12 +61,6 @@
                          <p>Karyawan</p>
                      </a>
                  </li>
-                 {{-- <li class="nav-item {{ $title == 'Barcode' ? 'active' : '' }}">
-                     <a class="" href="{{ route('barcodes.index') }}">
-                         <i class="ti ti-barcode"></i>
-                         <p>Barcode</p>
-                     </a>
-                 </li> --}}
 
                  <li class="nav-section">
                      <span class="sidebar-mini-icon">
@@ -81,13 +75,6 @@
                          <p>Purchase</p>
                      </a>
                  </li>
-
-                 {{-- <li class="nav-item {{ $title == 'Scan' ? 'active' : '' }}">
-                     <a class="" href="{{ route('barcodes.scan') }}">
-                         <i class="ti ti-barcode"></i>
-                         <p>Scan</p>
-                     </a>
-                 </li> --}}
 
                  <li class="nav-item {{ $title == 'Outbound' ? 'active' : '' }}">
                      <a class="" href="{{ route('outbounds.index') }}">

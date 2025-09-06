@@ -27,7 +27,7 @@ class AdjustmentController extends Controller
 
         $data = Excel::toArray([], $request->file('file'));
         $rows = collect($data[0])->skip(1); // skip header row
-        $dt = now()->format('YmdHis');
+        $dt = now()->format('ymdHis');
 
         DB::beginTransaction();
         try {

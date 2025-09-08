@@ -2,6 +2,7 @@
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('kai/lib/datatable-new/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('kai/lib/bootstrap-daterangepicker/daterangepicker.css') }}">
 @endpush
 
 @section('contents')
@@ -14,6 +15,12 @@
                 <form id="form_import" enctype="multipart/form-data">
                     <div class="col-12 mb-2">
                         @csrf
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="text" name="date" class="form-control" id="date"
+                                placeholder="Enter Delivery Date" maxlength="100" required>
+                            <span class="error invalid-feedback err_date" style="display: hide;"></span>
+                        </div>
                         <div class="form-group">
                             <label class="control-label" for="import_file">Pilih File :</label>
                             <input class="form-control" name="file" type="file" id="import_file"
@@ -36,7 +43,20 @@
     </div>
 @endsection
 @push('js')
+    <script src="{{ asset('kai/lib/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
     <script>
+        $('#date').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            timePicker: false,
+            timePicker24Hour: false,
+            locale: {
+                format: 'YYYY-MM-DD'
+            },
+            minDate: moment().startOf('month'), // awal bulan ini
+            maxDate: moment().endOf('month')
+        });
+
         $('#btn_import').on('click', function() {
             var formData = new FormData($('#form_import')[0]);
             $.ajax({

@@ -9,6 +9,7 @@ use App\Models\Purchase;
 use App\Models\PurchaseItem;
 use App\Models\PurchaseTransaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -22,12 +23,20 @@ class AdjustmentController extends Controller
     public function save(Request $request)
     {
         $request->validate([
+            'date' => [
+                'required',
+                'date_format:Y-m-d',
+                'after_or_equal:' . Carbon::now()->startOfMonth()->format('Y-m-d'),
+                'before_or_equal:' . Carbon::now()->endOfMonth()->format('Y-m-d'),
+            ],
             'file' => 'required|mimes:xlsx,csv,xls'
         ]);
+
 
         $data = Excel::toArray([], $request->file('file'));
         $rows = collect($data[0])->skip(1); // skip header row
         $dt = now()->format('ymdHis');
+        $date = Carbon::createFromFormat('Y-m-d', $request->date);
 
         DB::beginTransaction();
         try {
@@ -76,7 +85,7 @@ class AdjustmentController extends Controller
                     'status'    => 'close',
                 ]);
 
-                $inbounds->each(function ($item) use ($purchase) {
+                $inbounds->each(function ($item) use ($purchase, $date) {
                     $purchaseItem = PurchaseItem::create([
                         'purchase_id' => $purchase->id,
                         'product_id'  => $item['product_id'],
@@ -85,7 +94,7 @@ class AdjustmentController extends Controller
                     PurchaseTransaction::create([
                         'purchase_item_id' => $purchaseItem->id,
                         'product_id'       => $item['product_id'],
-                        'date'             => now(),
+                        'date'             => $date->format('Y-m-d H:i:s'),
                         'qty'              => $item['qty'],
                     ]);
                 });
@@ -94,7 +103,7 @@ class AdjustmentController extends Controller
             // === proses outbound ===
             if ($outbounds->isNotEmpty()) {
                 $outbound = Outbound::create([
-                    'date'   => now(),
+                    'date'   => $date->format('Y-m-d H:i:s'),
                     'number' => "O-ADJ-" . $dt,
                     'desc'   => 'Adjustment stok outbound',
                 ]);

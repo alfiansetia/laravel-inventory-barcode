@@ -51,7 +51,7 @@ class AdjustmentController extends Controller
 
             $rows->each(function ($row) use ($inbounds, $outbounds) {
                 $kode = trim($row[0]);
-                $stokReal = (int) $row[1];
+                $stokReal = (int) ($row[2] ?? 0);
 
                 $product = Product::query()
                     ->withSum('trx as in', 'qty')

@@ -147,37 +147,43 @@
             }, {
                 extend: "collection",
                 text: '<i class="fas fa-download me-1"></i>Export',
-                attr: {
-                    'data-toggle': 'tooltip',
-                    'title': 'Export Data'
-                },
                 className: 'btn btn-sm btn-info',
                 buttons: [{
-                    extend: 'copy',
-                    exportOptions: {
-                        columns: ':visible'
+                        extend: 'copy',
+                        exportOptions: {
+                            columns: ':visible:not(:last-child)'
+                        },
+                        title: exportTitle
+                    },
+                    {
+                        extend: 'csv',
+                        exportOptions: {
+                            columns: ':visible:not(:last-child)'
+                        },
+                        title: exportTitle
+                    },
+                    {
+                        extend: 'pdf',
+                        exportOptions: {
+                            columns: ':visible:not(:last-child)'
+                        },
+                        title: exportTitle
+                    },
+                    {
+                        extend: 'excel',
+                        exportOptions: {
+                            columns: ':visible:not(:last-child)'
+                        },
+                        title: exportTitle
+                    },
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: ':visible:not(:last-child)'
+                        },
+                        title: exportTitle
                     }
-                }, {
-                    extend: 'csv',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                }, {
-                    extend: 'pdf',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                }, {
-                    extend: 'excel',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                }, {
-                    extend: 'print',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                }],
+                ],
             }],
             initComplete: function() {
                 $('#table').DataTable().buttons().container().appendTo(
@@ -190,6 +196,13 @@
                 // 
             },
         });
+
+        function exportTitle() {
+            return "Product Stock : " + moment().format("DD/MM/YYYY HH:mm:ss");
+        }
+
+        // document.title = `Product Stock : {{ date('d/m/Y H:i:s') }}`
+
 
         $.fn.dataTable.ext.errMode = 'none';
 

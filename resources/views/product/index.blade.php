@@ -37,7 +37,7 @@
     <script>
         var table = $("#table").DataTable({
             processing: true,
-            serverSide: true,
+            serverSide: false,
             rowId: 'id',
             ajax: {
                 url: URL_INDEX,
@@ -144,7 +144,41 @@
                 action: function(e, dt, node, config) {
                     table.ajax.reload()
                 }
-            }, ],
+            }, {
+                extend: "collection",
+                text: '<i class="fas fa-download me-1"></i>Export',
+                attr: {
+                    'data-toggle': 'tooltip',
+                    'title': 'Export Data'
+                },
+                className: 'btn btn-sm btn-info',
+                buttons: [{
+                    extend: 'copy',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }, {
+                    extend: 'csv',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }, {
+                    extend: 'pdf',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }, {
+                    extend: 'excel',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }, {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }],
+            }],
             initComplete: function() {
                 $('#table').DataTable().buttons().container().appendTo(
                     '#tableData_wrapper .col-md-6:eq(0)');
